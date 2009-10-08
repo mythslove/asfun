@@ -14,14 +14,14 @@
 		private var invalidationTimer:Timer;
 		
 		public function UIComponent():void {
-			if (this.stage) this.init();
+			if (this.stage) this.onload();
 			else this.addEventListener(Event.ADDED_TO_STAGE, this.onload);
 		}
 		
 		/**
 		 * 当显示对象出现在stage时
 		 */
-		private function onload(e:Event = null) {
+		protected function onload(e:Event = null) {
 			this.removeEventListener(Event.ADDED_TO_STAGE, this.onload);
 			
 			if (this._width == 0 && this._heigth == 0) this.setSize(super.width, super.height);
@@ -31,16 +31,16 @@
 		}
 		
 		//组件的宽
-		private var _width:Number = 0;
+		protected var _width:Number = 0;
 		//组件的高
-		private var _heigth:Number = 0;
+		protected var _heigth:Number = 0;
 		
 		/**
 		 * 
 		 * @param	width
 		 * @param	height
 		 */
-		public function setSize(width:Number, height:Numberb):void {
+		public function setSize(width:Number, height:Number):void {
 			
 			if (this._width == width && _heigth == height) return;
 			
@@ -54,7 +54,7 @@
 		 */
 		override public function get width():Number { return this._width; }
 		override public function set width(value:Number):void {
-			this.setSize(value, super.width || this._width);
+			this.setSize(value, this._heigth);
 		}
 		
 		/**
@@ -62,13 +62,13 @@
 		 */
 		override public function get height():Number { return this._heigth; }
 		override public function set height(value:Number):void {
-			this.setSize(super.width || this._width, value);
+			this.setSize(this._width, value);
 		}
 		
 		/**
 		 * 获取或设置组件是否禁用
 		 */
-		public var _disabled:Boolean = true;
+		protected var _disabled:Boolean = true;
 		public function get disabled():Boolean { return this._disabled };
 		public function set disabled(value:Boolean):void {
 			this._disabled = value;
@@ -97,7 +97,8 @@
 			this.invalidationTimer.removeEventListener(TimerEvent.TIMER, this.validateNow);
 			this.invalidationTimer.stop();
 			this.invalidationTimer = null;
-			delete this.invalidationTimer;
+			//as3只能删除动态定义的属性
+			//delete this.invalidationTimer;
 			this.draw();
 		}
 		
