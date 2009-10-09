@@ -4,7 +4,8 @@
 	import flash.geom.ColorTransform;
 	import org.asfun.core.UIComponent;
 	import org.asfun.richTextEditor.insertItem.InsertItemBase;
-	import org.fanflash.utils.DrawUtil;
+	import org.asfun.richTextEditor.insertItem.TextItem;
+	//import org.fanflash.utils.DrawUtil;
 	
 	/**
 	 * 富文本编辑器
@@ -13,6 +14,9 @@
 	public class RichTextEditor extends UIComponent {
 		
 		private var dataList:Array;
+		//是不是第一次渲染
+		private var isFristRender:Boolean = true;
+		
 		//内容的容器
 		private var itemContent:Sprite;
 		private var currentFocusItem:InsertItemBase;
@@ -60,7 +64,10 @@
 			if (this.isShowBG == dt) return;
 			if (dt) {
 				if (this.getChildByName("colorBG") == null) {
-					var t:Shape = DrawUtil.drawRect("Shape", this._bgColor);
+					//var t:Shape = DrawUtil.drawRect("Shape", this._bgColor);
+					var t:Shape = new Shape();
+					t.graphics.beginFill(this._bgColor);
+					t.graphics.drawRect(0, 0, 100, 100);
 					t.name = "colorBG";
 					this.addChild(t);
 					this.invalidata();
@@ -71,6 +78,30 @@
 		}
 		
 		/**
+		 * 是否为编辑模式
+		 */
+		private var _isEditor:Boolean = false;
+		public function get isEditor():Boolean { return this._isEditor; }
+		public function set isEditor(dt:Boolean){
+			this._isEditor = dt;
+			this.invalidata();
+		}
+		
+		/**
+		 * 是否使用字符串快捷插入内容形式
+		 */
+		private var _isUseCharInsert:Boolean = true;
+		public function get isUseCharInsert():Boolean { return this._isUseCharInsert; }
+		public function set isUseCharInsert(dt:Boolean) {
+			this._isUseCharInsert = dt;
+		}
+		
+		public function addCharInsertFlag() {
+			//;///image:
+		}
+		
+		
+		/**
 		 * 绘画界面
 		 */
 		override public function draw():void {
@@ -78,6 +109,27 @@
 			if (this.isShowBG) {
 				this.getChildByName("colorBG").width = this.width;
 				this.getChildByName("colorBG").height = this.height;
+			}
+			
+			//如果是编辑模式,并且是第一次渲染,并且用户没有设置数据的话
+			if (this._isEditor && this.isFristRender && (this.dataList.length == 0)) {
+				trace("我加入了初始数据");
+				this.isFristRender = false;
+				this.addItem(new TextItem());
+			}
+			
+			this.updateItemSize();
+			
+		}
+		
+		/**
+		 * 更新插入项的大小
+		 */
+		private function updateItemSize() {
+			
+			var len:int = this.itemContent.numChildren;
+			for (var i:int; i < len; i++ ) {
+				this.itemContent.getChildAt(i).width = this._width;
 			}
 		}
 	}
