@@ -20,6 +20,7 @@
 			var t:RichTextEditor = new RichTextEditor();
 			t.width = 400;
 			t.height = 300;
+			t.isEditor = true;
 			
 			this.addChild(t);
 		}
