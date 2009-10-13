@@ -4,6 +4,7 @@
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFieldType;
+	import flash.utils.Dictionary;
 	
 	/**
 	 * 插入的文字项
@@ -24,7 +25,7 @@
 			this.txt.background = true;
 			this.addChild(this.txt);
 			
-			this.txt.addEventListener(Event.CHANGE, this.txtChangeHandler);
+			//this.txt.addEventListener(Event.CHANGE, this.txtChangeHandler);
 			this.txt.addEventListener(TextEvent.TEXT_INPUT, this.txtInputHandler);
 			
 			this.addCharInsertFlag("//插入图片//");
@@ -37,18 +38,28 @@
 			this.txt.height = this._heigth;
 		}
 		
-		private function txtChangeHandler(e:Event) {
-		}
+		//private function txtChangeHandler(e:Event) {}
 		
+		/**
+		 * 用户输入文字
+		 * @param	e
+		 */
 		private function txtInputHandler(e:TextEvent) {
 			
+			for (var flagStr:String in this.flagHashMap) {
+				trace(e.text);
+			}
 		}
 		
 		/**
-		 * 
+		 * 输入指定文字后,引发事件
+		 * @param	flagStr
+		 * @param	func
 		 */
-		public function addCharInsertFlag(flagStr:String) {
-			
+		private var flagHashMap:Dictionary;
+		public function addCharInsertFlag(flagStr:String,func:Function = null) {
+			if (this.flagList == null) this.flagHashMap = new Dictionary();
+			this.flagHashMap[flagStr] = { handler:func, inputArr:new Array() }
 		}
 	}
 }
