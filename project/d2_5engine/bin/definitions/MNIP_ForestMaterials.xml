@@ -1,0 +1,87 @@
+<definitions>
+
+		<!-- Nested definitions are allowed -->
+    <definitions src="FFMaterials_ground.xml"/>
+    <definitions src="FFMaterials_grass.xml"/>
+    <definitions src="FFMaterials_wood2.xml"/>
+    
+		<!-- MY NAME IS PONCHO. FOREST SCENE: HOUSE MATERIALS -->
+
+		
+		<materialDefinition name="MNIP_ForestMaterials_Door" type="door">
+
+				<!-- Base "tile" material for the wall -->
+				<base>FFMaterials_woods2_Wood2_13</base>
+				
+				<!-- Frame material -->
+				<frame>FFMaterials_woods2_Wood2_11</frame>
+
+				<!-- Door material -->
+				<door>FFMaterials_woods2_Wood2_14</door>
+				
+				<!-- Door position, as percent of wall size, from -100 to 100.
+				     The default 0 value centers the door in the wall -->
+				<position>0</position>
+				
+				<!-- Door size, without frame -->
+				<width>150</width>
+				<height>200</height>
+				
+				<!-- Frame size -->
+				<framesize>15</framesize>
+
+		</materialDefinition>		
+
+
+		<!-- MY NAME IS PONCHO. FOREST SCENE: GROUND MATERIAL -->
+
+		
+		<!-- This is a Perlin material definition.
+					
+				 Perlin materials are procedural materials formed by a base material and unlimited layers
+				 of other materials, each one rendered from a perlin noise definition.
+
+				 The perlin noise for each layer is used as the alpha-mask for that layer.
+				 
+				 Both the base material and the layer materials must have their definitions included for the perlin material to work.
+				 
+				 With perlin materials, you can create more natural-looking environments without extra effort -->
+		<materialDefinition name="MNIP_ForestMaterials_Ground" type="perlin">
+
+				<base>FFMaterials_ground_Ground7</base>
+
+				<layer>
+
+				<!-- Noise definition applied to this layer -->
+				<noise>
+					<!-- The random seed number to use. If you keep all other parameters the same, you can generate different pseudo-random results
+					     by varying the random seed value. The Perlin noise function creates the same results each time from the same random seed.
+					     
+					     Use 0 if you want the engine to pick a random seed each time -->
+					<seed>0</seed>     
+    		
+					<!-- Frequency to use in the x direction. -->
+					<baseX>500</baseX>
+    		
+	  		  <!-- Frequency to use in the y direction. -->
+					<baseY>500</baseY>
+    		
+	  		  <!-- Number of octaves or individual noise functions to combine to create this noise.
+	  		       Larger numbers of octaves create noise with greater detail. Larger numbers of octaves also require more processing time. -->
+	  		  <octaves>2</octaves>
+	  		       
+					<!-- If the value is true, the method generates fractal noise; otherwise, it generates turbulence.
+					     An image with turbulence has visible discontinuities in the gradient that can make it better approximate sharper visual
+					     effects like flames and ocean waves. -->
+					<fractal>true</fractal>
+					     
+				 </noise>
+
+				 <!-- Material applied o this layer -->
+				 <material>FFMaterials_grass_Grass3</material>
+
+				</layer>
+
+		</materialDefinition>		
+
+</definitions>

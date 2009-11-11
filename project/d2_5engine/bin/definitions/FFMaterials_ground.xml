@@ -1,0 +1,60 @@
+<definitions>
+
+  <media src="../media/FFMaterials_ground.swf"/>
+
+	<materialDefinition name="FFMaterials_ground_Ground1" type="tile">
+			<diffuse>FFMaterials_ground_Ground1d</diffuse>
+			<bump>FFMaterials_ground_Ground1b</bump>
+	</materialDefinition>
+	
+	<materialDefinition name="FFMaterials_ground_Ground2" type="tile">
+			<diffuse>FFMaterials_ground_Ground2d</diffuse>
+			<bump>FFMaterials_ground_Ground2b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground3" type="tile">
+			<diffuse>FFMaterials_ground_Ground3d</diffuse>
+			<bump>FFMaterials_ground_Ground3b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground4" type="tile">
+			<diffuse>FFMaterials_ground_Ground4d</diffuse>
+			<bump>FFMaterials_ground_Ground4b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground5" type="tile">
+			<diffuse>FFMaterials_ground_Ground5d</diffuse>
+			<bump>FFMaterials_ground_Ground5b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground6" type="tile">
+			<diffuse>FFMaterials_ground_Ground6d</diffuse>
+			<bump>FFMaterials_ground_Ground6b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground7" type="tile">
+			<diffuse>FFMaterials_ground_Ground7d</diffuse>
+			<bump>FFMaterials_ground_Ground7b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground8" type="tile">
+			<diffuse>FFMaterials_ground_Ground8d</diffuse>
+			<bump>FFMaterials_ground_Ground8b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground9" type="tile">
+			<diffuse>FFMaterials_ground_Ground9d</diffuse>
+			<bump>FFMaterials_ground_Ground9b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground10" type="tile">
+			<diffuse>FFMaterials_ground_Ground10d</diffuse>
+			<bump>FFMaterials_ground_Ground10b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_ground_Ground11" type="tile">
+			<diffuse>FFMaterials_ground_Ground11d</diffuse>
+			<bump>FFMaterials_ground_Ground11b</bump>
+	</materialDefinition>
+
+</definitions>

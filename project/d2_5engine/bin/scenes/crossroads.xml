@@ -1,0 +1,49 @@
+<scene gridsize="50" levelsize="20" prerender="false">
+  <head>
+    <light id="Global light" intensity="30" color="#6699ff"/>
+    <name>Crossroads</name>
+    <description>This is small scene that is used to communicate with other places.</description>
+    <definitions src="../definitions/MNIP_VillageMaterials.xml"/>
+    <definitions src="../definitions/FFTrees_misc.xml"/>
+    <definitions src="../definitions/MNIP_Items.xml"/>
+    <definitions src="../definitions/FFCharacters_poncho.xml"/>
+  </head>
+  <body>
+    <floor src="MNIP_VillageMaterials_Ground" width="250" height="200" x="150" y="0" id="Floor_1" z="0"/>
+    <floor src="MNIP_VillageMaterials_Ground" width="600" height="700" x="0" y="200" id="Floor_2" z="0"/>
+    <floor src="MNIP_VillageMaterials_Ground" width="200" height="200" x="600" y="400" id="Floor_3" z="0"/>
+    <object id="Tree 1" definition="FFTrees_misc_tree5" x="426" y="369" z="0" rotation="30" orientation="0"/>
+    <object id="Info" definition="MNIP_Info" x="100" y="700" z="20" rotation="0">
+      <info>Use the FFilmation icon to access the menu. From there you can switch the control method between Mouse and Keyboard.The Options dialog will allow you to change the quality setting of the engine. It defaults to the best settings. However most users will need to lower the shadow quality or even disable shadows for moving elements, as this is the main performance bottleneck.</info>
+    </object>
+    <event x="750" y="400" z="0" width="50" height="1" depth="200" name="TELEPORT">
+      <destination>scenes/village.xml</destination>
+      <enterx>200</enterx>
+      <entery>1400</entery>
+      <enterz>0</enterz>
+      <enterOrientation>0</enterOrientation>
+    </event>
+    <event x="150" y="0" z="0" width="250" height="0" depth="50" name="TELEPORT">
+      <destination>scenes/forest.xml</destination>
+      <enterx>1950</enterx>
+      <entery>4100</entery>
+      <enterz>0</enterz>
+      <enterOrientation>90</enterOrientation>
+    </event>
+    <event x="150" y="1100" z="0" width="300" height="0" depth="50" name="TELEPORT">
+      <destination>scenes/graveyard.xml</destination>
+      <enterx>300</enterx>
+      <entery>250</entery>
+      <enterz>0</enterz>
+      <enterOrientation>270</enterOrientation>
+    </event>
+    <character id="Poncho" definition="FFCharacters_poncho" x="379" y="675" z="0" orientation="0"/>
+    <character id="PonchoT" definition="FFCharacters_poncho" x="129" y="399" z="0" orientation="0"/>
+    <floor x="150" y="900" z="0" width="300" height="250" id="Floor_2" src="MNIP_VillageMaterials_Ground"/>
+    <light id="light_0" type="omni" size="0" x="748" y="2156" z="691" color="#ffffcc" intensity="70" decay="50" bump="false"/>
+  </body>
+  <ignoreWhitespace>true</ignoreWhitespace>
+  <prettyPrinting>true</prettyPrinting>
+  <prettyIndent>3</prettyIndent>
+  <ignoreComments>false</ignoreComments>
+</scene>

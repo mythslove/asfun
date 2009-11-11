@@ -1,0 +1,957 @@
+<definitions>
+
+	<media src="../media/FFObjects_west.swf"/>
+
+	<!-- Barrel1 -->
+	<objectDefinition name="FFObjects_west_Barrel1">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Barrel1_0"/>
+			<sprite angle="45" src="FFObjects_west_Barrel1_45"/>
+			<sprite angle="90" src="FFObjects_west_Barrel1_90"/>
+			<sprite angle="135" src="FFObjects_west_Barrel1_135"/>
+			<sprite angle="180" src="FFObjects_west_Barrel1_180"/>
+			<sprite angle="225" src="FFObjects_west_Barrel1_225"/>
+			<sprite angle="270" src="FFObjects_west_Barrel1_270"/>
+			<sprite angle="315" src="FFObjects_west_Barrel1_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="60" depth="40" height="40"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+	<!-- Barrel2 -->
+	<objectDefinition name="FFObjects_west_Barrel2">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Barrel2_0"/>
+			<sprite angle="45" src="FFObjects_west_Barrel2_45"/>
+			<sprite angle="90" src="FFObjects_west_Barrel2_90"/>
+			<sprite angle="135" src="FFObjects_west_Barrel2_135"/>
+			<sprite angle="180" src="FFObjects_west_Barrel2_180"/>
+			<sprite angle="225" src="FFObjects_west_Barrel2_225"/>
+			<sprite angle="270" src="FFObjects_west_Barrel2_270"/>
+			<sprite angle="315" src="FFObjects_west_Barrel2_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="95"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Bloomery -->
+	<objectDefinition name="FFObjects_west_Bloomery">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Bloomery_0"/>
+			<sprite angle="45" src="FFObjects_west_Bloomery_45"/>
+			<sprite angle="90" src="FFObjects_west_Bloomery_90"/>
+			<sprite angle="135" src="FFObjects_west_Bloomery_135"/>
+			<sprite angle="180" src="FFObjects_west_Bloomery_180"/>
+			<sprite angle="225" src="FFObjects_west_Bloomery_225"/>
+			<sprite angle="270" src="FFObjects_west_Bloomery_270"/>
+			<sprite angle="315" src="FFObjects_west_Bloomery_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="150" depth="120" height="130"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Canon -->
+	<objectDefinition name="FFObjects_west_Canon">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Canon_0"/>
+			<sprite angle="45" src="FFObjects_west_Canon_45"/>
+			<sprite angle="90" src="FFObjects_west_Canon_90"/>
+			<sprite angle="135" src="FFObjects_west_Canon_135"/>
+			<sprite angle="180" src="FFObjects_west_Canon_180"/>
+			<sprite angle="225" src="FFObjects_west_Canon_225"/>
+			<sprite angle="270" src="FFObjects_west_Canon_270"/>
+			<sprite angle="315" src="FFObjects_west_Canon_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="150" depth="100" height="120"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Canongun -->
+	<objectDefinition name="FFObjects_west_Canongun">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Canongun_0"/>
+			<sprite angle="45" src="FFObjects_west_Canongun_45"/>
+			<sprite angle="90" src="FFObjects_west_Canongun_90"/>
+			<sprite angle="135" src="FFObjects_west_Canongun_135"/>
+			<sprite angle="180" src="FFObjects_west_Canongun_180"/>
+			<sprite angle="225" src="FFObjects_west_Canongun_225"/>
+			<sprite angle="270" src="FFObjects_west_Canongun_270"/>
+			<sprite angle="315" src="FFObjects_west_Canongun_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="160" depth="120" height="120"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Cart -->
+	<objectDefinition name="FFObjects_west_Cart">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Cart_0"/>
+			<sprite angle="45" src="FFObjects_west_Cart_45"/>
+			<sprite angle="90" src="FFObjects_west_Cart_90"/>
+			<sprite angle="135" src="FFObjects_west_Cart_135"/>
+			<sprite angle="180" src="FFObjects_west_Cart_180"/>
+			<sprite angle="225" src="FFObjects_west_Cart_225"/>
+			<sprite angle="270" src="FFObjects_west_Cart_270"/>
+			<sprite angle="315" src="FFObjects_west_Cart_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="300" depth="140" height="150"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Cart2 -->
+	<objectDefinition name="FFObjects_west_Cart2">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Cart2_0"/>
+			<sprite angle="45" src="FFObjects_west_Cart2_45"/>
+			<sprite angle="90" src="FFObjects_west_Cart2_90"/>
+			<sprite angle="135" src="FFObjects_west_Cart2_135"/>
+			<sprite angle="180" src="FFObjects_west_Cart2_180"/>
+			<sprite angle="225" src="FFObjects_west_Cart2_225"/>
+			<sprite angle="270" src="FFObjects_west_Cart2_270"/>
+			<sprite angle="315" src="FFObjects_west_Cart2_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="300" depth="140" height="150"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Cookingfire -->
+	<objectDefinition name="FFObjects_west_Cookingfire">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Cookingfire_0"/>
+			<sprite angle="45" src="FFObjects_west_Cookingfire_45"/>
+			<sprite angle="90" src="FFObjects_west_Cookingfire_90"/>
+			<sprite angle="135" src="FFObjects_west_Cookingfire_135"/>
+			<sprite angle="180" src="FFObjects_west_Cookingfire_180"/>
+			<sprite angle="225" src="FFObjects_west_Cookingfire_225"/>
+			<sprite angle="270" src="FFObjects_west_Cookingfire_270"/>
+			<sprite angle="315" src="FFObjects_west_Cookingfire_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="50"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Crate -->
+	<objectDefinition name="FFObjects_west_Crate">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Crate_0"/>
+			<sprite angle="45" src="FFObjects_west_Crate_45"/>
+			<sprite angle="90" src="FFObjects_west_Crate_90"/>
+			<sprite angle="135" src="FFObjects_west_Crate_135"/>
+			<sprite angle="180" src="FFObjects_west_Crate_180"/>
+			<sprite angle="225" src="FFObjects_west_Crate_225"/>
+			<sprite angle="270" src="FFObjects_west_Crate_270"/>
+			<sprite angle="315" src="FFObjects_west_Crate_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="100" depth="100" height="70"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <box width="100" depth="100" height="70"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Cross -->
+	<objectDefinition name="FFObjects_west_Cross">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Cross_0"/>
+			<sprite angle="45" src="FFObjects_west_Cross_45"/>
+			<sprite angle="90" src="FFObjects_west_Cross_90"/>
+			<sprite angle="135" src="FFObjects_west_Cross_135"/>
+			<sprite angle="180" src="FFObjects_west_Cross_180"/>
+			<sprite angle="225" src="FFObjects_west_Cross_225"/>
+			<sprite angle="270" src="FFObjects_west_Cross_270"/>
+			<sprite angle="315" src="FFObjects_west_Cross_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="30" depth="80" height="150"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Deposit -->
+	<objectDefinition name="FFObjects_west_Deposit">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Deposit_0"/>
+			<sprite angle="45" src="FFObjects_west_Deposit_45"/>
+			<sprite angle="90" src="FFObjects_west_Deposit_90"/>
+			<sprite angle="135" src="FFObjects_west_Deposit_135"/>
+			<sprite angle="180" src="FFObjects_west_Deposit_180"/>
+			<sprite angle="225" src="FFObjects_west_Deposit_225"/>
+			<sprite angle="270" src="FFObjects_west_Deposit_270"/>
+			<sprite angle="315" src="FFObjects_west_Deposit_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="50" height="400"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Diligence -->
+	<objectDefinition name="FFObjects_west_Diligence">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Diligence_0"/>
+			<sprite angle="45" src="FFObjects_west_Diligence_45"/>
+			<sprite angle="90" src="FFObjects_west_Diligence_90"/>
+			<sprite angle="135" src="FFObjects_west_Diligence_135"/>
+			<sprite angle="180" src="FFObjects_west_Diligence_180"/>
+			<sprite angle="225" src="FFObjects_west_Diligence_225"/>
+			<sprite angle="270" src="FFObjects_west_Diligence_270"/>
+			<sprite angle="315" src="FFObjects_west_Diligence_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="270" depth="120" height="160"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Drag -->
+	<objectDefinition name="FFObjects_west_Drag">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Drag_0"/>
+			<sprite angle="45" src="FFObjects_west_Drag_45"/>
+			<sprite angle="90" src="FFObjects_west_Drag_90"/>
+			<sprite angle="135" src="FFObjects_west_Drag_135"/>
+			<sprite angle="180" src="FFObjects_west_Drag_180"/>
+			<sprite angle="225" src="FFObjects_west_Drag_225"/>
+			<sprite angle="270" src="FFObjects_west_Drag_270"/>
+			<sprite angle="315" src="FFObjects_west_Drag_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="70" height="70"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Grassbale -->
+	<objectDefinition name="FFObjects_west_Grassbale">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Grassbale_0"/>
+			<sprite angle="45" src="FFObjects_west_Grassbale_45"/>
+			<sprite angle="90" src="FFObjects_west_Grassbale_90"/>
+			<sprite angle="135" src="FFObjects_west_Grassbale_135"/>
+			<sprite angle="180" src="FFObjects_west_Grassbale_180"/>
+			<sprite angle="225" src="FFObjects_west_Grassbale_225"/>
+			<sprite angle="270" src="FFObjects_west_Grassbale_270"/>
+			<sprite angle="315" src="FFObjects_west_Grassbale_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="40" height="230"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Grave1 -->
+	<objectDefinition name="FFObjects_west_Grave1">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Grave1_0"/>
+			<sprite angle="45" src="FFObjects_west_Grave1_45"/>
+			<sprite angle="90" src="FFObjects_west_Grave1_90"/>
+			<sprite angle="135" src="FFObjects_west_Grave1_135"/>
+			<sprite angle="180" src="FFObjects_west_Grave1_180"/>
+			<sprite angle="225" src="FFObjects_west_Grave1_225"/>
+			<sprite angle="270" src="FFObjects_west_Grave1_270"/>
+			<sprite angle="315" src="FFObjects_west_Grave1_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="10" depth="80" height="70"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Grave2 -->
+	<objectDefinition name="FFObjects_west_Grave2">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Grave2_0"/>
+			<sprite angle="45" src="FFObjects_west_Grave2_45"/>
+			<sprite angle="90" src="FFObjects_west_Grave2_90"/>
+			<sprite angle="135" src="FFObjects_west_Grave2_135"/>
+			<sprite angle="180" src="FFObjects_west_Grave2_180"/>
+			<sprite angle="225" src="FFObjects_west_Grave2_225"/>
+			<sprite angle="270" src="FFObjects_west_Grave2_270"/>
+			<sprite angle="315" src="FFObjects_west_Grave2_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="15" depth="90" height="80"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Gravestones -->
+	<objectDefinition name="FFObjects_west_Gravestones" solid="false" castShadows="false">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Gravestones_0"/>
+			<sprite angle="45" src="FFObjects_west_Gravestones_45"/>
+			<sprite angle="90" src="FFObjects_west_Gravestones_90"/>
+			<sprite angle="135" src="FFObjects_west_Gravestones_135"/>
+			<sprite angle="180" src="FFObjects_west_Gravestones_180"/>
+			<sprite angle="225" src="FFObjects_west_Gravestones_225"/>
+			<sprite angle="270" src="FFObjects_west_Gravestones_270"/>
+			<sprite angle="315" src="FFObjects_west_Gravestones_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="100" depth="80" height="10"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Handmill -->
+	<objectDefinition name="FFObjects_west_Handmill">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Handmill_0"/>
+			<sprite angle="45" src="FFObjects_west_Handmill_45"/>
+			<sprite angle="90" src="FFObjects_west_Handmill_90"/>
+			<sprite angle="135" src="FFObjects_west_Handmill_135"/>
+			<sprite angle="180" src="FFObjects_west_Handmill_180"/>
+			<sprite angle="225" src="FFObjects_west_Handmill_225"/>
+			<sprite angle="270" src="FFObjects_west_Handmill_270"/>
+			<sprite angle="315" src="FFObjects_west_Handmill_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="100" depth="100" height="100"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Horsepole -->
+	<objectDefinition name="FFObjects_west_Horsepole">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Horsepole_0"/>
+			<sprite angle="45" src="FFObjects_west_Horsepole_45"/>
+			<sprite angle="90" src="FFObjects_west_Horsepole_90"/>
+			<sprite angle="135" src="FFObjects_west_Horsepole_135"/>
+			<sprite angle="180" src="FFObjects_west_Horsepole_180"/>
+			<sprite angle="225" src="FFObjects_west_Horsepole_225"/>
+			<sprite angle="270" src="FFObjects_west_Horsepole_270"/>
+			<sprite angle="315" src="FFObjects_west_Horsepole_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="160" depth="60" height="150"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Leanwheel -->
+	<objectDefinition name="FFObjects_west_Leanwheel">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Leanwheel_0"/>
+			<sprite angle="45" src="FFObjects_west_Leanwheel_45"/>
+			<sprite angle="90" src="FFObjects_west_Leanwheel_90"/>
+			<sprite angle="135" src="FFObjects_west_Leanwheel_135"/>
+			<sprite angle="180" src="FFObjects_west_Leanwheel_180"/>
+			<sprite angle="225" src="FFObjects_west_Leanwheel_225"/>
+			<sprite angle="270" src="FFObjects_west_Leanwheel_270"/>
+			<sprite angle="315" src="FFObjects_west_Leanwheel_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="90" depth="90" height="120"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+
+	<!-- Minestand -->
+	<objectDefinition name="FFObjects_west_Minestand">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Minestand_0"/>
+			<sprite angle="45" src="FFObjects_west_Minestand_45"/>
+			<sprite angle="90" src="FFObjects_west_Minestand_90"/>
+			<sprite angle="135" src="FFObjects_west_Minestand_135"/>
+			<sprite angle="180" src="FFObjects_west_Minestand_180"/>
+			<sprite angle="225" src="FFObjects_west_Minestand_225"/>
+			<sprite angle="270" src="FFObjects_west_Minestand_270"/>
+			<sprite angle="315" src="FFObjects_west_Minestand_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="100" depth="100" height="100"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Orebin -->
+	<objectDefinition name="FFObjects_west_Orebin">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Orebin_0"/>
+			<sprite angle="45" src="FFObjects_west_Orebin_45"/>
+			<sprite angle="90" src="FFObjects_west_Orebin_90"/>
+			<sprite angle="135" src="FFObjects_west_Orebin_135"/>
+			<sprite angle="180" src="FFObjects_west_Orebin_180"/>
+			<sprite angle="225" src="FFObjects_west_Orebin_225"/>
+			<sprite angle="270" src="FFObjects_west_Orebin_270"/>
+			<sprite angle="315" src="FFObjects_west_Orebin_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="140" depth="100" height="100"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Oven -->
+	<objectDefinition name="FFObjects_west_Oven">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Oven_0"/>
+			<sprite angle="45" src="FFObjects_west_Oven_45"/>
+			<sprite angle="90" src="FFObjects_west_Oven_90"/>
+			<sprite angle="135" src="FFObjects_west_Oven_135"/>
+			<sprite angle="180" src="FFObjects_west_Oven_180"/>
+			<sprite angle="225" src="FFObjects_west_Oven_225"/>
+			<sprite angle="270" src="FFObjects_west_Oven_270"/>
+			<sprite angle="315" src="FFObjects_west_Oven_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="70" height="350"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Plow -->
+	<objectDefinition name="FFObjects_west_Plow">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Plow_0"/>
+			<sprite angle="45" src="FFObjects_west_Plow_45"/>
+			<sprite angle="90" src="FFObjects_west_Plow_90"/>
+			<sprite angle="135" src="FFObjects_west_Plow_135"/>
+			<sprite angle="180" src="FFObjects_west_Plow_180"/>
+			<sprite angle="225" src="FFObjects_west_Plow_225"/>
+			<sprite angle="270" src="FFObjects_west_Plow_270"/>
+			<sprite angle="315" src="FFObjects_west_Plow_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="150" depth="110" height="140"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Pump -->
+	<objectDefinition name="FFObjects_west_Pump">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Pump_0"/>
+			<sprite angle="45" src="FFObjects_west_Pump_45"/>
+			<sprite angle="90" src="FFObjects_west_Pump_90"/>
+			<sprite angle="135" src="FFObjects_west_Pump_135"/>
+			<sprite angle="180" src="FFObjects_west_Pump_180"/>
+			<sprite angle="225" src="FFObjects_west_Pump_225"/>
+			<sprite angle="270" src="FFObjects_west_Pump_270"/>
+			<sprite angle="315" src="FFObjects_west_Pump_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="100" depth="100" height="100"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Reaper -->
+	<objectDefinition name="FFObjects_west_Reaper">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Reaper_0"/>
+			<sprite angle="45" src="FFObjects_west_Reaper_45"/>
+			<sprite angle="90" src="FFObjects_west_Reaper_90"/>
+			<sprite angle="135" src="FFObjects_west_Reaper_135"/>
+			<sprite angle="180" src="FFObjects_west_Reaper_180"/>
+			<sprite angle="225" src="FFObjects_west_Reaper_225"/>
+			<sprite angle="270" src="FFObjects_west_Reaper_270"/>
+			<sprite angle="315" src="FFObjects_west_Reaper_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="220" depth="130" height="170"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Rocker -->
+	<objectDefinition name="FFObjects_west_Rocker">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Rocker_0"/>
+			<sprite angle="45" src="FFObjects_west_Rocker_45"/>
+			<sprite angle="90" src="FFObjects_west_Rocker_90"/>
+			<sprite angle="135" src="FFObjects_west_Rocker_135"/>
+			<sprite angle="180" src="FFObjects_west_Rocker_180"/>
+			<sprite angle="225" src="FFObjects_west_Rocker_225"/>
+			<sprite angle="270" src="FFObjects_west_Rocker_270"/>
+			<sprite angle="315" src="FFObjects_west_Rocker_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="250" depth="60" height="60"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Rope -->
+	<objectDefinition name="FFObjects_west_Rope">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Rope_0"/>
+			<sprite angle="45" src="FFObjects_west_Rope_45"/>
+			<sprite angle="90" src="FFObjects_west_Rope_90"/>
+			<sprite angle="135" src="FFObjects_west_Rope_135"/>
+			<sprite angle="180" src="FFObjects_west_Rope_180"/>
+			<sprite angle="225" src="FFObjects_west_Rope_225"/>
+			<sprite angle="270" src="FFObjects_west_Rope_270"/>
+			<sprite angle="315" src="FFObjects_west_Rope_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="150" depth="160" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Silo -->
+	<objectDefinition name="FFObjects_west_Silo">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Silo_0"/>
+			<sprite angle="45" src="FFObjects_west_Silo_45"/>
+			<sprite angle="90" src="FFObjects_west_Silo_90"/>
+			<sprite angle="135" src="FFObjects_west_Silo_135"/>
+			<sprite angle="180" src="FFObjects_west_Silo_180"/>
+			<sprite angle="225" src="FFObjects_west_Silo_225"/>
+			<sprite angle="270" src="FFObjects_west_Silo_270"/>
+			<sprite angle="315" src="FFObjects_west_Silo_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="50" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Soil1 -->
+	<objectDefinition name="FFObjects_west_Soil1" solid="false" castShadows="false">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Soil1_0"/>
+			<sprite angle="45" src="FFObjects_west_Soil1_45"/>
+			<sprite angle="90" src="FFObjects_west_Soil1_90"/>
+			<sprite angle="135" src="FFObjects_west_Soil1_135"/>
+			<sprite angle="180" src="FFObjects_west_Soil1_180"/>
+			<sprite angle="225" src="FFObjects_west_Soil1_225"/>
+			<sprite angle="270" src="FFObjects_west_Soil1_270"/>
+			<sprite angle="315" src="FFObjects_west_Soil1_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="60" depth="40" height="20"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Soil2 -->
+	<objectDefinition name="FFObjects_west_Soil2" solid="false" castShadows="false">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Soil2_0"/>
+			<sprite angle="45" src="FFObjects_west_Soil2_45"/>
+			<sprite angle="90" src="FFObjects_west_Soil2_90"/>
+			<sprite angle="135" src="FFObjects_west_Soil2_135"/>
+			<sprite angle="180" src="FFObjects_west_Soil2_180"/>
+			<sprite angle="225" src="FFObjects_west_Soil2_225"/>
+			<sprite angle="270" src="FFObjects_west_Soil2_270"/>
+			<sprite angle="315" src="FFObjects_west_Soil2_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="60" depth="40" height="20"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Steambioler -->
+	<objectDefinition name="FFObjects_west_Steamboiler">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Steemboiler_0"/>
+			<sprite angle="45" src="FFObjects_west_Steemboiler_45"/>
+			<sprite angle="90" src="FFObjects_west_Steemboiler_90"/>
+			<sprite angle="135" src="FFObjects_west_Steemboiler_135"/>
+			<sprite angle="180" src="FFObjects_west_Steemboiler_180"/>
+			<sprite angle="225" src="FFObjects_west_Steemboiler_225"/>
+			<sprite angle="270" src="FFObjects_west_Steemboiler_270"/>
+			<sprite angle="315" src="FFObjects_west_Steemboiler_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="250" depth="80" height="400"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Tent -->
+	<objectDefinition name="FFObjects_west_Tent">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Tent_0"/>
+			<sprite angle="45" src="FFObjects_west_Tent_45"/>
+			<sprite angle="90" src="FFObjects_west_Tent_90"/>
+			<sprite angle="135" src="FFObjects_west_Tent_135"/>
+			<sprite angle="180" src="FFObjects_west_Tent_180"/>
+			<sprite angle="225" src="FFObjects_west_Tent_225"/>
+			<sprite angle="270" src="FFObjects_west_Tent_270"/>
+			<sprite angle="315" src="FFObjects_west_Tent_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="290" depth="280" height="300"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Thresher -->
+	<objectDefinition name="FFObjects_west_Thresher">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Thresher_0"/>
+			<sprite angle="45" src="FFObjects_west_Thresher_45"/>
+			<sprite angle="90" src="FFObjects_west_Thresher_90"/>
+			<sprite angle="135" src="FFObjects_west_Thresher_135"/>
+			<sprite angle="180" src="FFObjects_west_Thresher_180"/>
+			<sprite angle="225" src="FFObjects_west_Thresher_225"/>
+			<sprite angle="270" src="FFObjects_west_Thresher_270"/>
+			<sprite angle="315" src="FFObjects_west_Thresher_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="150" depth="70" height="180"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Well -->
+	<objectDefinition name="FFObjects_west_Well">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Well_0"/>
+			<sprite angle="45" src="FFObjects_west_Well_45"/>
+			<sprite angle="90" src="FFObjects_west_Well_90"/>
+			<sprite angle="135" src="FFObjects_west_Well_135"/>
+			<sprite angle="180" src="FFObjects_west_Well_180"/>
+			<sprite angle="225" src="FFObjects_west_Well_225"/>
+			<sprite angle="270" src="FFObjects_west_Well_270"/>
+			<sprite angle="315" src="FFObjects_west_Well_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="50" height="300"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Wheelbarrow -->
+	<objectDefinition name="FFObjects_west_Wheelbarrow">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Wheelbarrow_0"/>
+			<sprite angle="45" src="FFObjects_west_Wheelbarrow_45"/>
+			<sprite angle="90" src="FFObjects_west_Wheelbarrow_90"/>
+			<sprite angle="135" src="FFObjects_west_Wheelbarrow_135"/>
+			<sprite angle="180" src="FFObjects_west_Wheelbarrow_180"/>
+			<sprite angle="225" src="FFObjects_west_Wheelbarrow_225"/>
+			<sprite angle="270" src="FFObjects_west_Wheelbarrow_270"/>
+			<sprite angle="315" src="FFObjects_west_Wheelbarrow_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="120" depth="80" height="70"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Windpump -->
+	<objectDefinition name="FFObjects_west_Windpump">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Windpump_0"/>
+			<sprite angle="45" src="FFObjects_west_Windpump_45"/>
+			<sprite angle="90" src="FFObjects_west_Windpump_90"/>
+			<sprite angle="135" src="FFObjects_west_Windpump_135"/>
+			<sprite angle="180" src="FFObjects_west_Windpump_180"/>
+			<sprite angle="225" src="FFObjects_west_Windpump_225"/>
+			<sprite angle="270" src="FFObjects_west_Windpump_270"/>
+			<sprite angle="315" src="FFObjects_west_Windpump_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="250" depth="200" height="700"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+	<!-- Workbench -->
+	<objectDefinition name="FFObjects_west_Workbench">
+	
+		<displayModel>
+			<sprite angle="0" src="FFObjects_west_Workbench_0"/>
+			<sprite angle="45" src="FFObjects_west_Workbench_45"/>
+			<sprite angle="90" src="FFObjects_west_Workbench_90"/>
+			<sprite angle="135" src="FFObjects_west_Workbench_135"/>
+			<sprite angle="180" src="FFObjects_west_Workbench_180"/>
+			<sprite angle="225" src="FFObjects_west_Workbench_225"/>
+			<sprite angle="270" src="FFObjects_west_Workbench_270"/>
+			<sprite angle="315" src="FFObjects_west_Workbench_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="240" depth="140" height="250"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+
+</definitions>

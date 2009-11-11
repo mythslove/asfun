@@ -1,0 +1,75 @@
+<scene gridsize="50" levelsize="50" prerender="false" controller="org.ffilmation.demos.mynameisponcho.controllers.forest">
+  <head>
+    <light id="Global light" intensity="50" color="#3366ff"/>
+    <name>Forest</name>
+    <description>The forest scene.</description>
+    <definitions src="../definitions/MNIP_ForestMaterials.xml"/>
+    <definitions src="../definitions/FFMaterials_wood2.xml"/>
+    <definitions src="../definitions/FFTrees_misc.xml"/>
+    <definitions src="../definitions/MNIP_Items.xml"/>
+    <definitions src="../definitions/FFCharacters_poncho.xml"/>
+  </head>
+  <body>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="0" y="0" id="Floor_1" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="1000" y="0" id="Floor_2" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="2000" y="0" id="Floor_3" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="3000" y="0" id="Floor_4" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="0" y="1000" id="Floor_5" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="1000" y="1000" id="Floor_6" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="2000" y="1000" id="Floor_7" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="3000" y="1000" id="Floor_8" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="0" y="2000" id="Floor_9" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="1000" y="2000" id="Floor_10" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="2000" y="2000" id="Floor_11" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="3000" y="2000" id="Floor_12" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="0" y="3000" id="Floor_13" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="1000" y="3000" id="Floor_14" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="2000" y="3000" id="Floor_15" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="3000" y="3000" id="Floor_16" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="1000" height="1000" x="3000" y="3000" id="Floor_17" z="0"/>
+    <floor src="MNIP_ForestMaterials_Ground" width="200" height="200" x="1900" y="4000" id="Floor_18" z="0"/>
+    <light id="HouseLight" x="500" y="500" z="280" color="#ffffff" size="800" intensity="80" decay="0"/>
+    <event x="1900" y="4150" z="0" width="200" height="50" depth="50" name="TELEPORT">
+      <destination>scenes/crossroads.xml</destination>
+      <enterx>300</enterx>
+      <entery>200</entery>
+      <enterz>0</enterz>
+      <enterOrientation>90</enterOrientation>
+    </event>
+    <wall id="House_side1" src="FFMaterials_woods2_Wood2_13" size="700" height="300" x="100" y="100" z="0" direction="horizontal"/>
+    <wall id="House_side2" src="MNIP_ForestMaterials_Door" size="700" height="300" x="800" y="100" z="0" direction="vertical"/>
+    <wall id="House_side3" src="MNIP_ForestMaterials_Door" size="700" height="300" x="100" y="800" z="0" direction="horizontal"/>
+    <wall id="House_side4" src="FFMaterials_woods2_Wood2_13" size="700" height="300" x="100" y="100" z="0" direction="vertical"/>
+    <floor id="House_side5" src="FFMaterials_woods2_Wood2_6" width="700" height="700" x="100" y="100" z="300"/>
+    <floor id="House_side6" src="FFMaterials_woods2_Wood2_14" width="700" height="700" x="100" y="100" z="0"/>
+    <object id="object_27" definition="FFTrees_misc_tree5" x="3658" y="378" z="0" orientation="0"/>
+    <object id="object_28" definition="FFTrees_misc_tree5" x="2624" y="581" z="0" orientation="0"/>
+    <object id="object_29" definition="FFTrees_misc_tree5" x="2978" y="1501" z="0" orientation="0"/>
+    <object id="object_30" definition="FFTrees_misc_tree5" x="3397" y="1800" z="0" orientation="0"/>
+    <object id="object_29" definition="FFTrees_misc_tree5" x="1813" y="737" z="0" orientation="0"/>
+    <object id="object_30" definition="FFTrees_misc_tree5" x="2224" y="1358" z="0" orientation="0"/>
+    <object id="object_31" definition="FFTrees_misc_tree5" x="1082" y="1187" z="0" orientation="0"/>
+    <object id="object_32" definition="FFTrees_misc_tree5" x="1428" y="1939" z="0" orientation="0"/>
+    <object id="object_33" definition="FFTrees_misc_tree5" x="258" y="1846" z="0" orientation="0"/>
+    <object id="object_34" definition="FFTrees_misc_tree5" x="2275" y="2242" z="0" orientation="0"/>
+    <object id="object_35" definition="FFTrees_misc_tree5" x="3038" y="2744" z="0" orientation="0"/>
+    <object id="object_36" definition="FFTrees_misc_tree5" x="2008" y="3208" z="0" orientation="0"/>
+    <object id="object_37" definition="FFTrees_misc_tree5" x="3028" y="3536" z="0" orientation="0"/>
+    <object id="object_38" definition="FFTrees_misc_tree5" x="1297" y="2810" z="0" orientation="0"/>
+    <object id="object_39" definition="FFTrees_misc_tree5" x="507" y="2647" z="0" orientation="0"/>
+    <object id="object_40" definition="FFTrees_misc_tree5" x="393" y="3766" z="0" orientation="0"/>
+    <object id="object_42" definition="MNIP_MoneyBag" x="1103" y="1678" z="0" orientation="0"/>
+    <object id="object_43" definition="MNIP_MoneyBag" x="599" y="3013" z="0" orientation="0"/>
+    <object id="object_44" definition="MNIP_MoneyBag" x="2195" y="1756" z="0" orientation="0"/>
+    <object id="object_45" definition="MNIP_MoneyBag" x="1890" y="1033" z="0" orientation="0"/>
+    <object id="object_46" definition="MNIP_MoneyBag" x="3190" y="640" z="0" orientation="0"/>
+    <object id="object_47" definition="MNIP_MoneyBag" x="3465" y="1386" z="0" orientation="0"/>
+    <object id="object_48" definition="MNIP_MoneyBag" x="3740" y="2646" z="0" orientation="0"/>
+    <object id="object_49" definition="MNIP_MoneyBag" x="2983" y="2358" z="0" orientation="0"/>
+    <light id="light_1" type="omni" size="0" x="3291" y="880" z="450" color="#ff6600" intensity="15" decay="0" bump="false"/>
+  </body>
+  <ignoreComments>false</ignoreComments>
+  <ignoreWhitespace>true</ignoreWhitespace>
+  <prettyPrinting>true</prettyPrinting>
+  <prettyIndent>3</prettyIndent>
+</scene>

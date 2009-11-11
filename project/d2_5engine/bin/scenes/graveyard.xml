@@ -1,0 +1,172 @@
+<scene gridsize="50" levelsize="50">
+  <ignoreComments>false</ignoreComments>
+  <ignoreWhitespace>true</ignoreWhitespace>
+  <prettyPrinting>true</prettyPrinting>
+  <prettyIndent>3</prettyIndent>
+  <head>
+    <name>Graveyard</name>
+    <description>Spooky !!</description>
+    <light id="Global light" intensity="40" color="#66cc"/>
+    <definitions src="../definitions/MNIP_ForestMaterials.xml"/>
+    <definitions src="../definitions/MNIP_VillageMaterials.xml"/>
+    <definitions src="../definitions/FFTrees_misc.xml"/>
+    <definitions src="../definitions/FFObjects_west.xml"/>
+    <definitions src="../definitions/FFCharacters_poncho.xml"/>
+    <definitions src="../definitions/FFMaterials_ground.xml"/>
+  </head>
+  <body>
+    <event x="250" y="0" z="0" width="150" height="50" depth="100" name="TELEPORT">
+      <destination>scenes/crossroads.xml</destination>
+      <enterx>200</enterx>
+      <entery>1050</entery>
+      <enterz>0</enterz>
+      <enterOrientation>90</enterOrientation>
+    </event>
+    <floor x="0" y="200" z="0" width="1000" height="1000" id="Floor_1" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="250" y="0" z="0" width="150" height="200" id="Floor_2" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="0" y="1200" z="0" width="1000" height="1000" id="Floor_3" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="1000" y="200" z="0" width="1000" height="1000" id="Floor_4" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="1000" y="1200" z="0" width="1000" height="1000" id="Floor_5" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="0" y="2200" z="0" width="1000" height="1000" id="Floor_6" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="1000" y="2200" z="0" width="1000" height="1000" id="Floor_7" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="2000" y="2200" z="0" width="1000" height="1000" id="Floor_8" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="2000" y="1200" z="0" width="1000" height="1000" id="Floor_9" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="2000" y="200" z="0" width="1000" height="1000" id="Floor_10" src="MNIP_ForestMaterials_Ground"/>
+    <wall x="1450" y="1200" z="0" direction="horizontal" size="950" height="100" id="Wall_1" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="400" y="1200" z="0" direction="horizontal" size="900" height="100" id="Wall_2" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="400" y="1200" z="0" direction="vertical" size="900" height="100" id="Wall_3" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="2400" y="1200" z="0" direction="vertical" size="1000" height="100" id="Wall_4" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="1000" y="1750" z="0" direction="vertical" size="450" height="100" id="Wall_5" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="1000" y="1750" z="0" direction="horizontal" size="1000" height="100" id="Wall_6" src="MNIP_VillageMaterials_Fence"/>
+    <floor x="0" y="3200" z="0" width="1000" height="1000" id="Floor_11" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="1000" y="3200" z="0" width="1000" height="1000" id="Floor_12" src="MNIP_ForestMaterials_Ground"/>
+    <floor x="2000" y="3200" z="0" width="1000" height="1000" id="Floor_13" src="MNIP_ForestMaterials_Ground"/>
+    <wall x="400" y="2300" z="0" direction="vertical" size="900" height="100" id="Wall_7" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="400" y="3200" z="0" direction="horizontal" size="1000" height="100" id="Wall_8" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="1400" y="3200" z="0" direction="horizontal" size="1000" height="100" id="Wall_9" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="2400" y="2200" z="0" direction="vertical" size="1000" height="100" id="Wall_10" src="MNIP_VillageMaterials_Fence"/>
+    <wall x="2000" y="1750" z="0" direction="vertical" size="450" height="100" id="Wall_11" src="MNIP_VillageMaterials_Fence"/>
+    <light id="light_0" type="omni" size="900" x="1575" y="2157" z="107" color="#ffffff" intensity="30" decay="50" bump="false"/>
+    <floor x="3000" y="2200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_14"/>
+    <light id="light_1" type="omni" size="700" x="2447" y="905" z="107" color="#ffff00" intensity="30" decay="50" bump="false"/>
+    <light id="light_2" type="omni" size="900" x="762" y="1554" z="52" color="#ffff00" intensity="30" decay="50" bump="false"/>
+    <light id="light_3" type="omni" size="900" x="751" y="3479" z="107" color="#ffff00" intensity="30" decay="50" bump="false"/>
+    <light id="light_4" type="omni" size="900" x="2709" y="2413" z="79" color="#ff0000" intensity="50" decay="30" bump="false"/>
+    <object id="object_30" definition="FFTrees_misc_spooky" x="1024" y="327" z="0" orientation="235"/>
+    <object id="object_31" definition="FFTrees_misc_spooky" x="281" y="679" z="0" orientation="0"/>
+    <object id="object_33" definition="FFTrees_misc_spooky" x="1784" y="668" z="0" orientation="227"/>
+    <object id="object_34" definition="FFTrees_misc_spooky" x="2645" y="630" z="0" orientation="327"/>
+    <object id="object_35" definition="FFTrees_misc_spooky" x="2759" y="1318" z="0" orientation="327"/>
+    <object id="object_37" definition="FFTrees_misc_spooky" x="2869" y="2616" z="0" orientation="145"/>
+    <object id="object_38" definition="FFTrees_misc_spooky" x="3635" y="2440" z="0" orientation="327"/>
+    <object id="object_39" definition="FFTrees_misc_spooky" x="3182" y="2959" z="0" orientation="327"/>
+    <object id="object_40" definition="FFTrees_misc_spooky" x="2622" y="3607" z="0" orientation="18"/>
+    <object id="object_41" definition="FFTrees_misc_spooky" x="811" y="3645" z="0" orientation="198"/>
+    <object id="object_42" definition="FFTrees_misc_tree10" x="2214" y="2979" z="0" orientation="0"/>
+    <object id="object_41" definition="FFTrees_misc_tree10" x="1728" y="2676" z="0" orientation="0"/>
+    <object id="object_42" definition="FFTrees_misc_tree10" x="1154" y="2928" z="0" orientation="0"/>
+    <object id="object_43" definition="FFTrees_misc_tree10" x="645" y="2893" z="0" orientation="0"/>
+    <object id="object_44" definition="FFTrees_misc_tree10" x="2223" y="2289" z="0" orientation="0"/>
+    <object id="object_45" definition="FFTrees_misc_tree10" x="2203" y="1433" z="0" orientation="0"/>
+    <object id="object_46" definition="FFTrees_misc_tree10" x="1562" y="1398" z="0" orientation="0"/>
+    <object id="object_47" definition="FFTrees_misc_tree10" x="666" y="1383" z="0" orientation="0"/>
+    <object id="object_48" definition="FFObjects_west_Cross" x="1857" y="1899" z="0" orientation="183"/>
+    <object id="object_49" definition="FFObjects_west_Grave2" x="1193" y="1827" z="0" orientation="259"/>
+    <object id="object_50" definition="FFObjects_west_Gravestones" x="1755" y="1870" z="0" orientation="0"/>
+    <object id="object_51" definition="FFObjects_west_Grave2" x="1185" y="1964" z="0" orientation="327"/>
+    <object id="object_52" definition="FFObjects_west_Grave2" x="1153" y="2151" z="0" orientation="332"/>
+    <object id="object_53" definition="FFObjects_west_Grave2" x="1415" y="1837" z="0" orientation="331"/>
+    <object id="object_54" definition="FFObjects_west_Grave2" x="1389" y="2003" z="0" orientation="329"/>
+    <object id="object_55" definition="FFObjects_west_Grave2" x="1374" y="2168" z="0" orientation="332"/>
+    <object id="object_56" definition="FFObjects_west_Gravestones" x="1734" y="2046" z="0" orientation="0"/>
+    <object id="object_57" definition="FFObjects_west_Gravestones" x="1717" y="2197" z="0" orientation="0"/>
+    <object id="object_58" definition="FFObjects_west_Cross" x="1876" y="2161" z="0" orientation="0"/>
+    <object id="object_59" definition="FFObjects_west_Cross" x="2278" y="1822" z="0" orientation="0"/>
+    <object id="object_60" definition="FFObjects_west_Cross" x="1952" y="1352" z="0" orientation="243"/>
+    <object id="object_61" definition="FFObjects_west_Cross" x="1021" y="1286" z="0" orientation="243"/>
+    <floor x="4000" y="2200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_1"/>
+    <floor x="5000" y="2200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_2"/>
+    <floor x="6000" y="2200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_3"/>
+    <floor x="5000" y="3200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_4"/>
+    <floor x="5000" y="1200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_5"/>
+    <floor x="6000" y="1200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_6"/>
+    <floor x="7000" y="1200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_7"/>
+    <floor x="7000" y="2200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_8"/>
+    <floor x="7000" y="3200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_9"/>
+    <floor x="6000" y="3200" z="0" width="1000" height="1000" src="MNIP_ForestMaterials_Ground" id="Floor_10"/>
+    <object id="object_72" definition="FFTrees_misc_spooky" x="4798" y="2312" z="0" orientation="202"/>
+    <object id="object_73" definition="FFTrees_misc_spooky" x="4926" y="2973" z="0" orientation="62"/>
+    <object id="object_74" definition="FFTrees_misc_spooky" x="4178" y="2679" z="0" orientation="327"/>
+    <object id="object_75" definition="FFTrees_misc_spooky" x="7017" y="2035" z="200" orientation="327"/>
+    <object id="object_76" definition="FFTrees_misc_spooky" x="7187" y="2639" z="200" orientation="28"/>
+    <object id="object_77" definition="FFTrees_misc_spooky" x="5271" y="3822" z="0" orientation="112"/>
+    <object id="object_78" definition="FFTrees_misc_spooky" x="6039" y="3904" z="0" orientation="72"/>
+    <object id="object_79" definition="FFTrees_misc_spooky" x="6788" y="3837" z="0" orientation="327"/>
+    <object id="object_80" definition="FFTrees_misc_spooky" x="7543" y="3846" z="0" orientation="327"/>
+    <object id="object_81" definition="FFTrees_misc_spooky" x="6217" y="2921" z="0" orientation="62"/>
+    <object id="object_82" definition="FFTrees_misc_spooky" x="7841" y="1978" z="0" orientation="38"/>
+    <object id="object_83" definition="FFTrees_misc_spooky" x="7895" y="1339" z="0" orientation="41"/>
+    <object id="object_84" definition="FFTrees_misc_spooky" x="7348" y="1524" z="0" orientation="41"/>
+    <wall x="6200" y="1900" z="0" direction="horizontal" size="1000" height="200" id="Wall_1" src="FFMaterials_ground_Ground3"/>
+    <wall x="6200" y="2200" z="0" direction="horizontal" size="550" height="200" id="Wall_2" src="FFMaterials_ground_Ground3"/>
+    <wall x="6200" y="1900" z="0" direction="vertical" size="300" height="200" id="Wall_3" src="FFMaterials_ground_Ground3"/>
+    <wall x="7200" y="1900" z="0" direction="vertical" size="500" height="200" id="Wall_4" src="FFMaterials_ground_Ground3"/>
+    <wall x="6750" y="2200" z="0" direction="vertical" size="650" height="200" id="Wall_6" src="FFMaterials_ground_Ground3"/>
+    <wall x="6750" y="3550" z="0" direction="horizontal" size="750" height="200" id="Wall_8" src="FFMaterials_ground_Ground3"/>
+    <wall x="7500" y="3550" z="0" direction="horizontal" size="500" height="200" id="Wall_9" src="FFMaterials_ground_Ground3"/>
+    <light id="light_5" type="omni" size="900" x="5536" y="2032" z="149" color="#ffff00" intensity="30" decay="50" bump="false"/>
+    <light id="light_6" type="omni" size="900" x="6405" y="3349" z="149" color="#66ffff" intensity="50" decay="0" bump="false"/>
+    <wall x="6750" y="2850" z="0" direction="vertical" size="700" height="200" src="FFMaterials_ground_Ground3" id="Wall_10"/>
+    <wall x="7200" y="2400" z="0" direction="horizontal" size="800" height="200" src="FFMaterials_ground_Ground3" id="Wall_11"/>
+    <floor x="6200" y="1900" z="200" width="1000" height="300" src="MNIP_ForestMaterials_Ground" id="Floor_11"/>
+    <floor x="6750" y="2200" z="200" width="450" height="850" src="MNIP_ForestMaterials_Ground" id="Floor_12"/>
+    <floor x="7200" y="2400" z="200" width="800" height="650" src="MNIP_ForestMaterials_Ground" id="Floor_13"/>
+    <floor x="7200" y="3050" z="200" width="800" height="500" src="MNIP_ForestMaterials_Ground" id="Floor_14"/>
+    <light id="light_7" type="omni" size="1100" x="7542" y="2872" z="417" color="#ff99ff" intensity="40" decay="50" bump="false"/>
+    <light id="light_8" type="omni" size="900" x="7577" y="1639" z="149" color="#ffff00" intensity="25" decay="50" bump="false"/>
+    <wall x="5150" y="1300" z="0" direction="vertical" size="900" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_12"/>
+    <wall x="5000" y="2800" z="0" direction="vertical" size="400" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_13"/>
+    <wall x="5000" y="2200" z="0" direction="vertical" size="400" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_14"/>
+    <wall x="5000" y="2200" z="0" direction="horizontal" size="150" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_15"/>
+    <wall x="5000" y="3200" z="0" direction="horizontal" size="150" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_16"/>
+    <wall x="5150" y="3200" z="0" direction="vertical" size="500" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_17"/>
+    <wall x="5150" y="3700" z="0" direction="horizontal" size="1000" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_18"/>
+    <wall x="6150" y="3700" z="0" direction="horizontal" size="700" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_19"/>
+    <wall x="6850" y="3550" z="0" direction="vertical" size="150" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_20"/>
+    <wall x="5150" y="1300" z="0" direction="horizontal" size="1000" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_21"/>
+    <wall x="6450" y="1300" z="0" direction="vertical" size="600" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_22"/>
+    <wall x="6150" y="1300" z="0" direction="horizontal" size="300" height="100" src="MNIP_VillageMaterials_Fence" id="Wall_23"/>
+    <object id="object_115" definition="FFTrees_misc_tree10" x="5427" y="1583" z="0" orientation="0"/>
+    <object id="object_116" definition="FFTrees_misc_tree10" x="6064" y="1735" z="0" orientation="0"/>
+    <object id="object_117" definition="FFTrees_misc_tree10" x="5544" y="2025" z="0" orientation="186"/>
+    <object id="object_118" definition="FFTrees_misc_tree10" x="6496" y="3504" z="0" orientation="186"/>
+    <object id="object_119" definition="FFTrees_misc_tree10" x="7812" y="3422" z="200" orientation="186"/>
+    <floor x="6750" y="3050" z="200" width="450" height="500" src="MNIP_ForestMaterials_Ground" id="Floor_16"/>
+    <object id="object_120" definition="FFObjects_west_Grave2" x="5396" y="1772" z="0" orientation="356"/>
+    <object id="object_121" definition="FFObjects_west_Grave2" x="5693" y="1595" z="0" orientation="356"/>
+    <object id="object_122" definition="FFObjects_west_Grave2" x="5978" y="1544" z="0" orientation="101"/>
+    <object id="object_123" definition="FFObjects_west_Grave2" x="5977" y="1874" z="0" orientation="101"/>
+    <object id="object_124" definition="FFObjects_west_Grave2" x="5986" y="2125" z="0" orientation="101"/>
+    <object id="object_125" definition="FFObjects_west_Grave2" x="5408" y="2222" z="0" orientation="101"/>
+    <object id="object_126" definition="FFObjects_west_Grave2" x="5878" y="2306" z="0" orientation="101"/>
+    <object id="object_127" definition="FFObjects_west_Cross" x="6606" y="2878" z="0" orientation="0"/>
+    <object id="object_128" definition="FFObjects_west_Cross" x="6609" y="3072" z="0" orientation="0"/>
+    <object id="object_129" definition="FFObjects_west_Cross" x="5654" y="3293" z="0" orientation="91"/>
+    <object id="object_130" definition="FFObjects_west_Cross" x="5910" y="3292" z="0" orientation="247"/>
+    <object id="object_131" definition="FFObjects_west_Gravestones" x="5529" y="2925" z="0" orientation="0"/>
+    <object id="object_132" definition="FFObjects_west_Gravestones" x="5702" y="2150" z="0" orientation="0"/>
+    <object id="object_133" definition="FFObjects_west_Gravestones" x="6511" y="2890" z="0" orientation="0"/>
+    <object id="object_134" definition="FFObjects_west_Gravestones" x="6516" y="3078" z="0" orientation="0"/>
+    <object id="object_135" definition="FFObjects_west_Gravestones" x="5915" y="3207" z="0" orientation="115"/>
+    <object id="object_136" definition="FFObjects_west_Gravestones" x="5675" y="3192" z="0" orientation="115"/>
+    <object id="object_137" definition="FFObjects_west_Cross" x="7749" y="2607" z="200" orientation="98"/>
+    <object id="object_138" definition="FFObjects_west_Cross" x="7559" y="2600" z="200" orientation="98"/>
+    <object id="object_139" definition="FFObjects_west_Cross" x="7732" y="3154" z="200" orientation="98"/>
+    <object id="object_140" definition="FFObjects_west_Cross" x="7557" y="3164" z="200" orientation="98"/>
+    <object id="object_141" definition="FFObjects_west_Gravestones" x="7540" y="2713" z="217" orientation="246"/>
+    <object id="object_142" definition="FFObjects_west_Gravestones" x="7755" y="2697" z="201" orientation="246"/>
+    <object id="object_143" definition="FFObjects_west_Gravestones" x="7566" y="3057" z="201" orientation="246"/>
+    <object id="object_144" definition="FFObjects_west_Gravestones" x="7757" y="3060" z="201" orientation="246"/>
+    <light id="light_9" type="omni" size="900" x="5489" y="4020" z="149" color="#ff0000" intensity="50" decay="0" bump="false"/>
+  </body>
+</scene>

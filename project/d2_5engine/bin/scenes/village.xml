@@ -1,0 +1,121 @@
+<scene gridsize="50" levelsize="20" prerender="false">
+  <head>
+    <definitions src="../definitions/MNIP_VillageMaterials.xml"/>
+    <definitions src="../definitions/FFObjects_west.xml"/>
+    <definitions src="../definitions/FFTrees_misc.xml"/>
+    <definitions src="../definitions/MNIP_Items.xml"/>
+    <definitions src="../definitions/FFCharacters_poncho.xml"/>
+    <light id="Global light" intensity="30" color="#ffffff"/>
+    <name>The village</name>
+    <description/>
+    <definitions src="../definitions/FFMaterials_wood1.xml"/>
+  </head>
+  <body>
+    <floor id="Gound0" src="MNIP_VillageMaterials_Ground" width="50" height="200" x="0" y="1300" z="0"/>
+    <floor id="Gound10" src="MNIP_VillageMaterials_Ground" width="950" height="1000" x="50" y="0" z="0"/>
+    <floor id="Gound11" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="1000" y="0" z="0"/>
+    <floor id="Gound12" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="2000" y="0" z="0"/>
+    <floor id="Gound13" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="3000" y="0" z="0"/>
+    <floor id="Gound20" src="MNIP_VillageMaterials_Ground" width="950" height="1000" x="50" y="1000" z="0"/>
+    <floor id="Gound21" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="1000" y="1000" z="0"/>
+    <floor id="Gound22" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="2000" y="1000" z="0"/>
+    <floor id="Gound23" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="3000" y="1000" z="0"/>
+    <floor id="Gound30" src="MNIP_VillageMaterials_Ground" width="950" height="1000" x="50" y="2000" z="0"/>
+    <floor id="Gound31" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="1000" y="2000" z="0"/>
+    <floor id="Gound32" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="2000" y="2000" z="0"/>
+    <floor id="Gound33" src="MNIP_VillageMaterials_Ground" width="1000" height="1000" x="3000" y="2000" z="0"/>
+    <object src="MNIP_Pillar" x="410" y="220" z="20" definition="MNIP_Pillar"/>
+    <object src="MNIP_Pillar" x="410" y="550" z="20" definition="MNIP_Pillar"/>
+    <object src="MNIP_Pillar" x="410" y="890" z="20" definition="MNIP_Pillar"/>
+    <object src="MNIP_Pillar" x="750" y="890" z="20" definition="MNIP_Pillar"/>
+    <object src="MNIP_Pillar" x="1090" y="890" z="20" definition="MNIP_Pillar"/>
+    <object id="Horsepole" definition="FFObjects_west_Horsepole" x="500" y="1030" z="0"/>
+    <object id="Horsepole" definition="FFObjects_west_Horsepole" x="900" y="1030" z="0"/>
+    <object id="MOney1" definition="MNIP_MoneyBag" x="800" y="500" z="20"/>
+    <object src="MNIP_Pillar" x="1810" y="890" z="20" definition="MNIP_Pillar"/>
+    <object src="MNIP_Pillar" x="2490" y="890" z="20" definition="MNIP_Pillar"/>
+    <object id="MOney4" definition="MNIP_MoneyBag" x="3400" y="2500" z="20"/>
+    <object id="Cart" definition="FFObjects_west_Cart" x="500" y="2200" z="0"/>
+    <object id="Cart2" definition="FFObjects_west_Cart2" x="1580" y="680" z="0" orientation="270"/>
+    <object id="Tree 1" definition="FFTrees_misc_tree5" x="120" y="600" z="0" rotation="30"/>
+    <object id="Tree 3" definition="FFTrees_misc_tree5" x="700" y="1200" z="0" rotation="130"/>
+    <object id="Tree 4" definition="FFTrees_misc_tree5" x="700" y="2200" z="0" rotation="0"/>
+    <object id="Tree 6" definition="FFTrees_misc_tree8" x="1450" y="1800" z="0" rotation="130"/>
+    <object id="Tree 7" definition="FFTrees_misc_tree5" x="900" y="2600" z="0" rotation="90"/>
+    <object id="Info" definition="MNIP_Info" x="500" y="1400" z="20" rotation="0">
+      <info>The Village is a very heavy scene that I use to stress test the engine and some new materials. I don't expect it to run smoothly on an average machine.
+Most users won't be able to keep the BEST shadow quality settings and some will have to disable animated shadows.</info>
+    </object>
+    <event x="0" y="1300" z="0" width="50" height="10" depth="200" name="TELEPORT">
+      <destination>scenes/crossroads.xml</destination>
+      <enterx>550</enterx>
+      <entery>500</entery>
+      <enterz>0</enterz>
+      <enterOrientation>180</enterOrientation>
+    </event>
+    <wall x="600" y="200" z="20" direction="horizontal" size="600" height="320" id="Wall_1" src="MNIP_VillageMaterials_Windows15"/>
+    <wall x="1200" y="200" z="20" direction="vertical" size="450" height="320" id="Wall_2" src="MNIP_VillageMaterials_Windows15"/>
+    <wall x="600" y="200" z="20" direction="vertical" size="450" height="320" id="Wall_3" src="MNIP_VillageMaterials_Windows15"/>
+    <wall x="600" y="650" z="20" direction="horizontal" size="600" height="320" id="Wall_4" src="MNIP_VillageMaterials_Door15"/>
+    <floor x="400" y="650" z="260" width="800" height="250" id="Floor_3" src="FFMaterials_woods1_Wood1_28"/>
+    <wall id="Base_side1" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="400" y="100" z="0" direction="horizontal"/>
+    <wall id="Base_side2" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="1300" y="100" z="0" direction="vertical"/>
+    <wall id="Base_side3" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="400" y="900" z="0" direction="horizontal"/>
+    <wall id="Base_side4" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="400" y="100" z="0" direction="vertical"/>
+    <floor id="Base_side5" src="FFMaterials_woods1_Wood1_9" width="900" height="800" x="400" y="100" z="20"/>
+    <wall id="Base2_side1" src="FFMaterials_woods1_Wood1_9" size="1300" height="20" x="1700" y="100" z="0" direction="horizontal"/>
+    <wall id="Base2_side2" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="3000" y="100" z="0" direction="vertical"/>
+    <wall id="Base2_side3" src="FFMaterials_woods1_Wood1_9" size="1300" height="20" x="1700" y="900" z="0" direction="horizontal"/>
+    <wall id="Base2_side4" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="1700" y="100" z="0" direction="vertical"/>
+    <floor id="Base2_side5" src="FFMaterials_woods1_Wood1_9" width="1300" height="800" x="1700" y="100" z="20"/>
+    <wall id="Base3_side1" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="3000" y="100" z="0" direction="horizontal"/>
+    <wall id="Base3_side2" src="FFMaterials_woods1_Wood1_9" size="1200" height="20" x="3900" y="100" z="0" direction="vertical"/>
+    <wall id="Base3_side3" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="3000" y="1300" z="0" direction="horizontal"/>
+    <wall id="Base3_side4" src="FFMaterials_woods1_Wood1_9" size="1200" height="20" x="3000" y="100" z="0" direction="vertical"/>
+    <floor id="Base3_side5" src="FFMaterials_woods1_Wood1_9" width="900" height="1200" x="3000" y="100" z="20"/>
+    <wall id="Base4_side1" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="3000" y="1900" z="0" direction="horizontal"/>
+    <wall id="Base4_side2" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="3900" y="1900" z="0" direction="vertical"/>
+    <wall id="Base4_side3" src="FFMaterials_woods1_Wood1_9" size="900" height="20" x="3000" y="2700" z="0" direction="horizontal"/>
+    <wall id="Base4_side4" src="FFMaterials_woods1_Wood1_9" size="800" height="20" x="3000" y="1900" z="0" direction="vertical"/>
+    <floor id="Base4_side5" src="FFMaterials_woods1_Wood1_9" width="900" height="800" x="3000" y="1900" z="20"/>
+    <wall id="Fence_side1" src="MNIP_VillageMaterials_Fence" size="1500" height="100" x="1200" y="1600" z="0" direction="horizontal"/>
+    <wall id="Fence_side2" src="MNIP_VillageMaterials_Fence" size="1300" height="100" x="2700" y="1600" z="0" direction="vertical"/>
+    <wall id="Fence_side3" src="MNIP_VillageMaterials_Fence" size="1500" height="100" x="1200" y="2900" z="0" direction="horizontal"/>
+    <wall id="Fence_side4" src="MNIP_VillageMaterials_Fence" size="1300" height="100" x="1200" y="1600" z="0" direction="vertical"/>
+    <floor x="400" y="200" z="260" width="200" height="450" src="FFMaterials_woods1_Wood1_28" id="Floor_4"/>
+    <floor x="600" y="200" z="340" width="600" height="450" src="FFMaterials_woods1_Wood1_18" id="Floor_5"/>
+    <wall x="1900" y="250" z="20" direction="vertical" size="450" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_5"/>
+    <wall x="1900" y="700" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Door15" id="Wall_6"/>
+    <wall x="2500" y="700" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_7"/>
+    <wall x="3100" y="700" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_8"/>
+    <wall x="1900" y="250" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_9"/>
+    <wall x="2500" y="250" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_10"/>
+    <wall x="3100" y="250" z="20" direction="horizontal" size="600" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_11"/>
+    <wall x="3700" y="250" z="20" direction="vertical" size="450" height="320" src="MNIP_VillageMaterials_Windows15" id="Wall_12"/>
+    <wall x="1900" y="2600" z="0" direction="horizontal" size="600" height="260" src="MNIP_VillageMaterials_Windows15" id="Wall_13"/>
+    <wall x="1900" y="1850" z="0" direction="horizontal" size="600" height="260" src="MNIP_VillageMaterials_Windows15" id="Wall_14"/>
+    <wall x="2500" y="1850" z="0" direction="vertical" size="750" height="260" src="MNIP_VillageMaterials_Windows15" id="Wall_15"/>
+    <wall x="1900" y="1850" z="0" direction="vertical" size="750" height="260" src="MNIP_VillageMaterials_Door15" id="Wall_17"/>
+    <wall x="3150" y="2550" z="20" direction="horizontal" size="600" height="240" src="MNIP_VillageMaterials_Door13" id="Wall_18"/>
+    <wall x="3150" y="2000" z="20" direction="horizontal" size="600" height="240" src="MNIP_VillageMaterials_Windows13" id="Wall_19"/>
+    <wall x="3750" y="2000" z="20" direction="vertical" size="550" height="240" src="MNIP_VillageMaterials_Windows13" id="Wall_20"/>
+    <wall x="3150" y="2000" z="20" direction="vertical" size="550" height="240" src="MNIP_VillageMaterials_Windows13" id="Wall_21"/>
+    <floor x="1900" y="250" z="340" width="600" height="450" src="FFMaterials_woods1_Wood1_18" id="Floor_6"/>
+    <floor x="2500" y="250" z="340" width="600" height="450" src="FFMaterials_woods1_Wood1_18" id="Floor_7"/>
+    <floor x="3100" y="250" z="340" width="600" height="450" src="FFMaterials_woods1_Wood1_18" id="Floor_8"/>
+    <floor x="3150" y="2000" z="260" width="600" height="550" src="FFMaterials_woods1_Wood1_18" id="Floor_9"/>
+    <floor x="1900" y="1850" z="260" width="600" height="750" src="FFMaterials_woods1_Wood1_18" id="Floor_10"/>
+    <light id="light_5" type="omni" size="0" x="-892" y="8467" z="4524" color="#ffffff" intensity="70" decay="50" bump="false"/>
+    <object id="object_90" definition="FFObjects_west_Deposit" x="2000" y="400" z="340" orientation="0"/>
+    <object id="object_91" definition="FFObjects_west_Deposit" x="2550" y="400" z="340" orientation="0"/>
+    <object id="object_92" definition="FFObjects_west_Deposit" x="3050" y="399" z="340" orientation="0"/>
+    <object id="object_93" definition="FFObjects_west_Deposit" x="3600" y="400" z="340" orientation="0"/>
+    <object id="object_94" definition="FFObjects_west_Bloomery" x="2573" y="2734" z="0" orientation="0"/>
+    <floor x="1700" y="250" z="260" width="200" height="650" src="FFMaterials_woods1_Wood1_28" id="Floor_1"/>
+    <floor x="1900" y="700" z="260" width="1000" height="200" src="FFMaterials_woods1_Wood1_28" id="Floor_2"/>
+  </body>
+  <ignoreComments>false</ignoreComments>
+  <ignoreWhitespace>true</ignoreWhitespace>
+  <prettyPrinting>true</prettyPrinting>
+  <prettyIndent>3</prettyIndent>
+</scene>

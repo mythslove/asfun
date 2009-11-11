@@ -1,0 +1,111 @@
+<definitions>
+
+  <media src="../media/FFMaterials_rock.swf"/>
+
+	<materialDefinition name="FFMaterials_rock_Rock1" type="tile">
+			<diffuse>FFMaterials_rock_Rock1d</diffuse>
+			<bump>FFMaterials_rock_Rock1b</bump>
+	</materialDefinition>
+	
+	<materialDefinition name="FFMaterials_rock_Rock2" type="tile">
+			<diffuse>FFMaterials_rock_Rock2d</diffuse>
+			<bump>FFMaterials_rock_Rock2b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock3" type="tile">
+			<diffuse>FFMaterials_rock_Rock3d</diffuse>
+			<bump>FFMaterials_rock_Rock3b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock4" type="tile">
+			<diffuse>FFMaterials_rock_Rock4d</diffuse>
+			<bump>FFMaterials_rock_Rock4b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock5" type="tile">
+			<diffuse>FFMaterials_rock_Rock5d</diffuse>
+			<bump>FFMaterials_rock_Rock5b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock6" type="tile">
+			<diffuse>FFMaterials_rock_Rock6d</diffuse>
+			<bump>FFMaterials_rock_Rock6b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock7" type="tile">
+			<diffuse>FFMaterials_rock_Rock7d</diffuse>
+			<bump>FFMaterials_rock_Rock7b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock8" type="tile">
+			<diffuse>FFMaterials_rock_Rock8d</diffuse>
+			<bump>FFMaterials_rock_Rock8b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock9" type="tile">
+			<diffuse>FFMaterials_rock_Rock9d</diffuse>
+			<bump>FFMaterials_rock_Rock9b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock10" type="tile">
+			<diffuse>FFMaterials_rock_Rock10d</diffuse>
+			<bump>FFMaterials_rock_Rock10b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock11" type="tile">
+			<diffuse>FFMaterials_rock_Rock11d</diffuse>
+			<bump>FFMaterials_rock_Rock11b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock12" type="tile">
+			<diffuse>FFMaterials_rock_Rock12d</diffuse>
+			<bump>FFMaterials_rock_Rock12b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock13" type="tile">
+			<diffuse>FFMaterials_rock_Rock13d</diffuse>
+			<bump>FFMaterials_rock_Rock13b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock14" type="tile">
+			<diffuse>FFMaterials_rock_Rock14d</diffuse>
+			<bump>FFMaterials_rock_Rock14b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock15" type="tile">
+			<diffuse>FFMaterials_rock_Rock15d</diffuse>
+			<bump>FFMaterials_rock_Rock15b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock16" type="tile">
+			<diffuse>FFMaterials_rock_Rock16d</diffuse>
+			<bump>FFMaterials_rock_Rock16b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock17" type="tile">
+			<diffuse>FFMaterials_rock_Rock17d</diffuse>
+			<bump>FFMaterials_rock_Rock17b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock18" type="tile">
+			<diffuse>FFMaterials_rock_Rock18d</diffuse>
+			<bump>FFMaterials_rock_Rock18b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock19" type="tile">
+			<diffuse>FFMaterials_rock_Rock19d</diffuse>
+			<bump>FFMaterials_rock_Rock19b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock20" type="tile">
+			<diffuse>FFMaterials_rock_Rock20d</diffuse>
+			<bump>FFMaterials_rock_Rock20b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_rock_Rock21" type="tile">
+			<diffuse>FFMaterials_rock_Rock21d</diffuse>
+			<bump>FFMaterials_rock_Rock21b</bump>
+	</materialDefinition>
+
+
+</definitions>

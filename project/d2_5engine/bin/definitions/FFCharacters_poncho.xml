@@ -1,0 +1,81 @@
+<!-- 
+
+		Flash Filmation Engine:
+		
+		This is an example of a definition file. Definition files contain media references, material definitions and object definitions.
+		
+		Media references are paths to resources that need to be loaded to work with the definitions in this file.
+		
+		Object definitions provide common info for types of objects, such as graphic resources they use and size.
+		You can instantiate multiple instances of these definitions in your scenes.
+		
+		Material definitions are used in walls and floors.
+		
+		There is no limit on the amount of definitions you can have in a single XML, but it is a good practice to group
+		similar elements objects in a single file, such as trees.xml, stonewalls.xml or furniture.xml
+		
+-->
+
+<definitions>
+
+	<!-- The MEDIA tag
+	
+			 The media tag is used to identify external swfs that contain the graphical resources referenced here.
+			 This swf will be loaded on demand when the scene requests the media on them.
+			 Multiple MEDIA tags are allowed  -->
+	<media src="../media/FFCharacters_poncho.swf"/>
+
+
+	<!-- The OBJECTDEFINITION tag
+	
+			 This tag defines an object. An object is formed by one of more sprites, each associated to an angle. When the object is
+			 oriented ( from 0 to 360 degress ) the engine will show the sprite than represents an angle closest to the desired one.
+			 
+			 Attributes for this tag are:
+			 
+			 name: Used when instanstiating objects to refer to this definition
+			 
+			 Attributes for the sprite tag are:
+			 
+			 angle: which angle represents this sprite
+			 
+			 src: library symbol for this sprite
+			 
+			 
+			 Attributes for the cilinder collision model
+
+			 radius: The radius in pixels of an imaginary cilinder enclosing the object. It is used for colision detection.
+			 
+			 height: The height in pixels of an imaginary cilinder enclosing the object. It is used for colision detection.
+			 
+
+			 Attributes for the box collision model
+			 
+			 width, depth, height	size along x,y and z axis of the box enclosing the object, corresponding to the sprite at 0 rotation
+
+  -->
+	<objectDefinition name="FFCharacters_poncho">
+	
+		<displayModel>
+			<sprite angle="0" src="FFCharacters_poncho_0"/>
+			<sprite angle="45" src="FFCharacters_poncho_45"/>
+			<sprite angle="90" src="FFCharacters_poncho_90"/>
+			<sprite angle="135" src="FFCharacters_poncho_135"/>
+			<sprite angle="180" src="FFCharacters_poncho_180"/>
+			<sprite angle="225" src="FFCharacters_poncho_225"/>
+			<sprite angle="270" src="FFCharacters_poncho_270"/>
+			<sprite angle="315" src="FFCharacters_poncho_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="130"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+	
+
+</definitions>

@@ -1,0 +1,345 @@
+<definitions>
+
+	<media src="../media/FFTrees_misc.swf"/>
+
+	<!-- Cactus -->
+	<objectDefinition name="FFTrees_misc_cactus">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_cactus_0"/>
+			<sprite angle="45" src="FFTrees_misc_cactus_45"/>
+			<sprite angle="90" src="FFTrees_misc_cactus_90"/>
+			<sprite angle="135" src="FFTrees_misc_cactus_135"/>
+			<sprite angle="180" src="FFTrees_misc_cactus_180"/>
+			<sprite angle="225" src="FFTrees_misc_cactus_225"/>
+			<sprite angle="270" src="FFTrees_misc_cactus_270"/>
+			<sprite angle="315" src="FFTrees_misc_cactus_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="20" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+	<!-- Spooky Tree -->
+	<objectDefinition name="FFTrees_misc_spooky">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_spooky_0"/>
+			<sprite angle="45" src="FFTrees_misc_spooky_45"/>
+			<sprite angle="90" src="FFTrees_misc_spooky_90"/>
+			<sprite angle="135" src="FFTrees_misc_spooky_135"/>
+			<sprite angle="180" src="FFTrees_misc_spooky_180"/>
+			<sprite angle="225" src="FFTrees_misc_spooky_225"/>
+			<sprite angle="270" src="FFTrees_misc_spooky_270"/>
+			<sprite angle="315" src="FFTrees_misc_spooky_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="60" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+	<!-- Tree 2 -->
+	<objectDefinition name="FFTrees_misc_tree2">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree2_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree2_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree2_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree2_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree2_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree2_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree2_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree2_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 3 -->
+	<objectDefinition name="FFTrees_misc_tree3">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree3_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree3_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree3_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree3_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree3_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree3_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree3_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree3_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 4 -->
+	<objectDefinition name="FFTrees_misc_tree4">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree4_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree4_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree4_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree4_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree4_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree4_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree4_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree4_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 5 -->
+	<objectDefinition name="FFTrees_misc_tree5">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree5_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree5_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree5_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree5_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree5_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree5_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree5_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree5_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 6 -->
+	<objectDefinition name="FFTrees_misc_tree6">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree6_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree6_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree6_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree6_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree6_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree6_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree6_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree6_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 7 -->
+	<objectDefinition name="FFTrees_misc_tree7">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree7_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree7_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree7_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree7_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree7_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree7_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree7_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree7_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 8 -->
+	<objectDefinition name="FFTrees_misc_tree8">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree8_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree8_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree8_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree8_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree8_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree8_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree8_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree8_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 9 -->
+	<objectDefinition name="FFTrees_misc_tree9">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree9_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree9_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree9_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree9_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree9_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree9_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree9_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree9_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 10 -->
+	<objectDefinition name="FFTrees_misc_tree10">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree10_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree10_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree10_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree10_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree10_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree10_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree10_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree10_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 11 -->
+	<objectDefinition name="FFTrees_misc_tree11">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree11_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree11_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree11_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree11_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree11_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree11_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree11_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree11_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 12 -->
+	<objectDefinition name="FFTrees_misc_tree12">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree12_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree12_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree12_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree12_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree12_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree12_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree12_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree12_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Tree 13 -->
+	<objectDefinition name="FFTrees_misc_tree13">
+	
+		<displayModel>
+			<sprite angle="0" src="FFTrees_misc_tree13_0"/>
+			<sprite angle="45" src="FFTrees_misc_tree13_45"/>
+			<sprite angle="90" src="FFTrees_misc_tree13_90"/>
+			<sprite angle="135" src="FFTrees_misc_tree13_135"/>
+			<sprite angle="180" src="FFTrees_misc_tree13_180"/>
+			<sprite angle="225" src="FFTrees_misc_tree13_225"/>
+			<sprite angle="270" src="FFTrees_misc_tree13_270"/>
+			<sprite angle="315" src="FFTrees_misc_tree13_315"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="30" height="320"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+
+</definitions>

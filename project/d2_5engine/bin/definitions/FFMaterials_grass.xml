@@ -1,0 +1,41 @@
+<definitions>
+
+  <media src="../media/FFMaterials_grass.swf"/>
+
+	<materialDefinition name="FFMaterials_grass_Grass1" type="tile">
+			<diffuse>FFMaterials_grass_grass1d</diffuse>
+			<bump>FFMaterials_grass_grass1b</bump>
+	</materialDefinition>
+	
+	<materialDefinition name="FFMaterials_grass_Grass2" type="tile">
+			<diffuse>FFMaterials_grass_grass2d</diffuse>
+			<bump>FFMaterials_grass_grass2b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_grass_Grass3" type="tile">
+			<diffuse>FFMaterials_grass_grass3d</diffuse>
+			<bump>FFMaterials_grass_grass3b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_grass_Grass4" type="tile">
+			<diffuse>FFMaterials_grass_grass4d</diffuse>
+			<bump>FFMaterials_grass_grass4b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_grass_Grass5" type="tile">
+			<diffuse>FFMaterials_grass_grass5d</diffuse>
+			<bump>FFMaterials_grass_grass5b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_grass_Grass6" type="tile">
+			<diffuse>FFMaterials_grass_grass6d</diffuse>
+			<bump>FFMaterials_grass_grass6b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_grass_Grass7" type="tile">
+			<diffuse>FFMaterials_grass_grass7d</diffuse>
+			<bump>FFMaterials_grass_grass7b</bump>
+	</materialDefinition>
+
+
+</definitions>

@@ -1,0 +1,86 @@
+<definitions>
+
+  <media src="../media/FFMaterials_woods2.swf"/>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_1" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_1d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_1b</bump>
+	</materialDefinition>
+	
+	<materialDefinition name="FFMaterials_woods2_Wood2_2" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_2d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_2b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_3" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_3d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_3b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_4" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_4d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_4b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_5" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_5d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_5b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_6" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_6d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_6b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_7" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_7d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_7b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_8" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_8d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_8b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_9" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_9d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_9b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_10" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_10d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_10b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_11" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_11d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_11b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_12" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_12d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_12b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_13" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_13d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_13b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_14" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_14d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_14b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_15" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_15d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_15b</bump>
+	</materialDefinition>
+
+	<materialDefinition name="FFMaterials_woods2_Wood2_16" type="tile">
+			<diffuse>FFMaterials_woods2_Wood2_16d</diffuse>
+			<bump>FFMaterials_woods2_Wood2_16b</bump>
+	</materialDefinition>
+
+
+</definitions>

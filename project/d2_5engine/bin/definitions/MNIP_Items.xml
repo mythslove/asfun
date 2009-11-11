@@ -1,0 +1,59 @@
+<definitions>
+
+	<media src="../media/MNIP_Items.swf"/>
+
+	<!-- Info  -->
+	<objectDefinition name="MNIP_Info" solid="false">
+	
+		<displayModel>
+			<sprite angle="0" src="MNIP_Info"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="20" height="60"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+	<!-- Money Bag -->
+	<objectDefinition name="MNIP_MoneyBag" solid="false">
+	
+		<displayModel>
+			<sprite angle="0" src="MNIP_MoneyBag"/>
+		</displayModel>
+		
+		<collisionModel>
+			<cilinder radius="20" height="30"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+	<!-- Village pillar -->
+	<objectDefinition name="MNIP_Pillar" solid="true">
+	
+		<displayModel>
+			<sprite angle="0" src="MNIP_Pillar"/>
+		</displayModel>
+		
+		<collisionModel>
+			<box width="20" depth="20" height="240"/>
+		</collisionModel>
+		
+		<shadowModel>
+		 <shadow type="sprite"/>
+		</shadowModel>
+	
+	</objectDefinition>
+
+
+
+</definitions>
