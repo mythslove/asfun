@@ -1,4 +1,4 @@
-// AI methods
+﻿// AI methods
 
 package org.ffilmation.engine.core {
 	
@@ -9,7 +9,8 @@ package org.ffilmation.engine.core {
 		import org.ffilmation.engine.logicSolvers.lineOfSightSolver.*
 
 		/**
-		* <p>This object provides access to the AI methods of the engine.</p>
+		* <p>This object provides access to the AI methods of the engine. 
+		* 这个对象提供访问引擎中AI的方法</p>
 		*
 		*/
 		public class fAiContainer  {
