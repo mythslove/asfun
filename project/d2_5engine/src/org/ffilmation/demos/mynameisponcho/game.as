@@ -62,8 +62,7 @@
 				this.engine = new fEngine(this.container)
 				
 				// Goto first scene
-				//this.gotoScene("scenes/test.xml")
-				this.gotoScene("scenes/graveyard.xml")
+				this.gotoScene("scenes/test.xml")
 				
 		}
 	

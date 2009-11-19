@@ -1,11 +1,12 @@
-// Basic renderable element class
+﻿// Basic renderable element class
+// 基本渲染元素
 
 package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 	
 		// Imports
 		import org.ffilmation.utils.*
-	  import flash.display.*
-	  import flash.events.*	
+		import flash.display.*
+		import flash.events.*	
 		import flash.utils.*
 		import flash.geom.*
 		import org.ffilmation.engine.core.*
