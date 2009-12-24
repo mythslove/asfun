@@ -1,4 +1,4 @@
-package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
+﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
 	
 		// Imports
 		import flash.geom.Point
@@ -8,6 +8,7 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
 		
 		/**
 		* @private
+		* 包含一个地板元素的信息
 		* Contains projection information for a given floor
 	  */
 		public class fFloorProjectionCache {

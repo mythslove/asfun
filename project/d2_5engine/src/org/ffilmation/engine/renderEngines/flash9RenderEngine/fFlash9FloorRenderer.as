@@ -1,4 +1,4 @@
-package org.ffilmation.engine.renderEngines.flash9RenderEngine {
+﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 	
 		// Imports
 		import flash.display.*
@@ -17,11 +17,13 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 		import org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers.*
 
 		/**
+		 * 这个类渲染一个地面
 		* This class renders an fFloor
 		* @private
 		*/
 		public class fFlash9FloorRenderer extends fFlash9PlaneRenderer {
 		
+			trace("xxoo");
 			// Static properties and Render cache
 			public static var floorProjectionCache:fFloorProjectionCache = new fFloorProjectionCache()
 			public static var wallProjectionCache:Dictionary = new Dictionary(true)

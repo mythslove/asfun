@@ -1,4 +1,4 @@
-package org.ffilmation.engine.bulletRenderers {
+﻿package org.ffilmation.engine.bulletRenderers {
 
 		// Imports
 		import flash.display.*
@@ -12,6 +12,7 @@ package org.ffilmation.engine.bulletRenderers {
 		
 		/**
 		* This renderer renders a bullet as a single color pixel
+		* 这个渲染器渲染一个单一色彩像素的字弹
 		*/
 		public class fPixelBulletRenderer implements fEngineBulletRenderer {
 			
