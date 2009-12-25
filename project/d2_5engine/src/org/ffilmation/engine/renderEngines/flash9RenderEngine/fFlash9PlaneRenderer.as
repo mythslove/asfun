@@ -879,6 +879,7 @@
 
 			/** 
 			* Sets light to be a a new position in the plane
+			* 设置灯光在平面上的新位置
 			*/
 			public function setLightCoordinates(light:fLight,p:Point):void {
 				this.lightStatuses[light.uniqueId].localPos =	p

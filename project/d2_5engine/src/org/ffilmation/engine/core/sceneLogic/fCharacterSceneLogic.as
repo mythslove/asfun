@@ -1,4 +1,4 @@
-// CHARACTER LOGIC
+﻿// CHARACTER LOGIC
 package org.ffilmation.engine.core.sceneLogic {
 
 
@@ -178,17 +178,19 @@ package org.ffilmation.engine.core.sceneLogic {
 
 
 			// Main render method for characters
+			// 角色的主渲染方法
 			public static function renderCharacter(scene:fScene,character:fCharacter):void {
-			
 			   
 			   if(scene.prof) scene.prof.begin("Render char:"+character.id, true )
 			   
 			   var light:fOmniLight, elements:Array, nEl:int, len:int, cache:fCharacterShadowCache 
 			   
-				 // Move character to its new position
-				 scene.renderEngine.updateCharacterPosition(character)
-
-			   // Render all lights and shadows
+				// Move character to its new position
+				// 移动角色到新位置
+				scene.renderEngine.updateCharacterPosition(character)
+				 
+			   // Render all lights and shadows 
+			   //渲染全部的灯光和阴影
 			   len = character.vLights.length
 			   for(var i:int=0;i<len;i++) {
 			   
@@ -197,12 +199,12 @@ package org.ffilmation.engine.core.sceneLogic {
 					 	
 					 		// Start
 					 		light = cache.light as fOmniLight
-			   		  scene.renderEngine.renderStart(character,light)
-			   		  scene.renderEngine.renderLight(character,light)
+							scene.renderEngine.renderStart(character,light)
+							scene.renderEngine.renderLight(character,light)
 			    		
-			    		// Update shadows for scene character
-			    		elements = cache.elements
-			    		nEl = elements.length
+							// Update shadows for scene character
+							elements = cache.elements
+							nEl = elements.length
 		   	 		  if(fEngine.characterShadows) for(var i2:Number=0;i2<nEl;i2++) {
 		   	 		  	try {
 		   	 		  		if(scene.prof) {

@@ -1,4 +1,4 @@
-package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
+﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
 	
 		// Imports
 		import flash.geom.Point
@@ -9,11 +9,12 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers {
 		/**
 		* @private
 		* Keeps track of several variables of one light in one plane
+		* 在一个平面上保持跟踪关于一个灯光的几个变量。
 		*/
 		public class fLightStatus {
-
+			
 			// Public properties
-	    public var element:fPlane
+			public var element:fPlane
 			public var light:fLight
 			
 			public var created:Boolean

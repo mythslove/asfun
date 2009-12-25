@@ -1,4 +1,4 @@
-package org.ffilmation.engine.interfaces {
+﻿package org.ffilmation.engine.interfaces {
 
 		// Imports
 		import flash.display.*
@@ -127,7 +127,10 @@ package org.ffilmation.engine.interfaces {
 
 
 				/**
-				* <p>Rendering occurs in two ways: a light changes or an element changes. When a light changes this happens:</p>
+				* <p>
+				* Rendering occurs in two ways: a light changes or an element changes. When a light changes this happens:
+				* 渲染两种情况：一个灯光改变或者一个元素改变。
+				* </p>
 				* <ol>
 				* <li>A renderStart call is issued for each affected element.</li>
 				* <li>Each affected element receives a renderLight call, and if any is needed several renderShadow calls.</li>

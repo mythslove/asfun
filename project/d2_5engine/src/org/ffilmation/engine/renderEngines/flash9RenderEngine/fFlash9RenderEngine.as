@@ -241,8 +241,8 @@
 				*/
 				public function renderLight(element:fRenderableElement,light:fOmniLight):void {
 					var r:fFlash9ElementRenderer = element.customData.flash9Renderer
-			  	if(r.screenVisible) r.renderLight(light)
-			  	if(!r.screenVisible || fEngine.conserveMemory) r.renderMessages.addMessage(fAllRenderMessages.RENDER_LIGHT,light)
+					if(r.screenVisible) r.renderLight(light)
+					if(!r.screenVisible || fEngine.conserveMemory) r.renderMessages.addMessage(fAllRenderMessages.RENDER_LIGHT,light)
 				}
 
 				/**

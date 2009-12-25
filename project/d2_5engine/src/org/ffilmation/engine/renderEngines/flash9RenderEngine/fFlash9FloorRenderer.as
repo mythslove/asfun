@@ -17,13 +17,12 @@
 		import org.ffilmation.engine.renderEngines.flash9RenderEngine.helpers.*
 
 		/**
-		 * 这个类渲染一个地面
 		* This class renders an fFloor
+		* 这个类用来渲染地面
 		* @private
 		*/
 		public class fFlash9FloorRenderer extends fFlash9PlaneRenderer {
 		
-			trace("xxoo");
 			// Static properties and Render cache
 			public static var floorProjectionCache:fFloorProjectionCache = new fFloorProjectionCache()
 			public static var wallProjectionCache:Dictionary = new Dictionary(true)
@@ -40,35 +39,37 @@
 				 container.addChild(destination)
 			   
 				 // Set specific wall dimensions
-			   this.scrollR = new Rectangle(0, 0, element.width, element.depth)
+				this.scrollR = new Rectangle(0, 0, element.width, element.depth)
 				 this.planeDeform = new Matrix() //fFlash9FloorRenderer.matrix
 				 this.planeDeform.rotate(-45*Math.PI/180)
 				 this.planeDeform.scale(1.0015,0.501)
 				 
-			   // Previous
+				// Previous
 				 super(rEngine,element,element.width,element.depth,destination,container)
 				 
 				 // Clipping viewport
-         this.vp = new vport()
-         this.vp.x_min = element.x
-         this.vp.x_max = element.x+element.width
-         this.vp.y_min = element.y
-         this.vp.y_max = element.y+element.depth
+				 this.vp = new vport()
+				 this.vp.x_min = element.x
+				 this.vp.x_max = element.x+element.width
+				 this.vp.y_min = element.y
+				 this.vp.y_max = element.y+element.depth
                         				 
 			
 			}
 
 			// LIGHTS
+			// 灯光
 			/////////
 			
 			
 			/**
 			* Render ( draw ) light
+			* 灯光渲染
 			*/
 			public override function renderLight(light:fLight):void {
-			
-			   var status:fLightStatus = this.lightStatuses[light.uniqueId]
-			   var lClip:Sprite = this.lightClips[light.uniqueId]
+				
+			   var status:fLightStatus = this.lightStatuses[light.uniqueId];
+			   var lClip:Sprite = this.lightClips[light.uniqueId];
 				
 			   if(status.lightZ != light.z) {
 			      status.lightZ = light.z
@@ -77,22 +78,26 @@
 			   }    
 			
 			   // Move light
-	   	   this.setLightCoordinates(light,fScene.translateCoords(light.x-this.element.x,light.y-this.element.y,0))
+			   // 移动灯光
+			   this.setLightCoordinates(light, fScene.translateCoords(light.x - this.element.x, light.y - this.element.y, 0));
 			
 			}
 
 			/**
 			* Light leaves element
+			* 灯光元素移开
 			*/
 			public override function lightOut(light:fLight):void {
-			
+				
 			   // Hide container
+			   // 隐藏容器
 			   if(this.lightStatuses && this.lightStatuses[light.uniqueId]) {
 			  	 var lClip:Sprite = this.lightClips[light.uniqueId]
 			   	 this.lightC.removeChild(lClip)
 			   }
-
+			   
 			   // Hide shadows
+			   //隐藏阴影
 				 if(fFlash9FloorRenderer.objectProjectionCache[this.element.uniqueId+"_"+light.uniqueId]) {
 				 		var cache:Dictionary = fFlash9FloorRenderer.objectProjectionCache[this.element.uniqueId+"_"+light.uniqueId]
 				 		for(var i in cache) {
@@ -105,9 +110,7 @@
 				 		}		   
 				 }
 			   
-		 		 this.undoCache(true)
-
-
+		 		 this.undoCache(true);
 			}
 
 			/**

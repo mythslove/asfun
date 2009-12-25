@@ -30,6 +30,7 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 			*/
 			public function addMessage(message:int,target:fElement,target2:fElement=null,dontStore:Boolean=false):void {
 				
+				return;
 				// Clear previous messages if they are invalidated by this one
 				var l:int = this.messages.length
 				var invalidationList:Array = fAllRenderMessages.invalidations[message]
