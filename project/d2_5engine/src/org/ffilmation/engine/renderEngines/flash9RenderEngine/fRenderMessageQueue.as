@@ -1,4 +1,4 @@
-package org.ffilmation.engine.renderEngines.flash9RenderEngine {
+﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 	
 		// Imports
 		import flash.events.*
@@ -27,10 +27,10 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 			/** 
 			* This method adds a render message to the list. It checks if this message invalidates older messages,
 			* so when the element is rendered, only the relevant messages are waiting to be procesed.
+			* 
 			*/
 			public function addMessage(message:int,target:fElement,target2:fElement=null,dontStore:Boolean=false):void {
 				
-				return;
 				// Clear previous messages if they are invalidated by this one
 				var l:int = this.messages.length
 				var invalidationList:Array = fAllRenderMessages.invalidations[message]

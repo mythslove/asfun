@@ -1,7 +1,8 @@
-package org.ffilmation.engine.renderEngines.flash9RenderEngine {
+﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 	
 		/**
 		* This stores constants of render messages available for the ffilmation render engine
+		* 储存一些渲染引擎用到的常数
 		* @private
 		*/
 		public class fAllRenderMessages {
@@ -38,21 +39,21 @@ package org.ffilmation.engine.renderEngines.flash9RenderEngine {
 			public static var invalidations13:Array = [fAllRenderMessages.START_OCCLUSION,fAllRenderMessages.UPDATE_OCCLUSION,fAllRenderMessages.STOP_OCCLUSION]
 			
 			public static var invalidations:Array = [
-																							 fAllRenderMessages.invalidations0,
-																							 fAllRenderMessages.invalidations1,
-																							 fAllRenderMessages.invalidations2,
-																							 fAllRenderMessages.invalidations3,
-																							 fAllRenderMessages.invalidations4,
-																							 fAllRenderMessages.invalidations5,
-																							 fAllRenderMessages.invalidations6,
-																							 fAllRenderMessages.invalidations7,
-																							 fAllRenderMessages.invalidations8,
-																							 fAllRenderMessages.invalidations9,
-																							 fAllRenderMessages.invalidations10,
-																							 fAllRenderMessages.invalidations11,
-																							 fAllRenderMessages.invalidations12,
-																							 fAllRenderMessages.invalidations13
-																							]
+														fAllRenderMessages.invalidations0,
+														fAllRenderMessages.invalidations1,
+														fAllRenderMessages.invalidations2,
+														fAllRenderMessages.invalidations3,
+														fAllRenderMessages.invalidations4,
+														fAllRenderMessages.invalidations5,
+														fAllRenderMessages.invalidations6,
+														fAllRenderMessages.invalidations7,
+														fAllRenderMessages.invalidations8,
+														fAllRenderMessages.invalidations9,
+														fAllRenderMessages.invalidations10,
+														fAllRenderMessages.invalidations11,
+														fAllRenderMessages.invalidations12,
+														fAllRenderMessages.invalidations13
+													]
 			
 		}
 			

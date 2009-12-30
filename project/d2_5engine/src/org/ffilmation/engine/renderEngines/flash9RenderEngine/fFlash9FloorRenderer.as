@@ -155,7 +155,7 @@
 			* Calculates and projects shadows of objects upon this floor
 			*/
 			public override function renderObjectShadow(light:fLight,other:fObject,msk:Sprite):void {
-			   
+			    
 				 // Too far away ?
 				 if((other.z-this.element.z)>fObject.SHADOWRANGE) return
 

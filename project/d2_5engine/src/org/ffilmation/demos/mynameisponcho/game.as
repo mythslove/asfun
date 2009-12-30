@@ -45,27 +45,28 @@
 		// Init demo
 		public function game():void {
 			
-				// Profiler init
-				ProfilerConfig.Width = 650
-				this.prof = new fProfiler()
-				profilerClip.addChild( this.prof )
-				this.prof.y = 5
-				this.timeline = this
-				this.container = new Sprite()
-				filmationTest.addChild(this.container)
-
-			  // Force controller classes to be included in the compiled SWF. I know there must be a nicer way to achieve this...
-			  var c1:org.ffilmation.demos.mynameisponcho.controllers.forest
-
-				// Create engine
-				fEngine.shadowQuality = fShadowQuality.GOOD
-				this.engine = new fEngine(this.container)
-				
-				// Goto first scene
-				//this.gotoScene("scenes/test.xml")
-				this.gotoScene("scenes/graveyard.xml")
-				//this.gotoScene("scenes/test.xml")
-				this.gotoScene("scenes/forest.xml")
+			// Profiler init
+			ProfilerConfig.Width = 650
+			this.prof = new fProfiler()
+			profilerClip.addChild( this.prof )
+			this.prof.y = 5
+			this.timeline = this
+			this.container = new Sprite()
+			filmationTest.addChild(this.container)
+		 	
+		    // Force controller classes to be included in the compiled SWF. I know there must be a nicer way to achieve this...
+			//这条语句的作用只是为了包含forset这个类
+		    var c1:org.ffilmation.demos.mynameisponcho.controllers.forest
+            
+			// Create engine
+			fEngine.shadowQuality = fShadowQuality.GOOD
+			this.engine = new fEngine(this.container)
+			
+			// Goto first scene
+			//this.gotoScene("scenes/test.xml")
+			this.gotoScene("scenes/graveyard.xml")
+			//this.gotoScene("scenes/test.xml")
+			this.gotoScene("scenes/forest.xml")
 				
 		}
 	

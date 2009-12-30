@@ -16,6 +16,7 @@
 
 		/**
 		* This is ffilmation's default flash9 isometric renderer
+		* 这个是默人的等视角渲染引擎
 		* @private
 		*/
 		public class fFlash9RenderEngine implements fEngineRenderEngine {

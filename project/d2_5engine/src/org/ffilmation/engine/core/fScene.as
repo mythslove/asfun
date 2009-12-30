@@ -254,6 +254,7 @@ package org.ffilmation.engine.core {
 		
 			/**
 			* Constructor. Don't call directly, use fEngine.createScene() instead
+			* 不要直接实例化，使用fEngine.createScene来实例化
 			* @private
 			*/
 			function fScene(engine:fEngine,container:Sprite,retriever:fEngineSceneRetriever,width:Number,height:Number,renderer:fEngineRenderEngine=null,p:fProfiler=null):void {
@@ -293,6 +294,7 @@ package org.ffilmation.engine.core {
 			   this.renderEngine.setViewportSize(width,height)
 			   
 			   // The render manager decides which elements are inside the viewport and which elements are not
+			   // 渲染管理器决定了那些元素是可视的，那些元素是不可视的。
 			   this.renderManager = new fSceneRenderManager(this)
 			   this.renderManager.setViewportSize(width,height)
 			   
@@ -317,6 +319,7 @@ package org.ffilmation.engine.core {
 			
 			/**
 			* This method changes the viewport's size. It is useful, for example, to adapt your scene to liquid layouts
+			* 这个方法可以更改你的可视大小
 			*
 			* @param width New width for the viewport
 			* @param height New height for the viewport
@@ -823,8 +826,9 @@ package org.ffilmation.engine.core {
 			/**
 			* Use this method to completely rerender the scene. However, under normal circunstances there shouldn't be a need to call this manually
 			*/
+			public static var xxoo:Number = 0;
 			public function render():void {
-
+				
 			   // Render global light
 			   this.environmentLight.render()
 

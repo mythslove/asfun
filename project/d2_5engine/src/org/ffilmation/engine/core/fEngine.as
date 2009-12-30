@@ -1,4 +1,4 @@
-package org.ffilmation.engine.core {
+﻿package org.ffilmation.engine.core {
 
 		// Imports
 		import flash.system.*
@@ -14,9 +14,15 @@ package org.ffilmation.engine.core {
 		
 		
 		/**
-		* <p>The fEngine class is the main class in the game engine.</p>
+		* <p>
+		* The fEngine class is the main class in the game engine.
+		* fEngine类是游戏引擎的主类
+		* </p>
 		*
-		* <p>Use the fEngine class to create and attach game scenes to your game.</p>
+		* <p>
+		* Use the fEngine class to create and attach game scenes to your game.
+		* 使用游戏引擎类在你的游戏中创建和连接游戏场景
+		* </p>
 		*
 		* <p>You can also use it to load external swfs containing media you want to add to you scenes.</p>
 		*
@@ -61,18 +67,19 @@ package org.ffilmation.engine.core {
 		*/
 		public class fEngine extends EventDispatcher {
 		
-			 // Constants
+			// Constants
 			 
-			 /**
-		   * Just in case you want to display it
-			 */
-			 public static const VERSION:String = "1.3.3"
+			/**
+		    * Just in case you want to display it
+			* 版本号，以防你要显示它.
+			*/
+			public static const VERSION:String = "1.3.3";
 
-			 /**
-		   * This constant is used everywhere to apply perspective correction to all heights
-		   * @private
-			 */
-			 public static const DEFORMATION:Number = 0.7906
+			/**
+		    * This constant is used everywhere to apply perspective correction to all heights
+		    * @private
+			*/
+			public static const DEFORMATION:Number = 0.7906
 		   
 			 /**
 			 * To simplify sorting huge scenes, the scene is split into cubes of a given size. Elements are sorted only within the cubes and the cubes are
@@ -173,16 +180,18 @@ package org.ffilmation.engine.core {
 			 */
 			 private static var _bumpMapping:Boolean = false
 
-			 // Static private
-		   private static var engines:Array = new Array
-		   																	  // All engines
+			// Static private
+			
+			// All engines
+		    private static var engines:Array = new Array
 		   																	  
-
-		   private static var media:Array = new Array
-		   																		// List of media files that have already been loaded
-		   																		// Static so it wotks with several engines ( eventhought I can't think of an scenario where you
-		   																		// would want more than one engine
-
+		   																	  
+			// List of media files that have already been loaded
+			// Static so it wotks with several engines ( eventhought I can't think of an scenario where you
+			// would want more than one engine
+		    private static var media:Array = new Array;
+			
+			
 			 // Private
 		   public var container:Sprite    		// Main moviecontainer
 		   private var scenes:Array           // List of scenes
@@ -194,85 +203,86 @@ package org.ffilmation.engine.core {
 		   public static var context:LoaderContext = new LoaderContext(false,ApplicationDomain.currentDomain)
 
 		
-			 // Constructor
-
-			 /**
-		   * Constructor for the fEngine class.
-		   *
-		   * @param container An sprite object where the engine will draw your game
-			 */
-			 function fEngine(container:Sprite):void {
-		
-					this.container = container
-					this.scenes	= new Array
-					this.current = null
-					
-					// Arrg dirty trick !! So I have access to onenterframe events from anywhere in the engine
-					if(!fEngine.stage) {
-						if(container.stage)	fEngine.stage = container.stage
-						else container.addEventListener(Event.ADDED_TO_STAGE,this.getStage)
-					}
-					
-					
-					// Add engine to list of all engines
-					fEngine.engines[fEngine.engines.length] = this
-					
-			 }
-			 
-			 // Retrieves stage
-			 private function getStage(e:Event):void {
-			 		var s:Sprite = e.target as Sprite
-			 		fEngine.stage = s.stage
-			 		s.removeEventListener(Event.ADDED_TO_STAGE,this.getStage)
-			 }
+			// Constructor
 			
-			 /**
-			 * This method loads an external media file. Once the media file is loaded, the symbols in that file can
-			 * be used in you scene definitions. Listen to the engine's MEDIALOADPROGRESS and MEDIALOADCOMPLETE to
-			 * control the process. The class checks if the media is already loaded to avoid duplicate loads.
-			 *
-			 * <p><b>WARNING !</b> If you want to use the engine from within an Adobe AIR application, make sure to execute this
-			 * line: <b>fEngine.context.allowLoadBytesCodeExecution = true</b> before creating an scene. Otherwise assets won't load
-			 * into the application security domain and won't work.</p>
-			 *
-			 * @param src Path to the swf file you want to load
-			 *
-			 */
-			 public function loadMedia(src:String) {
-			 	
-				 	if(fEngine.media[src]==null) {
-				 	
-				 		// This file is not loaded
-				 		fEngine.media[src] = true
-				 		
-						// Using loadBytes allows the adobe AIR editor to import loaded swfs into its security domain
-						if(Capabilities.playerType=="Desktop") {
-							
-							var ByteLoader:URLLoader = new URLLoader()
-							ByteLoader.dataFormat = URLLoaderDataFormat.BINARY
-							ByteLoader.addEventListener(Event.COMPLETE, this.loadBytesComplete,false,0,true)
-							ByteLoader.addEventListener(ProgressEvent.PROGRESS, this.loadBytesProgress,false,0,true)
-							ByteLoader.addEventListener(IOErrorEvent.IO_ERROR, this.loadBytesError,false,0,true)
-							ByteLoader.load(new URLRequest(src))
-							
-					  } else {
-
-				 			var cLoader:Loader = new Loader()
-				  		cLoader.contentLoaderInfo.addEventListener(Event.COMPLETE,this.loadComplete,false,0,true)
-				  		cLoader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS,this.loadProgress,false,0,true)
-				  		cLoader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,this.loadError,false,0,true)
-				  		cLoader.load(new URLRequest(src),fEngine.context)
-				  	
-				  	}
-				  
-					} else {
-						
-						// Already loaded
-						this.dispatchEvent(new Event(fEngine.MEDIALOADCOMPLETE))
+			/**
+		    * Constructor for the fEngine class.
+		    *
+		    * @param container An sprite object where the engine will draw your game
+			*/
+			function fEngine(container:Sprite):void {
+		
+				this.container = container;
+				this.scenes	= new Array();
+				this.current = null;
 					
+				// Arrg dirty trick !! So I have access to onenterframe events from anywhere in the engine
+				if(!fEngine.stage) {
+					if (container.stage) {
+						fEngine.stage = container.stage;
+					}else {
+						container.addEventListener(Event.ADDED_TO_STAGE, this.getStage);
 					}
+				}
+				
+				// Add engine to list of all engines
+				fEngine.engines[fEngine.engines.length] = this;
+			}
+			 
+			// Retrieves stage
+			private function getStage(e:Event):void {
+			 	var s:Sprite = e.target as Sprite;
+			 	fEngine.stage = s.stage;
+			 	s.removeEventListener(Event.ADDED_TO_STAGE, this.getStage);
+			}
+			
+			/**
+			* This method loads an external media file. Once the media file is loaded, the symbols in that file can
+			* be used in you scene definitions. Listen to the engine's MEDIALOADPROGRESS and MEDIALOADCOMPLETE to
+			* control the process. The class checks if the media is already loaded to avoid duplicate loads.
+			*
+			* <p><b>WARNING !</b> If you want to use the engine from within an Adobe AIR application, make sure to execute this
+			* line: <b>fEngine.context.allowLoadBytesCodeExecution = true</b> before creating an scene. Otherwise assets won't load
+			* into the application security domain and won't work.</p>
+			*
+			* @param src Path to the swf file you want to load
+			*
+			*/
+			public function loadMedia(src:String) {
 			 	
-			 }
+				if(fEngine.media[src]==null) {
+				 	
+					// This file is not loaded
+					fEngine.media[src] = true;
+				 		
+					// Using loadBytes allows the adobe AIR editor to import loaded swfs into its security domain
+					if(Capabilities.playerType=="Desktop") {
+						
+						var ByteLoader:URLLoader = new URLLoader();
+						ByteLoader.dataFormat = URLLoaderDataFormat.BINARY;
+						ByteLoader.addEventListener(Event.COMPLETE, this.loadBytesComplete, false, 0, true);
+						ByteLoader.addEventListener(ProgressEvent.PROGRESS, this.loadBytesProgress, false, 0, true);
+						ByteLoader.addEventListener(IOErrorEvent.IO_ERROR, this.loadBytesError, false, 0, true);
+						ByteLoader.load(new URLRequest(src))
+						
+				    } else {
+                       
+						var cLoader:Loader = new Loader();
+						cLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, this.loadComplete, false, 0, true);
+						cLoader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, this.loadProgress, false, 0, true);
+						cLoader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, this.loadError, false, 0, true);
+						cLoader.load(new URLRequest(src), fEngine.context);
+					}
+				  
+				} else {
+						
+					// Already loaded
+					//已经加载
+					this.dispatchEvent(new Event(fEngine.MEDIALOADCOMPLETE));
+					
+				}
+			 	
+			}
 
 			 // Using loadBytes allows the adobe AIR editor to import loaed swfs into its security domain
 			 private function loadBytesError(event:IOErrorEvent):void {
@@ -316,13 +326,12 @@ package org.ffilmation.engine.core {
 
 			 }
 
-			 private function loadComplete(event:Event):void {
-
+			private function loadComplete(event:Event):void {
 			  	event.target.removeEventListener(Event.COMPLETE,this.loadComplete)
-				  event.target.removeEventListener(ProgressEvent.PROGRESS,this.loadProgress)
-				  event.target.removeEventListener(IOErrorEvent.IO_ERROR ,this.loadError)
+				event.target.removeEventListener(ProgressEvent.PROGRESS,this.loadProgress)
+				event.target.removeEventListener(IOErrorEvent.IO_ERROR ,this.loadError)
 			   	this.dispatchEvent(new Event(fEngine.MEDIALOADCOMPLETE))
-			 }
+			}
 			
 			 private function loadProgress(event:ProgressEvent):void {
 			 	
@@ -350,20 +359,19 @@ package org.ffilmation.engine.core {
 			 *
 		   * @return A fScene Object.
 			 */
-			 public function createScene(retriever:fEngineSceneRetriever,width:Number,height:Number,renderer:fEngineRenderEngine=null,prof:fProfiler=null):fScene {
-		
+			public function createScene(retriever:fEngineSceneRetriever, width:Number, height:Number, renderer:fEngineRenderEngine = null, prof:fProfiler = null):fScene {
+				
 		   		// Create container for scene
 		   		var nSprite:Sprite = new Sprite()
-
+				
 		   		// Create scene
-		   		var nfScene:fScene = new fScene(this,nSprite,retriever,width,height,renderer,prof)
-					nfScene.initialize()
-					
+		   		var nfScene:fScene = new fScene(this, nSprite, retriever, width, height, renderer, prof);
+				nfScene.initialize()
+				
 		   		// Add to list and return
 		   		this.scenes[this.scenes.length] = nfScene
 		   		return nfScene
-		   		
-		   }
+		    }
 
 			 /**
 			 * This method frees all resources allocated by an scene. Use this as often as possible and always clean unused scene objects:
@@ -446,12 +454,12 @@ package org.ffilmation.engine.core {
        
        }			 
 
-			 /**
-			 * This property enables/disables shadow projection of objects
-			 */
-			 public static function get objectShadows():Boolean {
-         return fEngine._objectShadows
-       }
+		/**
+		* This property enables/disables shadow projection of objects
+		*/
+		public static function get objectShadows():Boolean {
+			return fEngine._objectShadows
+        }
 
        public static function set objectShadows(shd:Boolean):void {
        	
@@ -495,15 +503,15 @@ package org.ffilmation.engine.core {
        }			 
 
 
-			 /**
-			 * This property defines the quality at which object and character shadows are rendered
-			 *
-			 * @see org.ffilmation.engine.core.fShadowQuality
-			 */
-			 public static function get shadowQuality():int {
-         return fEngine._shadowQuality
-       }
-
+		/**
+		* This property defines the quality at which object and character shadows are rendered
+		*
+	    * @see org.ffilmation.engine.core.fShadowQuality
+		*/
+	    public static function get shadowQuality():int {
+            return fEngine._shadowQuality
+        }
+		
        public static function set shadowQuality(shd:int):void {
 
          fEngine._shadowQuality = shd
