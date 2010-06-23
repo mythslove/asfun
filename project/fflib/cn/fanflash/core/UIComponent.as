@@ -43,7 +43,7 @@
 			this.addEventListener(Event.ADDED_TO_STAGE, this.init);
 		}
 		
-		final function init(e:Event) {
+		final function init(e:Event):void {
 			
 			if (this._width == Number.NaN) { this._width = this.width; }
 			if (this._height == Number.NaN) { this._height = this.height; }
