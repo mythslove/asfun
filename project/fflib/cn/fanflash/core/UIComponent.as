@@ -43,10 +43,10 @@
 			this.addEventListener(Event.ADDED_TO_STAGE, this.init);
 		}
 		
-		final function init(e:Event):void {
+		private final function init(e:Event):void {
 			
-			if (this._width == Number.NaN) { this._width = this.width; }
-			if (this._height == Number.NaN) { this._height = this.height; }
+			if (isNaN(this._width)) { this._width = this.width; }
+			if (isNaN(this._height)) { this._height = this.height; }
 			
 			this.initialized = true;
 			this.configUI();	
@@ -154,7 +154,7 @@
 		/**
 		 * 用于子类覆盖实现，这个方法将在显示对象加入显示列表时被调用
 		 */
-		private function configUI() { }
+		private function configUI():void { }
 		
 		
 	}
