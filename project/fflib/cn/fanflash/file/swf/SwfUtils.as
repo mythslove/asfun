@@ -1,5 +1,7 @@
 package cn.fanflash.file.swf
 {
+	import cn.fanflash.utils.ByteArrayUtil;
+	
 	import com.adobe.images.JPGEncoder;
 	import com.adobe.images.PNGEncoder;
 	
@@ -34,7 +36,7 @@ package cn.fanflash.file.swf
 		 * @return swf文件的字节流
 		 * 
 		 */		
-		public static function getSwfImage(bmp:BitmapData,identifier:String="", quality:int = 80 ):ByteArray{
+		public static function getSwfImage(bmp:BitmapData,identifier:String = null, quality:int = 80, isCompressed:Boolean = true ):ByteArray{
 			
 			var tagSCR:StyleChangeRecord = new StyleChangeRecord();
 			tagSCR.stateFillStyle1=true;
@@ -75,7 +77,7 @@ package cn.fanflash.file.swf
 			swf.header.version = 8;
 			swf.header.frameSize.xMax = bmp.width;
 			swf.header.frameSize.yMax = bmp.height;
-			swf.header.isCompressed = false;
+			swf.header.isCompressed = isCompressed;
 			swf.header.frameRate = 1;
 			var bc:SetBackgroundColor = new SetBackgroundColor();
 			var rgb:RGB = new RGB();
@@ -86,8 +88,7 @@ package cn.fanflash.file.swf
 			
 			
 			//这个tag表示有渐变的JPG
-			//var jpg:JPGEncoder = new JPGEncoder(quality);
-			var jpg:JPGEncoder = new JPGEncoder(80);
+			var jpg:JPGEncoder = new JPGEncoder(quality);
 			var tagDBJ:DefineBitsJPEG2 = new DefineBitsJPEG2();
 			tagDBJ.characterId = 1;
 			tagDBJ.jpegData = jpg.encode(bmp);
@@ -112,14 +113,14 @@ package cn.fanflash.file.swf
 			return tagDBL.data;
 			*/
 			
-			//return com.adobe.images.PNGEncoder.encode(bmp);
-			
-			//一点资料都没有，好不容易猜出来怎么用的。。。
-			var asset:Asset = new Asset();
-			asset.characterId = 1;
-			asset.name = identifier;
-			var tagEA:ExportAssets = new ExportAssets();
-			tagEA.assets = [asset];
+			if(identifier!= null && identifier.length > 0){
+				//一点资料都没有，好不容易猜出来怎么用的。。。
+				var asset:Asset = new Asset();
+				asset.characterId = 1;
+				asset.name = identifier;
+				var tagEA:ExportAssets = new ExportAssets();
+				tagEA.assets = [asset];
+			}
 			
 			var tagDS:DefineShape = new DefineShape();
 			tagDS.shapeId = 2
@@ -146,11 +147,11 @@ package cn.fanflash.file.swf
 			tagPO.characterId = 2;
 			
 			//swf.tags.addTag(tagDB);
-			swf.tags.addTag(tagDBJ);
 			//swf.tags.addTag(tagDBL);
+			swf.tags.addTag(tagDBJ);
 			swf.tags.addTag(tagDS);
 			swf.tags.addTag(tagPO);
-			//swf.tags.addTag(tagEA);
+			if(tagEA!=null)swf.tags.addTag(tagEA);
 			swf.tags.addTag(tagSF);
 			
 			
@@ -160,21 +161,47 @@ package cn.fanflash.file.swf
 			var context:WritingContext = new WritingContext();
 			swfWrriter.writeSWF(out,context,swf);
 			
-			
-			//找到定义DefineShape的一串字节码
-			var startBA:ByteArray =new ByteArray();
-			//startBA.
-				//[0xa6,0,0x02,0,0x58,0,70];
-			
-			for(var i:uint = 1728;i<1768;i++){
-				trace("out:",i.toString(16), data[i],data[i].toString(16));
-			}
-			
-			
 			return data
 		}
 		
+		public static function getGfxImage(bmp:BitmapData,identifier:String = null,quality:int = 80):ByteArray{
+			
+			var swf:ByteArray = getSwfImage(bmp,identifier,quality,false);
+			if(swf == null)return null;
+			
+			//找不容易，经过无数试验，找到的问题真正所在
+			swf[17] = 0x01;
+			return swf;
+		}
 		
-		private var test:ByteArray
+			
+		/*
+		public static function getGfxSwfImage(bmp:BitmapData,identifier:String = null,findByte:ByteArray = null,fullByte:ByteArray = null):ByteArray{
+			
+			var swf:ByteArray = getSwfImage(bmp,null,80,false);
+			if(findByte == null || fullByte == null)return swf;
+			
+			//swf[4] = 0xA1;
+			
+			//找不容易，经过无数试验，找到的问题真正所在
+			swf[17] = 0x01;
+
+			var index:int=ByteArrayUtil.byteLastIndexOf(swf,findByte);
+			if(index != -1){
+				
+				swf.length = index;
+				swf.position = index;
+				swf.writeBytes(fullByte);
+				
+				swf[4] = 0xA1;
+				swf[17] = 0x01;
+				
+				return swf;
+			}
+
+			
+			return null;
+		}
+		*/
 	}
 }

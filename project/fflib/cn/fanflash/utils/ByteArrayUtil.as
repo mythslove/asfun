@@ -17,10 +17,10 @@ package cn.fanflash.utils
 		
 		
 		/**
-		 * 
-		 * @param byte
-		 * @param findByte
-		 * @param startIndex
+		 * 从后面查找一个字节数组
+		 * @param byte			源字节数组
+		 * @param findByte		要查找的字节数组
+		 * @param startIndex	开始查找的位置
 		 * @return 
 		 * 
 		 */		
@@ -36,20 +36,18 @@ package cn.fanflash.utils
 			
 			
 			for(var i:int = startIndex-1;i > stopIndex;i--){
-				
 				if(findByte[lastIndex] == byte[i] ){
-					
 					var si:int = i - lastIndex -1;
 					var tf:int = stopIndex;
 					var isFind:Boolean= true;
-					for(var j:int = i-1;i>si;i-- ){
+					for(var j:int = i-1;j>si;j-- ){
 						if(byte[j] != findByte[tf--]){
 							isFind = false;
 							break;
 						}
 					}
 					
-					if(isFind)return i;
+					if(isFind)return i-lastIndex;
 				}
 			}
 			
