@@ -5,7 +5,7 @@ package cn.fanflash.utils
 	
 	/**
 	 * 字节操作工具
-	 * @author fanflash
+	 * @author fanflash.cn
 	 */
 	public class ByteArrayUtil
 	{
@@ -52,6 +52,37 @@ package cn.fanflash.utils
 			}
 			
 			return -1;
+		}
+		
+		/**
+		 *用zlib压缩字节数组 
+		 * @param byte		源字节数组
+		 * @param offset	压缩偏移，在哪里开始压缩
+		 * @param length	压缩多长的字节串，如果为0，则压缩从offset到结速的字节串。
+		 * 
+		 */		
+		public static function compress(byte:ByteArray, offset:uint = 0, length:uint = 0):void
+		{
+			var pos:uint = byte.position;
+			
+			if (offset == 0 && length == 0) {
+				byte.compress();
+			}
+			else {
+				var temp:ByteArray = new ByteArray();
+				temp.writeBytes(byte, offset, length);
+				temp.compress();
+				temp.position = temp.length - 1;
+				if (length != 0 && (offset + length) < byte.length) {
+					temp.writeBytes(byte, offset + length);
+				}
+				byte.length = offset;
+				byte.position = offset;
+				byte.writeBytes(temp);
+				temp.length = 0;
+			}
+			
+			byte.position = pos;
 		}
 	}
 }

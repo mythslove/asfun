@@ -3,7 +3,6 @@ package cn.fanflash.file.swf
 	import cn.fanflash.utils.ByteArrayUtil;
 	
 	import com.adobe.images.JPGEncoder;
-	import com.adobe.images.PNGEncoder;
 	
 	import flash.display.BitmapData;
 	import flash.utils.ByteArray;
@@ -17,16 +16,17 @@ package cn.fanflash.file.swf
 	import org.libspark.swfassist.swf.structures.SWF;
 	import org.libspark.swfassist.swf.structures.StraightEdgeRecord;
 	import org.libspark.swfassist.swf.structures.StyleChangeRecord;
-	import org.libspark.swfassist.swf.tags.DefineBits;
 	import org.libspark.swfassist.swf.tags.DefineBitsJPEG2;
-	import org.libspark.swfassist.swf.tags.DefineBitsLossless;
-	import org.libspark.swfassist.swf.tags.DefineBitsLossless2;
 	import org.libspark.swfassist.swf.tags.DefineShape;
 	import org.libspark.swfassist.swf.tags.ExportAssets;
 	import org.libspark.swfassist.swf.tags.PlaceObject2;
 	import org.libspark.swfassist.swf.tags.SetBackgroundColor;
 	import org.libspark.swfassist.swf.tags.ShowFrame;
-
+	
+	/**
+	 * SWF文件工具
+	 * @author fanflash.cn
+	 */
 	public class SwfUtils
 	{
 		
@@ -164,13 +164,23 @@ package cn.fanflash.file.swf
 			return data
 		}
 		
-		public static function getGfxImage(bmp:BitmapData,identifier:String = null,quality:int = 80):ByteArray{
+		/**
+		 *得到GFX专用SWF图片 
+		 * @param bmp
+		 * @param identifier
+		 * @param quality
+		 * @param isCompressed
+		 * @return 
+		 * 
+		 */		
+		public static function getGfxImage(bmp:BitmapData,identifier:String = null,quality:int = 80, isCompressed:Boolean = true):ByteArray{
 			
 			var swf:ByteArray = getSwfImage(bmp,identifier,quality,false);
 			if(swf == null)return null;
 			
 			//找不容易，经过无数试验，找到的问题真正所在
 			swf[17] = 0x01;
+			if(isCompressed)compressSWF(swf);
 			return swf;
 		}
 		
@@ -203,5 +213,23 @@ package cn.fanflash.file.swf
 			return null;
 		}
 		*/
+		
+		
+		/**
+		 *压缩SWF文件 
+		 * @param swfByte
+		 * @return 
+		 * 
+		 */		
+		public static function compressSWF(swfByte:ByteArray):ByteArray{
+			
+			var isCom:Boolean = (swfByte[0] == 0x43);
+			if(isCom) return swfByte;
+			
+			swfByte[0] =0x43;
+			ByteArrayUtil.compress(swfByte,8);
+			
+			return swfByte;
+		}
 	}
 }
