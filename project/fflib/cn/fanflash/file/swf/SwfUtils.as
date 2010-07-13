@@ -179,9 +179,31 @@ package cn.fanflash.file.swf
 			if(swf == null)return null;
 			
 			//找不容易，经过无数试验，找到的问题真正所在
-			swf[17] = 0x01;
+			//rect结构后面2字节是帧频，再后面是2字节是频序
+			var rp:int = getSwfRectByteLen(swf[8])+7;
+			swf[rp+1] = 0;
+			swf[rp+2] = 0x01;
+			swf[rp+3] = 0x01;
+			swf[rp+4] = 0;
+			
 			if(isCompressed)compressSWF(swf);
 			return swf;
+		}
+		
+		/**
+		 * 得到SWF舞台大小RECT定义bit的长度
+		 * @param defvalue swf字节数组第9位数值
+		 * @param isBitLen 是否返回bit的度度，true = bit length, false = byte length,默认为false
+		 * @return 返回字节数组长度某bit长度
+		 * 
+		 */		
+		public static function getSwfRectByteLen(defvalue:int,isBitLen:Boolean = false):int{
+			
+			//rect结构的长度定义是UB[5],而一个字节是UB[8],所以向右移三位
+			var itemLen:int = defvalue >> 3;
+			
+			if(isBitLen)return itemLen*4+5;
+			return Math.ceil((itemLen*4+5)/8);
 		}
 		
 			
