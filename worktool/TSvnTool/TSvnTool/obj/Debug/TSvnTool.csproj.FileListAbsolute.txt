@@ -1,0 +1,8 @@
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\ResolveAssemblyReference.cache
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.Form1.resources
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.Properties.Resources.resources
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.csproj.GenerateResource.Cache
+E:\project\工作工具\TSvnTool\TSvnTool\bin\Debug\TSvnTool.exe
+E:\project\工作工具\TSvnTool\TSvnTool\bin\Debug\TSvnTool.pdb
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.exe
+E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.pdb

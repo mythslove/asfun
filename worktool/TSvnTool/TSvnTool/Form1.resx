@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="filePathTxt.Text" xml:space="preserve">
+    <value>路径	文件名称	扩展名	状态	远程状态	文字状态	属性状态: 	远程文字状态: 	远程属性状态: 	深度	URL	锁定	锁定备注	加锁日期	作者	版本	远程版本	日期	需要锁定	复制自路径	修改日期
+FD2/TodoList.txt	TodoList.txt	.txt	缺少	 	缺少	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD2/TodoList.txt				meychi	2		2008-8-10 19:21:03			
+FD3/External/Plugins/AS2Context/AS2Settings.cs	AS2Settings.cs	.cs	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/AS2Context/AS2Settings.cs				meychi	1073		2010-5-6 3:52:41			2010-7-27 23:45:04
+FD3/External/Plugins/FlashDebugger/FlashDebugger.csproj	FlashDebugger.csproj	.csproj	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/FlashDebugger/FlashDebugger.csproj				damjan.cvetko	1206		2010-7-3 16:40:21			2010-8-19 11:48:42
+FD3/External/Plugins/ProjectManager/Controls/TreeView/ProjectContextMenu.cs	ProjectContextMenu.cs	.cs	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/ProjectManager/Controls/TreeView/ProjectContextMenu.cs				meychi	1231		2010-7-28 0:33:57			2010-8-6 13:41:00
+FD3/External/Plugins/ProjectManager/PluginMain.cs	PluginMain.cs	.cs	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/ProjectManager/PluginMain.cs				meychi	1310		2010-8-31 14:16:14			2010-9-4 16:04:01
+FD3/External/Plugins/ProjectManager/ProjectManager.csproj	ProjectManager.csproj	.csproj	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/ProjectManager/ProjectManager.csproj				meychi	1294		2010-8-27 2:53:39			2010-8-25 16:25:58
+FD3/External/Plugins/SamplePlugin/PluginMain.cs	PluginMain.cs	.cs	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/SamplePlugin/PluginMain.cs				philippe.elsass	631		2009-7-25 21:29:01			2010-8-5 21:31:55
+FD3/External/Plugins/SamplePlugin/SamplePlugin.csproj	SamplePlugin.csproj	.csproj	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/SamplePlugin/SamplePlugin.csproj				meychi	2		2008-8-10 19:21:03			2010-7-27 17:22:53
+FD3/External/Plugins/SamplePlugin/SamplePlugin.sln	SamplePlugin.sln	.sln	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/External/Plugins/SamplePlugin/SamplePlugin.sln				meychi	2		2008-8-10 19:21:03			2010-7-28 10:22:26
+FD3/FlashDevelop/MainForm.cs	MainForm.cs	.cs	修改	 	修改	 	 	 	http://flashdevelop.googlecode.com/svn/trunk/FD3/FlashDevelop/MainForm.cs				meychi	1266		2010-8-19 16:46:28			2010-9-4 16:06:05
+FD3/aa    bbb   bb	aa    bbb   bb		无版本控制	 	无版本控制	 	 	 											2010-9-4 17:50:55
+FD3/External/Plugins/BookmarkPanel/bin	bin		无版本控制	 	无版本控制	 	 	 											2010-7-28 15:31:23
+FD3/External/Plugins/CodeAnalyzer/obj	obj		无版本控制	 	无版本控制	 	 	 											2010-7-28 15:31:25
+FD3/External/Plugins/CodeAnalyzer/obj/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:32:01
+FD3/External/Plugins/CodeAnalyzer/obj/Debug/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:56
+FD3/External/Plugins/CodeAnalyzer/obj/Debug/Refactor	Refactor		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 19:47:42
+FD3/External/Plugins/CodeAnalyzer/obj/Debug/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-8 10:24:21
+FD3/External/Plugins/CodeAnalyzer/obj/Release	Release		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:30
+FD3/External/Plugins/CodeAnalyzer/obj/Release/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:45
+FD3/External/Plugins/CodeAnalyzer/obj/Release/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:25
+FD3/External/Plugins/FileExplorer/FileExplorer.csproj.user	FileExplorer.csproj.user	.user	无版本控制	 	无版本控制	 	 	 											2010-7-27 23:29:25
+FD3/External/Plugins/FlashDebugger/obj	obj		无版本控制	 	无版本控制	 	 	 											2010-7-28 15:31:24
+FD3/External/Plugins/FlashDebugger/obj/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:32:01
+FD3/External/Plugins/FlashDebugger/obj/Debug/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:56
+FD3/External/Plugins/FlashDebugger/obj/Debug/Refactor	Refactor		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 19:47:42
+FD3/External/Plugins/FlashDebugger/obj/Debug/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-8 10:24:21
+FD3/External/Plugins/FlashDebugger/obj/Release	Release		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:30
+FD3/External/Plugins/FlashDebugger/obj/Release/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:45
+FD3/External/Plugins/FlashDebugger/obj/Release/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:24
+FD3/External/Plugins/GlobalUtils	GlobalUtils		无版本控制	 	无版本控制	 	 	 											2010-8-25 16:47:07
+FD3/External/Plugins/GlobalUtils/bin	bin		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:08
+FD3/External/Plugins/GlobalUtils/bin/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:08
+FD3/External/Plugins/GlobalUtils/Class1.cs	Class1.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:11
+FD3/External/Plugins/GlobalUtils/GlobalUtils.csproj	GlobalUtils.csproj	.csproj	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:47:07
+FD3/External/Plugins/GlobalUtils/GlobalUtils.csproj.user	GlobalUtils.csproj.user	.user	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:47:07
+FD3/External/Plugins/GlobalUtils/obj	obj		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:08
+FD3/External/Plugins/GlobalUtils/obj/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:11
+FD3/External/Plugins/GlobalUtils/obj/Debug/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:11
+FD3/External/Plugins/GlobalUtils/PluginMain.cs	PluginMain.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:46:47
+FD3/External/Plugins/GlobalUtils/Properties	Properties		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:10
+FD3/External/Plugins/GlobalUtils/Properties/AssemblyInfo.cs	AssemblyInfo.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:42:10
+FD3/External/Plugins/GlobalUtils/SVNProxy.cs	SVNProxy.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:44:01
+FD3/External/Plugins/NgsTool	NgsTool		无版本控制	 	无版本控制	 	 	 											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/bin	bin		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:25
+FD3/External/Plugins/NgsTool/bin/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 21:21:27
+FD3/External/Plugins/NgsTool/bin/Debug/NgsTool.dll	NgsTool.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 22:40:37
+FD3/External/Plugins/NgsTool/bin/Debug/NgsTool.pdb	NgsTool.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 22:40:36
+FD3/External/Plugins/NgsTool/bin/Debug/PluginCore.dll	PluginCore.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 21:21:25
+FD3/External/Plugins/NgsTool/bin/Debug/PluginCore.pdb	PluginCore.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 21:21:25
+FD3/External/Plugins/NgsTool/bin/Release	Release		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:53
+FD3/External/Plugins/NgsTool/bin/Release/NgsTool.dll	NgsTool.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/bin/Release/NgsTool.pdb	NgsTool.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/bin/Release/PluginCore.dll	PluginCore.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:48
+FD3/External/Plugins/NgsTool/bin/Release/ProjectManager.dll	ProjectManager.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/bin/Release/ProjectManager.pdb	ProjectManager.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/CmdUtility.cs	CmdUtility.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-29 17:13:06
+FD3/External/Plugins/NgsTool/Data	Data		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-30 13:19:16
+FD3/External/Plugins/NgsTool/Data/ProjItemData.cs	ProjItemData.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-30 13:19:16
+FD3/External/Plugins/NgsTool/NgsTool.csproj	NgsTool.csproj	.csproj	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-30 12:30:51
+FD3/External/Plugins/NgsTool/NgsTool.csproj.user	NgsTool.csproj.user	.user	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 22:46:34
+FD3/External/Plugins/NgsTool/NgsUtils.cs	NgsUtils.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:54:44
+FD3/External/Plugins/NgsTool/NTSettings.cs	NTSettings.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-29 13:24:21
+FD3/External/Plugins/NgsTool/obj	obj		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:25
+FD3/External/Plugins/NgsTool/obj/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:08
+FD3/External/Plugins/NgsTool/obj/Debug/NgsTool.csproj.FileListAbsolute.txt	NgsTool.csproj.FileListAbsolute.txt	.txt	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:30:41
+FD3/External/Plugins/NgsTool/obj/Debug/NgsTool.csproj.GenerateResource.Cache	NgsTool.csproj.GenerateResource.Cache	.Cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/obj/Debug/NgsTool.dll	NgsTool.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:08
+FD3/External/Plugins/NgsTool/obj/Debug/NgsTool.pdb	NgsTool.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/obj/Debug/NgsTool.PluginUI.resources	NgsTool.PluginUI.resources	.resources	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/obj/Debug/Refactor	Refactor		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 18:54:21
+FD3/External/Plugins/NgsTool/obj/Debug/ResolveAssemblyReference.cache	ResolveAssemblyReference.cache	.cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:47:09
+FD3/External/Plugins/NgsTool/obj/Debug/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 17:05:47
+FD3/External/Plugins/NgsTool/obj/Release	Release		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:51
+FD3/External/Plugins/NgsTool/obj/Release/NgsTool.csproj.FileListAbsolute.txt	NgsTool.csproj.FileListAbsolute.txt	.txt	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:53
+FD3/External/Plugins/NgsTool/obj/Release/NgsTool.csproj.GenerateResource.Cache	NgsTool.csproj.GenerateResource.Cache	.Cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/obj/Release/NgsTool.dll	NgsTool.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/obj/Release/NgsTool.pdb	NgsTool.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/obj/Release/NgsTool.PluginUI.resources	NgsTool.PluginUI.resources	.resources	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/obj/Release/ResolveAssemblyReference.cache	ResolveAssemblyReference.cache	.cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:50
+FD3/External/Plugins/NgsTool/obj/Release/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:25
+FD3/External/Plugins/NgsTool/PluginMain.cs	PluginMain.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-29 13:22:36
+FD3/External/Plugins/NgsTool/PluginUI.cs	PluginUI.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/PluginUI.Designer.cs	PluginUI.Designer.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/PluginUI.resx	PluginUI.resx	.resx	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 17:05:07
+FD3/External/Plugins/NgsTool/PMProxy.cs	PMProxy.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 22:38:13
+FD3/External/Plugins/NgsTool/Properties	Properties		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 22:46:43
+FD3/External/Plugins/NgsTool/Properties/AssemblyInfo.cs	AssemblyInfo.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 22:46:43
+FD3/External/Plugins/NgsTool/SVNProxy.cs	SVNProxy.cs	.cs	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-25 16:11:18
+FD3/External/Plugins/ProjectManager/Controls/PropertiesDialog.resx	PropertiesDialog.resx	.resx	无版本控制	 	无版本控制	 	 	 											2010-7-28 11:14:55
+FD3/External/Plugins/ProjectManager/GlobalUtils.cs	GlobalUtils.cs	.cs	无版本控制	 	无版本控制	 	 	 											2010-8-25 16:36:54
+FD3/External/Plugins/ProjectManager/PluginUI.resx	PluginUI.resx	.resx	无版本控制	 	无版本控制	 	 	 											2010-7-30 13:45:16
+FD3/External/Plugins/ProjectManager/ProjectManager.csproj.user	ProjectManager.csproj.user	.user	无版本控制	 	无版本控制	 	 	 											2010-8-5 20:43:35
+FD3/External/Plugins/SamplePlugin/obj	obj		无版本控制	 	无版本控制	 	 	 											2010-7-28 15:31:25
+FD3/External/Plugins/SamplePlugin/obj/Debug	Debug		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:32:01
+FD3/External/Plugins/SamplePlugin/obj/Debug/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:56
+FD3/External/Plugins/SamplePlugin/obj/Debug/Refactor	Refactor		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 14:41:35
+FD3/External/Plugins/SamplePlugin/obj/Debug/ResolveAssemblyReference.cache	ResolveAssemblyReference.cache	.cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 17:23:08
+FD3/External/Plugins/SamplePlugin/obj/Debug/SamplePlugin.csproj.FileListAbsolute.txt	SamplePlugin.csproj.FileListAbsolute.txt	.txt	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 17:23:09
+FD3/External/Plugins/SamplePlugin/obj/Debug/SamplePlugin.csproj.GenerateResource.Cache	SamplePlugin.csproj.GenerateResource.Cache	.Cache	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 17:23:08
+FD3/External/Plugins/SamplePlugin/obj/Debug/SamplePlugin.dll	SamplePlugin.dll	.dll	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 23:31:24
+FD3/External/Plugins/SamplePlugin/obj/Debug/SamplePlugin.pdb	SamplePlugin.pdb	.pdb	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 23:31:23
+FD3/External/Plugins/SamplePlugin/obj/Debug/SamplePlugin.Resources.en_US.resources	SamplePlugin.Resources.en_US.resources	.resources	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 23:26:02
+FD3/External/Plugins/SamplePlugin/obj/Debug/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-27 16:55:08
+FD3/External/Plugins/SamplePlugin/obj/Release	Release		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:30
+FD3/External/Plugins/SamplePlugin/obj/Release/build.force	build.force	.force	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-8-18 12:26:45
+FD3/External/Plugins/SamplePlugin/obj/Release/TempPE	TempPE		无版本控制	无版本控制	无版本控制	无版本控制	无版本控制	无版本控制											2010-7-28 15:31:25
+FD3/External/Plugins/SamplePlugin/SamplePlugin.csproj.user	SamplePlugin.csproj.user	.user	无版本控制	 	无版本控制	 	 	 											2010-7-27 23:26:02
+FD3/External/Plugins/SamplePlugin/SamplePlugin.suo	SamplePlugin.suo	.suo	无版本控制	 	无版本控制	 	 	 											2010-7-28 10:22:26</value>
+  </data>
+</root>

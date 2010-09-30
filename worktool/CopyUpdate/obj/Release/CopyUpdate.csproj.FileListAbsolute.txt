@@ -1,0 +1,8 @@
+E:\project\工作工具\CopyUpdate\obj\Release\ResolveAssemblyReference.cache
+E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.MainForm.resources
+E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.Properties.Resources.resources
+E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.csproj.GenerateResource.Cache
+E:\project\工作工具\CopyUpdate\bin\Release\CopyUpdate.exe
+E:\project\工作工具\CopyUpdate\bin\Release\CopyUpdate.pdb
+E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.exe
+E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.pdb

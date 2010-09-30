@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx" initialize="windowedapplication1_initializeHandler(event)" width="412" height="153" minWidth="412" minHeight ="153" maxWidth="412" maxHeight="153" showStatusBar="false">
+
+	<fx:Script>
+		<![CDATA[
+			import cn.fanflash.file.swf.SwfUtils;
+			
+			import com.adobe.images.JPGEncoder;
+			import com.adobe.images.PNGEncoder;
+			
+			import mx.controls.Alert;
+			import mx.core.UIComponent;
+			import mx.events.FlexEvent;
+			
+			import spark.components.RadioButtonGroup;
+			
+			private var file:File;
+			
+			private var userCofigSO:SharedObject;
+			
+			//[Embed(mimeType='application/x-font', source='/RenderSwfCreator/res/04B_03B_.TTF', fontName='123')]
+			//private var myFont:Class;
+			
+			//[Embed(source="/RenderSwfCreator/res/FindBytes",mimeType="application/octet-stream")]
+			//private var _findByte:Class;
+			
+			//[Embed(source="/RenderSwfCreator/res/EndBytes",mimeType="application/octet-stream")]
+			//private var _endByte:Class;
+
+			protected function windowedapplication1_initializeHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				//Font.registerFont(myFont);
+				
+				this.userCofigSO = SharedObject.getLocal("ReaderSwfCreator");
+				
+				var binFolderUrl:String = this.userCofigSO.data.binUrl;
+				
+				if(binFolderUrl == null){
+					this.file = File.desktopDirectory.clone();
+				}else{
+					this.file = new File(binFolderUrl);
+				}
+				
+				this.binFolderUrlTxt.text = this.file.nativePath;
+				
+				this.file.addEventListener(Event.SELECT,this.selectDirHandler);
+				
+			}
+
+			protected function browseBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				this.file.browseForDirectory("选择目录");
+			}
+			
+			private function selectDirHandler(e:Event):void{
+				this.binFolderUrlTxt.text = this.file.nativePath;
+				this.userCofigSO.data.binUrl = this.file.nativePath;
+			}
+			
+
+
+			protected function createBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				this.tt();
+				return;
+				var imgBD:BitmapData =this.createImage(this.winthNS.value,this.heightNS.value,this.imageIdTxt.text);
+				
+				var ba:ByteArray;
+				var extName:String;
+				if(this.swfRB.selected){
+					ba = SwfUtils.getGfxImage(imgBD,this.imageIdTxt.text,80,false);
+					extName=".swf";
+				}else if(this.pngRB.selected){
+					ba = com.adobe.images.PNGEncoder.encode(imgBD);
+					extName=".png";
+				}else{
+					var jpg:JPGEncoder = new JPGEncoder(80);
+					ba= jpg.encode(imgBD);
+					extName=".jpg"
+				}
+				
+				
+				var file:File = new File(this.binFolderUrlTxt.text+"/texture/" + this.imageIdTxt.text + extName);
+				var fs:FileStream = new FileStream();
+				fs.open(file,FileMode.WRITE);
+				fs.writeBytes(ba);
+				fs.close();
+				Alert.show("占位图创建成功!","提示");
+			}
+			
+			private function tt():void {
+				
+				var maxNum:int = 500;
+				var curNum:int =1
+				var local:RenderSwfCreator = this;
+				var createID:Number = setInterval(function():void{
+					
+					var imgBD:BitmapData =local.createImage(64,64,"typeID:" + curNum);
+					
+					
+					var ba:ByteArray =com.adobe.images.PNGEncoder.encode(imgBD);
+					
+					var file:File = new File("E:\\project\\末日危机\\界面\\v2.0\\bin\\data\\ItemMinIcon\\2\\ti" + curNum.toString()+ ".png");
+					var fs:FileStream = new FileStream();
+					fs.open(file,FileMode.WRITE);
+					fs.writeBytes(ba);
+					fs.close();
+					trace(curNum+"完成了");
+					curNum++;
+					if(curNum >maxNum){
+						Alert.show("全部完成!","提示");
+						clearInterval(createID);
+					}
+				},100)
+			}
+			
+			private function createImage(w:Number,h:Number,text:String):BitmapData{
+				
+				var t:Sprite = new Sprite();
+				t.graphics.lineStyle(4);
+				t.graphics.beginFill(0xffffff);
+				t.graphics.lineTo(w,0);
+				t.graphics.lineTo(w,h);
+				t.graphics.lineTo(0,h);
+				t.graphics.lineTo(0,0);
+				
+				
+				var tf:TextFormat = new TextFormat();
+				//tf.size=8;
+				tf.size=12;
+				tf.align = TextFieldAutoSize.CENTER;
+				//tf.font = "04b_03";
+				
+				var drawTxt:TextField = new TextField();
+				drawTxt.defaultTextFormat = tf;
+				//drawTxt.embedFonts=true;
+				drawTxt.selectable = false;
+				drawTxt.mouseEnabled = false;
+				drawTxt.autoSize = TextFieldAutoSize.LEFT;
+				drawTxt.multiline = true;
+				drawTxt.wordWrap = true;
+				drawTxt.x=3;
+				drawTxt.width=w-4;
+				drawTxt.text = text;
+				drawTxt.y=(h-drawTxt.height)/2;
+				
+				t.addChild(drawTxt);
+				
+				var bd:BitmapData=new BitmapData(w,h,false,0xffffff);
+				bd.draw(t);
+				
+				return bd;
+			}
+
+
+			protected function helpBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				mx.controls.Alert.show("暂无，可以找高帆");
+			}
+
+		]]>
+	</fx:Script>
+	
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<s:TextInput x="72" y="10" width="270" id="binFolderUrlTxt"/>
+	<s:Label x="10" y="15" text="bin目录："/>
+	<s:Button x="350" y="10" label="浏览" width="50" id="browseBtn" click="browseBtn_clickHandler(event)"/>
+	<s:Label x="10" y="63" text="图片链接："/>
+	<s:TextInput x="72" y="58" width="193" id="imageIdTxt" text="EXAMPLE"/>
+	<s:Button x="273" y="58" label="创建" width="69" id="createBtn" click="createBtn_clickHandler(event)" height="84"/>
+	<s:Button x="350" y="58" label="帮助" width="50" id="helpBtn" height="84" click="helpBtn_clickHandler(event)"/>
+	<s:Label x="10" y="95.5" text="占位图宽："/>
+	<s:Label x="144" y="95.5" text="占位图高："/>
+	<s:NumericStepper x="72" y="90" width="60" id="winthNS" minimum="1" maximum="1024" stepSize="1" value="45"/>
+	<s:NumericStepper x="205" y="90" width="60" id="heightNS" minimum="1" maximum="1024" stepSize="1" value="45"/>
+	<mx:HRule x="10" y="43" width="390"/>
+	<s:RadioButton x="74" y="124" label="SWF" selected="true" id="swfRB"/>
+	<s:Label x="10" y="127" text="输出格式："/>
+	<s:RadioButton x="145" y="124" label="PNG" id="pngRB"/>
+	<s:RadioButton x="220" y="124" label="JPG" id="jpgRB"/>
+</s:WindowedApplication>

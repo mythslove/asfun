@@ -1,0 +1,11 @@
+/**
+ * 导入全部的类
+ * @author robot
+ */
+
+$(importallclass)
+
+class $(classname)
+{
+$(varclass)
+}
