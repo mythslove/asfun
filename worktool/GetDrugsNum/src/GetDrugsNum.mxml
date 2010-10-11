@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" width="415" height="498">
+	<fx:Style source="GetDrugsNum.css"/>
+
+	<fx:Script>
+		<![CDATA[
+			
+			protected function okBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				var priceArr:Array = [];
+				if(this.priceNS3.value == 0){
+					priceArr[0] = this.priceNS1.value;
+					priceArr[1] = this.priceNS2.value;
+				}else{
+					priceArr[0] = this.priceNS1.value;
+					priceArr[1] = this.priceNS2.value;
+					priceArr[2] = this.priceNS3.value;
+				}
+				
+				var t:Array = this.getDrugsCount(this.drugsCountNS.value,this.amountNS.value,priceArr,this.offsetNS.value);
+				t.sortOn("priceOffset",Array.NUMERIC);
+				
+				var str:String = "";
+				
+				var len:Number = t.length;
+				for(var i:int = 0;i<len;i++){
+					
+					var di:DrugsInfo = t[i] as DrugsInfo;
+					di.priceOffset
+					if(di != null){
+						str += "---------------方案"+ (i+1) + "---------------\n";
+						str += di.toString() + "\n\n";
+					}
+				}
+				
+				this.infoTxt.text = str;
+				
+				trace(8.5*9 + 7.6*11);
+			}
+			
+			
+			/**
+			 * 得到药品 的数量
+			 * @param totalCount
+			 * @param amount
+			 * @param prices
+			 * @param offsetMax
+			 * @return 
+			 * 
+			 */	
+			public function getDrugsCount(totalCount:int,amount:Number,prices:Array,offsetMax:Number):Array{
+				
+				var returnObj:Array = [];
+				
+				var price1:Number;
+				var price2:Number;
+				var price3:Number;
+				var price4:Number;
+				var price5:Number;
+				
+				var count1:int ;
+				var count2:int;
+				var count3:int;
+				var count4:int;
+				var count5:int;
+				
+				var di:DrugsInfo;
+				
+				switch(prices.length){
+					case 2:
+						
+						price1 = prices[0];
+						price2 = prices[1];
+						count1 = Math.round((amount - price2 * totalCount)/(price1 - price2));
+						count2 = totalCount - count1;
+						
+						di = new DrugsInfo();
+						di.priceOffset = 0
+						di.addInfo(price1,count1);
+						di.addInfo(price2,count2);
+						
+						returnObj.push(di);
+						
+						return returnObj;
+						break;
+					
+					case 3:
+						
+						price1 = prices[0];
+						price2 = prices[1];
+						price3 = prices[2];
+						
+						var len:int = totalCount + 1;
+						var tAmount:Number;
+						var offset:Number;
+						
+						for(count1 = 0;count1 < len; count1++){
+							for(count2 = 0;count2 < len; count2++ ){
+								tAmount = price1 * count1 + price2 * count2 + price3 * (totalCount - count1 - count2);
+								offset = Math.abs(tAmount - amount);
+								if(offset <= offsetMax){
+									
+									count3 = totalCount - count1 - count2;
+									
+								 	di = new DrugsInfo();
+									di.priceOffset = offset;
+									di.addInfo(price1,count1);
+									di.addInfo(price2,count2);
+									di.addInfo(price3,count3);
+									
+									returnObj.push(di);
+									
+									if(returnObj.length>= 5) return returnObj;
+								}
+							}
+						}
+						
+						return returnObj;
+						break;
+					
+				}
+			
+				return returnObj;
+				
+				
+				//amount = price1 * count1 + price2 * count2 + price3 * (totalCount - count1 - count2);
+				/*
+				amount = price1 * count1 + price2 * (totalCount - count1)
+				price1 * count1 + price2 * (totalCount - count1) = amount;
+				price1 * count1 + price2 * totalCount - price2 * count1 = amount;
+				price1 * count1 - price2 * count1 + price2 * totalCount = amount;
+				count1 * (price1 - price2) + price2 * totalCount = amount;
+				count1 * (price1 - price2) = amount - price2 * totalCount;
+				count1 = (amount - price2 * totalCount)/(price1 - price2);
+				*/
+					
+			}
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:NumericStepper x="79" y="92" width="107" maximum="999999" minimum="0" id="priceNS1" stepSize="0.01"/>
+	<s:NumericStepper x="79" y="123.5" width="107" maximum="999999" minimum="0" id="priceNS2" stepSize="0.01"/>
+	<s:NumericStepper x="79" y="154" width="107" maximum="999999" minimum="0" id="priceNS3" stepSize="0.01"/>
+	<s:NumericStepper x="281" y="92" width="107" maximum="9999999" minimum="0" id="amountNS" stepSize="0.01" value="1"/>
+	<s:NumericStepper x="281" y="123.5" width="107" maximum="999999" minimum="0" id="drugsCountNS" value="1"/>
+	<s:NumericStepper x="280" y="154" width="107" maximum="999999" minimum="0" id="offsetNS" stepSize="0.01" value="1"/>
+	<s:Label x="27" y="97.5" text="价格一："/>
+	<s:Label x="27" y="159.5" text="价格三："/>
+	<s:Label x="217" y="97.5" text="药总价值："/>
+	<s:Label x="217" y="129" text="物品个数："/>
+	<s:Label x="217" y="159.5" text="总价误差："/>
+	<s:Label x="27" y="129" text="价格二："/>
+	<s:Button x="323" y="450" label="计算" id="okBtn" click="okBtn_clickHandler(event)" fontSize="12" height="30"/>
+	<s:Label x="112" y="17" text="计算药品个数" fontSize="30"/>
+	<s:Label x="242" y="55" text="-- 由红红老公倾情奉献v1.0" color="#FF0000"/>
+	<s:TextArea x="27" y="191" width="360" height="251" id="infoTxt" fontSize="12"/>
+</s:Application>
