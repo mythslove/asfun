@@ -324,11 +324,10 @@ namespace ImportAllClass
 
         }
 
-        protected override void OnClosed(EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosed(e);
-
             this.saveSetting();
+            base.OnClosing(e);
         }
     }
 }

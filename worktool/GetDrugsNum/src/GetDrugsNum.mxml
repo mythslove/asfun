@@ -11,15 +11,13 @@
 			{
 				// TODO Auto-generated method stub
 				
+				var priceLen:int = this.getPriceNum(4);
 				var priceArr:Array = [];
-				if(this.priceNS3.value == 0){
-					priceArr[0] = this.priceNS1.value;
-					priceArr[1] = this.priceNS2.value;
-				}else{
-					priceArr[0] = this.priceNS1.value;
-					priceArr[1] = this.priceNS2.value;
-					priceArr[2] = this.priceNS3.value;
+				
+				for(var i:int;i<priceLen;i++){
+					priceArr[i] = this["priceNS" + (i+1)].value;
 				}
+				
 				
 				var t:Array = this.getDrugsCount(this.drugsCountNS.value,this.amountNS.value,priceArr,this.offsetNS.value);
 				t.sortOn("priceOffset",Array.NUMERIC);
@@ -27,7 +25,12 @@
 				var str:String = "";
 				
 				var len:Number = t.length;
-				for(var i:int = 0;i<len;i++){
+				
+				if(len==0){
+					str = "没有方案匹配以上设定的数值。";
+				}
+				
+				for(i = 0;i<len;i++){
 					
 					var di:DrugsInfo = t[i] as DrugsInfo;
 					di.priceOffset
@@ -39,7 +42,25 @@
 				
 				this.infoTxt.text = str;
 				
-				trace(8.5*9 + 7.6*11);
+			}
+			
+			/**
+			 * 得到单价的数量，最底为2
+			 */
+			private function getPriceNum(nsNum:int):int{
+				
+				if(nsNum < 3)return 2;
+				
+				nsNum++;
+				var num:int = 2;
+				for(var i:int =3;i<nsNum;i++){
+					
+					if(this["priceNS" + i].value>0){
+						num = i;
+					}
+				}
+				
+				return num;
 			}
 			
 			
@@ -68,11 +89,15 @@
 				var count4:int;
 				var count5:int;
 				
+				var len:int;
+				var tAmount:Number;
+				var offset:Number;
+				
 				var di:DrugsInfo;
 				
 				switch(prices.length){
 					case 2:
-						
+						/*
 						price1 = prices[0];
 						price2 = prices[1];
 						count1 = Math.round((amount - price2 * totalCount)/(price1 - price2));
@@ -83,7 +108,35 @@
 						di.addInfo(price1,count1);
 						di.addInfo(price2,count2);
 						
-						returnObj.push(di);
+						if(count1>=0 && count2>=0){
+							returnObj.push(di);
+						}
+						
+						return returnObj;
+						*/
+						
+						price1 = prices[0];
+						price2 = prices[1];
+						
+						len = totalCount + 1;
+						
+						for(count1 = 0;count1 < len; count1++){
+								
+							count2 = totalCount - count1;
+							tAmount = price1 * count1 + price2 * count2;
+							offset = Math.abs(tAmount - amount);
+							if(offset <= offsetMax){
+								
+								di = new DrugsInfo();
+								di.priceOffset = offset;
+								di.addInfo(price1,count1);
+								di.addInfo(price2,count2);
+								
+								returnObj.push(di);
+								
+								if(returnObj.length>= 5) return returnObj;
+							}
+						}
 						
 						return returnObj;
 						break;
@@ -94,17 +147,15 @@
 						price2 = prices[1];
 						price3 = prices[2];
 						
-						var len:int = totalCount + 1;
-						var tAmount:Number;
-						var offset:Number;
+						len = totalCount + 1;
 						
 						for(count1 = 0;count1 < len; count1++){
 							for(count2 = 0;count2 < len; count2++ ){
-								tAmount = price1 * count1 + price2 * count2 + price3 * (totalCount - count1 - count2);
+								
+								count3 = totalCount - count1 - count2;
+								tAmount = price1 * count1 + price2 * count2 + price3 * count3;
 								offset = Math.abs(tAmount - amount);
 								if(offset <= offsetMax){
-									
-									count3 = totalCount - count1 - count2;
 									
 								 	di = new DrugsInfo();
 									di.priceOffset = offset;
@@ -121,6 +172,40 @@
 						
 						return returnObj;
 						break;
+					case 4:
+						price1 = prices[0];
+						price2 = prices[1];
+						price3 = prices[2];
+						price4 = prices[3];
+						
+						len = totalCount + 1;
+						
+						for(count1 = 0;count1 <len; count1++){
+							for(count2 = 0; count2 < len; count2++){
+								for(count3 = 0; count3 < len; count3++){
+									
+									count4 = totalCount - count1 - count2 - count3
+									tAmount = price1 * count1 + price2 * count2 + price3 * count3 + price4 * count4;
+									offset = Math.abs(tAmount - amount);
+									
+									if(offset <= offsetMax){
+										
+										di = new DrugsInfo();
+										di.priceOffset = offset;
+										di.addInfo(price1,count1);
+										di.addInfo(price2,count2);
+										di.addInfo(price3,count3);
+										di.addInfo(price4,count4);
+										
+										returnObj.push(di);
+										
+										if(returnObj.length>= 5) return returnObj;
+									}
+								}
+							}
+						}
+						
+						return returnObj;
 					
 				}
 			
@@ -153,12 +238,14 @@
 	<s:NumericStepper x="280" y="154" width="107" maximum="999999" minimum="0" id="offsetNS" stepSize="0.01" value="1"/>
 	<s:Label x="27" y="97.5" text="价格一："/>
 	<s:Label x="27" y="159.5" text="价格三："/>
+	<s:NumericStepper x="79" y="185" width="107" maximum="999999" minimum="0" id="priceNS4" stepSize="0.01"/>
+	<s:Label x="27" y="190.5" text="价格四："/>
 	<s:Label x="217" y="97.5" text="药总价值："/>
 	<s:Label x="217" y="129" text="物品个数："/>
 	<s:Label x="217" y="159.5" text="总价误差："/>
 	<s:Label x="27" y="129" text="价格二："/>
 	<s:Button x="323" y="450" label="计算" id="okBtn" click="okBtn_clickHandler(event)" fontSize="12" height="30"/>
 	<s:Label x="112" y="17" text="计算药品个数" fontSize="30"/>
-	<s:Label x="242" y="55" text="-- 由红红老公倾情奉献v1.0" color="#FF0000"/>
-	<s:TextArea x="27" y="191" width="360" height="251" id="infoTxt" fontSize="12"/>
+	<s:Label x="242" y="55" text="-- 由红红老公倾情奉献v1.2" color="#FF0000"/>
+	<s:TextArea x="27" y="216" width="360" height="226" id="infoTxt" fontSize="12"/>
 </s:Application>

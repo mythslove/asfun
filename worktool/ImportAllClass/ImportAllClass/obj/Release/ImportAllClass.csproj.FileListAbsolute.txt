@@ -1,8 +1,0 @@
-E:\project\工作工具\ImportAllClass\ImportAllClass\bin\Release\ImportAllClass.exe
-E:\project\工作工具\ImportAllClass\ImportAllClass\bin\Release\ImportAllClass.pdb
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ResolveAssemblyReference.cache
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ImportAllClass.ImportToolForm.resources
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ImportAllClass.Properties.Resources.resources
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ImportAllClass.csproj.GenerateResource.Cache
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ImportAllClass.exe
-E:\project\工作工具\ImportAllClass\ImportAllClass\obj\Release\ImportAllClass.pdb

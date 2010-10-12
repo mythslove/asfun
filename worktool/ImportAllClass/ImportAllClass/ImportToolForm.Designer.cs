@@ -139,6 +139,7 @@
             // libFolderList
             // 
             this.libFolderList.FormattingEnabled = true;
+            this.libFolderList.HorizontalScrollbar = true;
             this.libFolderList.ItemHeight = 12;
             this.libFolderList.Location = new System.Drawing.Point(12, 22);
             this.libFolderList.Name = "libFolderList";
@@ -148,6 +149,7 @@
             // exLibFodlerList
             // 
             this.exLibFodlerList.FormattingEnabled = true;
+            this.exLibFodlerList.HorizontalScrollbar = true;
             this.exLibFodlerList.ItemHeight = 12;
             this.exLibFodlerList.Location = new System.Drawing.Point(12, 145);
             this.exLibFodlerList.Name = "exLibFodlerList";
@@ -208,7 +210,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ImportToolForm";
-            this.Text = "项目代码导入类生成器";
+            this.Text = "项目代码导入类生成器V1.0";
             this.ResumeLayout(false);
             this.PerformLayout();
 

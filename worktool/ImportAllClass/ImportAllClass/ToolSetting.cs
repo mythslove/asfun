@@ -14,11 +14,13 @@ namespace ImportAllClass
         
         public static Setting settingObj = new Setting();
         private static BinaryFormatter bf = new BinaryFormatter();
+        //配置文件名的路径
+        private static string configPath;
 
         public static void read(){
-            //System.Environment.CurrentDirectory返回的路径会被选择文件对话框干扰
-            //string configPath = Path.Combine(System.Environment.CurrentDirectory, "setting.cfg");
-            string configPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "setting.cfg");
+
+            updatePath();
+
             if (File.Exists(configPath))
             {
                 FileStream fs = new FileStream(configPath, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -28,12 +30,23 @@ namespace ImportAllClass
         }
 
         public static void save() {
-            //string configPath = Path.Combine(System.Environment.CurrentDirectory, "setting.cfg");
-            string configPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "setting.cfg");
+            updatePath();
+
             FileStream fs = new FileStream(configPath, FileMode.Create);
             bf.Serialize(fs, settingObj);
             fs.Close();
         }
+
+        private static void updatePath(){
+            if (configPath != null) return;
+            string settingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ngs";
+            if (!Directory.Exists(settingFolder)) Directory.CreateDirectory(settingFolder);
+            configPath = settingFolder + "\\ImportAllClass.config";
+        }
+
+        //System.Environment.CurrentDirectory返回的路径会被选择文件对话框干扰
+        //string configPath = Path.Combine(System.Environment.CurrentDirectory, "setting.cfg");
+
     }
 
     [Serializable]
