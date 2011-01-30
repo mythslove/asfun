@@ -67,8 +67,6 @@
 			protected function createBtn_clickHandler(event:MouseEvent):void
 			{
 				// TODO Auto-generated method stub
-				this.tt();
-				return;
 				var imgBD:BitmapData =this.createImage(this.winthNS.value,this.heightNS.value,this.imageIdTxt.text);
 				
 				var ba:ByteArray;
@@ -94,6 +92,7 @@
 				Alert.show("占位图创建成功!","提示");
 			}
 			
+			/*
 			private function tt():void {
 				
 				var maxNum:int = 500;
@@ -119,6 +118,7 @@
 					}
 				},100)
 			}
+			*/
 			
 			private function createImage(w:Number,h:Number,text:String):BitmapData{
 				
@@ -183,8 +183,8 @@
 	<s:Button x="350" y="58" label="帮助" width="50" id="helpBtn" height="84" click="helpBtn_clickHandler(event)"/>
 	<s:Label x="10" y="95.5" text="占位图宽："/>
 	<s:Label x="144" y="95.5" text="占位图高："/>
-	<s:NumericStepper x="72" y="90" width="60" id="winthNS" minimum="1" maximum="1024" stepSize="1" value="45"/>
-	<s:NumericStepper x="205" y="90" width="60" id="heightNS" minimum="1" maximum="1024" stepSize="1" value="45"/>
+	<s:NumericStepper x="72" y="90" width="60" id="winthNS" minimum="1" maximum="2000" stepSize="1" value="45"/>
+	<s:NumericStepper x="205" y="90" width="60" id="heightNS" minimum="1" maximum="2000" stepSize="1" value="45"/>
 	<mx:HRule x="10" y="43" width="390"/>
 	<s:RadioButton x="74" y="124" label="SWF" selected="true" id="swfRB"/>
 	<s:Label x="10" y="127" text="输出格式："/>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<macromedia-extension
+	 name="Fanflash flash tool"
+	 version="1.0.0"
+	 type="other"
+	 requires-restart="true">
+
+	<author name="fanflash.cn" />
+
+	<products>
+		<product name="Flash" version="8" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	提供一些快捷的FLASH操作帮助
+	<br>by fanflash.cn<br>
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	提供一些快捷的FLASH操作帮助
+	]]>
+	</ui-access>
+
+	<license-agreement>
+	<![CDATA[
+	
+	]]>
+	</license-agreement>
+
+	<files>		
+		<file source="jsfl\FFlashTool.jsfl" destination="$flash/FFlashTool/jsfl" />
+		<file source="FlashTool.swf" destination="$flash/WindowSWF" />
+	</files>
+
+</macromedia-extension>
