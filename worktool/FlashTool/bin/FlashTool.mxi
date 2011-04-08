@@ -8,7 +8,11 @@
 	<author name="fanflash.cn" />
 
 	<products>
+		<product name="Flash" version="6" primary="false" />
+		<product name="Flash" version="7" primary="false" />
 		<product name="Flash" version="8" primary="true" />
+		<product name="Flash" version="9" primary="false" />
+		<product name="Flash" version="10" primary="false" />
 	</products>
 
 	<description>
