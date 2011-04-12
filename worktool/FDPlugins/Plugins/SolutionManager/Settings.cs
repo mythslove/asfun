@@ -9,8 +9,6 @@ namespace SolutionManager
     [Serializable]
     public class Settings
     {
-        private Int32 sampleNumber = 69;
-        private String sampleText = "This is a sample plugin.";
         private Keys sampleShortcut = Keys.Control | Keys.F1;
         
         /*

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SolutionManager
 {
-    class SlnNode:TreeNode
+    class ProjNode:TreeNode
     {
         public string path;
     }

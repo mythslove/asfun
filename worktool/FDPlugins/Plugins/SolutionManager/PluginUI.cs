@@ -22,6 +22,7 @@ namespace SolutionManager
         private ToolStripMenuItem SaveNewBtn;
         private ImageList TreeImageList;
         private System.ComponentModel.IContainer components;
+        private SlnTreeMenu TreeMenu;
 		private PluginMain pluginMain;
         
 		public PluginUI(PluginMain pluginMain)
@@ -52,8 +53,10 @@ namespace SolutionManager
             this.SaveNewBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportTSBtn = new System.Windows.Forms.ToolStripButton();
             this.SMTree = new System.Windows.Forms.TreeView();
+            this.TreeMenu = new SolutionManager.SlnTreeMenu();
             this.TreeImageList = new System.Windows.Forms.ImageList(this.components);
             this.SMtoolStrip.SuspendLayout();
+            this.TreeMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // SMtoolStrip
@@ -85,14 +88,14 @@ namespace SolutionManager
             // NewFileBtn
             // 
             this.NewFileBtn.Name = "NewFileBtn";
-            this.NewFileBtn.Size = new System.Drawing.Size(152, 22);
+            this.NewFileBtn.Size = new System.Drawing.Size(112, 22);
             this.NewFileBtn.Text = "新建";
             this.NewFileBtn.Click += new System.EventHandler(this.NewFileBtn_Click);
             // 
             // OpenFileBtn
             // 
             this.OpenFileBtn.Name = "OpenFileBtn";
-            this.OpenFileBtn.Size = new System.Drawing.Size(152, 22);
+            this.OpenFileBtn.Size = new System.Drawing.Size(112, 22);
             this.OpenFileBtn.Text = "打开";
             this.OpenFileBtn.Click += new System.EventHandler(this.OpenFileBtn_Click);
             // 
@@ -100,7 +103,7 @@ namespace SolutionManager
             // 
             this.CloseFileBtn.Enabled = false;
             this.CloseFileBtn.Name = "CloseFileBtn";
-            this.CloseFileBtn.Size = new System.Drawing.Size(152, 22);
+            this.CloseFileBtn.Size = new System.Drawing.Size(112, 22);
             this.CloseFileBtn.Text = "关闭";
             this.CloseFileBtn.Click += new System.EventHandler(this.CloseFileBtn_Click);
             // 
@@ -108,7 +111,7 @@ namespace SolutionManager
             // 
             this.SaveFileBtn.Enabled = false;
             this.SaveFileBtn.Name = "SaveFileBtn";
-            this.SaveFileBtn.Size = new System.Drawing.Size(152, 22);
+            this.SaveFileBtn.Size = new System.Drawing.Size(112, 22);
             this.SaveFileBtn.Text = "保存";
             this.SaveFileBtn.Click += new System.EventHandler(this.SaveFileBtn_Click);
             // 
@@ -116,7 +119,7 @@ namespace SolutionManager
             // 
             this.SaveNewBtn.Enabled = false;
             this.SaveNewBtn.Name = "SaveNewBtn";
-            this.SaveNewBtn.Size = new System.Drawing.Size(152, 22);
+            this.SaveNewBtn.Size = new System.Drawing.Size(112, 22);
             this.SaveNewBtn.Text = "另存为";
             this.SaveNewBtn.Click += new System.EventHandler(this.SaveNewBtn_Click);
             // 
@@ -131,6 +134,7 @@ namespace SolutionManager
             // 
             // SMTree
             // 
+            this.SMTree.ContextMenuStrip = this.TreeMenu;
             this.SMTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SMTree.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SMTree.ImageIndex = 0;
@@ -143,6 +147,12 @@ namespace SolutionManager
             this.SMTree.Size = new System.Drawing.Size(308, 365);
             this.SMTree.TabIndex = 1;
             this.SMTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SMTree_NodeMouseDoubleClick);
+            this.SMTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SMTree_NodeMouseClick);
+            // 
+            // TreeMenu
+            // 
+            this.TreeMenu.Name = "slnTreeMenu1";
+            this.TreeMenu.Size = new System.Drawing.Size(149, 98);
             // 
             // TreeImageList
             // 
@@ -159,6 +169,7 @@ namespace SolutionManager
             this.Load += new System.EventHandler(this.PluginUI_Load);
             this.SMtoolStrip.ResumeLayout(false);
             this.SMtoolStrip.PerformLayout();
+            this.TreeMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,7 +404,7 @@ namespace SolutionManager
             XmlNodeList projList = SlnXml.SelectNodes("/solution/projects/project");
             
             foreach(XmlNode node in projList){
-                SlnNode sn = new SlnNode();
+                ProjNode sn = new ProjNode();
                 sn.Text = node.Attributes["name"].Value.ToString();
                 sn.path = node.Attributes["path"].Value.ToString();
                 this.SMTree.Nodes.Add(sn);
@@ -514,7 +525,7 @@ namespace SolutionManager
 
         private void SMTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            SlnNode node = e.Node as SlnNode;
+            ProjNode node = e.Node as ProjNode;
             PMProxy.OpenFile(Path.Combine(this.CurSlnDir, node.path));
         }
 
@@ -541,6 +552,14 @@ namespace SolutionManager
         private void SaveNewBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("还未实现", "提示");
+        }
+
+        private void SMTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) {
+                SMTree.SelectedNode = e.Node;
+                TreeMenu.Config(e.Node);
+            }
         }
 	
  	}

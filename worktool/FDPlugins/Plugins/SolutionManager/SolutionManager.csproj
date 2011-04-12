@@ -73,7 +73,10 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SlnNode.cs" />
+    <Compile Include="Node\ProjNode.cs" />
+    <Compile Include="SlnTreeMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PluginUI.resx">
