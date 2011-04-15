@@ -6,3 +6,5 @@ E:\project\工作工具\CopyUpdate\bin\Release\CopyUpdate.exe
 E:\project\工作工具\CopyUpdate\bin\Release\CopyUpdate.pdb
 E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.exe
 E:\project\工作工具\CopyUpdate\obj\Release\CopyUpdate.pdb
+E:\project\WorkTool\CopyUpdate\obj\Release\CopyUpdate.exe
+E:\project\WorkTool\CopyUpdate\obj\Release\CopyUpdate.pdb

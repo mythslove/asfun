@@ -6,3 +6,5 @@ E:\project\工作工具\TSvnTool\TSvnTool\bin\Debug\TSvnTool.exe
 E:\project\工作工具\TSvnTool\TSvnTool\bin\Debug\TSvnTool.pdb
 E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.exe
 E:\project\工作工具\TSvnTool\TSvnTool\obj\Debug\TSvnTool.pdb
+E:\project\WorkTool\TSvnTool\TSvnTool\obj\Debug\TSvnTool.exe
+E:\project\WorkTool\TSvnTool\TSvnTool\obj\Debug\TSvnTool.pdb
