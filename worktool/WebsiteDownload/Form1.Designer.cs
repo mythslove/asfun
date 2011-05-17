@@ -39,15 +39,17 @@
             this.selFolderBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.urlTxt = new System.Windows.Forms.ComboBox();
+            this.cacheFileTxt = new System.Windows.Forms.TextBox();
+            this.loadCacheBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cacheTxt
             // 
-            this.cacheTxt.Location = new System.Drawing.Point(12, 24);
+            this.cacheTxt.Location = new System.Drawing.Point(12, 53);
             this.cacheTxt.Multiline = true;
             this.cacheTxt.Name = "cacheTxt";
             this.cacheTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cacheTxt.Size = new System.Drawing.Size(347, 407);
+            this.cacheTxt.Size = new System.Drawing.Size(347, 378);
             this.cacheTxt.TabIndex = 0;
             this.cacheTxt.DoubleClick += new System.EventHandler(this.cacheTxt_DoubleClick);
             this.cacheTxt.TextChanged += new System.EventHandler(this.cacheTxt_TextChanged);
@@ -141,11 +143,31 @@
             this.urlTxt.Size = new System.Drawing.Size(197, 20);
             this.urlTxt.TabIndex = 12;
             // 
+            // cacheFileTxt
+            // 
+            this.cacheFileTxt.Location = new System.Drawing.Point(12, 24);
+            this.cacheFileTxt.Name = "cacheFileTxt";
+            this.cacheFileTxt.Size = new System.Drawing.Size(265, 21);
+            this.cacheFileTxt.TabIndex = 13;
+            // 
+            // loadCacheBtn
+            // 
+            this.loadCacheBtn.Location = new System.Drawing.Point(283, 24);
+            this.loadCacheBtn.Name = "loadCacheBtn";
+            this.loadCacheBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadCacheBtn.TabIndex = 14;
+            this.loadCacheBtn.Text = "加载文件";
+            this.loadCacheBtn.UseVisualStyleBackColor = true;
+            this.loadCacheBtn.Click += new System.EventHandler(this.loadCacheBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 501);
+            this.Controls.Add(this.loadCacheBtn);
+            this.Controls.Add(this.cacheFileTxt);
+            this.Controls.Add(this.cacheTxt);
             this.Controls.Add(this.urlTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.selFolderBtn);
@@ -156,7 +178,6 @@
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.downloadBtn);
             this.Controls.Add(this.fileListBox);
-            this.Controls.Add(this.cacheTxt);
             this.Name = "Form1";
             this.Text = "网站下载器（www.fanflash.cn）";
             this.ResumeLayout(false);
@@ -177,6 +198,8 @@
         private System.Windows.Forms.Button selFolderBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox urlTxt;
+        private System.Windows.Forms.TextBox cacheFileTxt;
+        private System.Windows.Forms.Button loadCacheBtn;
     }
 }
 

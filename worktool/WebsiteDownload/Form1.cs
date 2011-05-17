@@ -202,5 +202,26 @@ namespace WebsiteDownload
                
             }
         }
+
+        /// <summary>
+        /// 加载缓存文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadCacheBtn_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(this.cacheFileTxt.Text))
+            {
+                MessageBox.Show("你输入的文件路径错误", "提示");
+                return;
+            }
+
+            string data = File.ReadAllText(this.cacheFileTxt.Text);
+            this.cacheTxt.MaxLength = data.Length + 1000;
+            this.cacheTxt.Text = data;
+
+            MessageBox.Show("文本长度为：" + data.Length, "提示");
+            
+        }
     }
 }
