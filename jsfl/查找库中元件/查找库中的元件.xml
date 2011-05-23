@@ -1,0 +1,74 @@
+﻿<dialog id="convertToSymbolDlg" title="查找库里面的元件" >
+    <grid>
+        <columns>
+            <column/>
+            <column/>
+        </columns>
+        <rows>
+            <row align="right">
+                <label value="关键字：" control="keyname" align="right"/>
+                <textbox id="keyname" value=""/>    
+            </row>
+            <row><spacer/></row>
+            <row align="right">
+                <label value="查找类型：" control="findtype" align="right"/>
+                <radiogroup id="findtype">
+                    <radio label="元件名"/>
+                    <radio label="链接名"/>
+                    <radio label="类名"/>
+                </radiogroup>
+            </row> 
+			<row><spacer/></row>
+            <row align="right">
+                <label value="起始索引：" control="startindex" align="right"/>
+                <textbox id="startindex" value="0"/>    
+            </row>
+			<row><spacer/></row>
+            <row>
+				<spacer/>
+				<button id="findnextbtn" label="查找下一个" oncommand="findNextBtnHandler()" />
+            </row> 
+			<row>
+				<spacer/>
+				<button id="findprebtn" label="查找上一个" oncommand="findPreBtnHandler()" />
+			</row>
+			<row><spacer/></row>
+			<row>
+				<spacer/>
+				<button id="openitembtn" label="　打开它　" oncommand="openitembtnHandler()" />
+			</row>
+			<row><spacer/></row>
+			<row align="right">
+				<spacer/>
+				<button id="closebtn" label="　结束查找" oncommand="closeBtnHandler()" />
+			</row>
+        </rows> 
+    </grid>
+	<script>
+	
+		/**
+		 * 输入链接名，查找元件的界面文件
+		 * bug报告:fanflash@msn.com
+		 * @author fanflash.cn
+		 */
+	
+		var jsflPath=fl.configURI+"Commands/findLibrayItem.as";
+		fl.runScript(jsflPath, "main");
+		
+		function findNextBtnHandler(){
+			fl.runScript(jsflPath, "findNextBtnHandler");
+		}
+
+		function findPreBtnHandler(){
+			fl.runScript(jsflPath, "findPreBtnHandler");
+		}
+		
+		function openitembtnHandler(){
+		
+		}
+
+		function closeBtnHandler() {
+			fl.runScript(jsflPath, "closeBtnHandler");
+		}
+	</script>
+</dialog>
