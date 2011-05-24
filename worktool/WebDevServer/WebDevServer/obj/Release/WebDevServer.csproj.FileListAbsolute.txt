@@ -1,0 +1,8 @@
+E:\project\WorkTool\WebDevServer\WebDevServer\bin\Release\WebDevServerBoot.exe
+E:\project\WorkTool\WebDevServer\WebDevServer\bin\Release\WebDevServerBoot.pdb
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\ResolveAssemblyReference.cache
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\WebDevServer.MainForm.resources
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\WebDevServer.Properties.Resources.resources
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\WebDevServer.csproj.GenerateResource.Cache
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\WebDevServerBoot.exe
+E:\project\WorkTool\WebDevServer\WebDevServer\obj\Release\WebDevServerBoot.pdb
