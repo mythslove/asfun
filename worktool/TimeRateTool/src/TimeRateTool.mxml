@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" width="481" height="402" initialize="application1_initializeHandler(event)">
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			private var map:Dictionary;
+			
+
+			protected function application1_initializeHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				this.map = new Dictionary();
+				
+				this.map[this.ans] = [this.atxt,"平均月薪是指你一年薪水的平均数。"];
+				this.map[this.bns]=[this.btxt,"发薪数是指你一年发薪水的次数，多数公司一年有十三年（多出来的一薪为年终资金）。"];
+				this.map[this.cns] = [this.ctxt,"放大系数指你要让参考薪水乘上的系数，因为在外包项目中定的价格通常要比当前工资高，通常是工资的1.2倍。"];
+				this.map[this.dns] = [this.dtxt," 误差值的意思是你要在一年真实工作天数中加减的天数，一年真实工作天数以258计算，这个数是怎么得来的呢，是这样的: 365(一年总天数) - 96（双休总和） - 11（法定节假日），这里没有算到的年假之类就可以在偏移值中表现出来"];
+				this.map[this.ens] = [this.etxt,"一天要工作几个小时，通常是八小时"];
+				
+				this.update();
+			}
+			
+			//一年实际工作天数：365 - 96 - 11 = 258天
+			private function update(e:Event = null):void{
+				
+				var t:Number = ( ans.value * bns.value * cns.value ) / ( 258 + dns.value);
+				salaryTxt.text = Math.round(t).toString() + "元";
+				timeRate.text = Math.round(t / ens.value).toString() + "元";
+			}
+
+
+
+			private var preLabel:Label;
+			
+			protected function tfocusInHandler(event:FocusEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				if(this.preLabel != null){
+					this.preLabel.setStyle("color",0);
+				}
+				
+				var infoArr:Array = this.map[event.currentTarget];
+				if(infoArr == null)return;
+				
+				this.preLabel = infoArr[0] as Label;
+				this.preLabel.setStyle("color",0xff0000);
+				
+				this.infoTxt.text = infoArr[1];
+				
+			}
+
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Label x="20" y="44" text="时薪 = 日薪 / 　　　　　 = "/>
+	<s:Label x="20" y="20" text="日薪 = (　　　　 * 　　　 * 　　) / (　　　　　　 + 　　　) = " color="#000000" width="330"/>
+	<s:Label x="62" y="20" text="平均月薪" color="#000000" id="atxt"/>
+	<s:Label x="20" y="93" text="平均月薪：　　　　　　 元" color="#000000"/>
+	<s:Label x="121" y="20" text="发薪数" color="#000000" id="btxt"/>
+	<s:Label x="20" y="124.5" text="一年几薪：　　　　薪" color="#000000" width="131"/>
+	<s:Label x="166" y="20" text="系数" color="#000000" id="ctxt"/>
+	<s:Label x="90.5" y="44" text="日工作时数" color="#000000" id="etxt"/>
+	<s:Label x="20" y="217.5" text="日工作时数：　　　  小时" color="#000000"/>
+	<s:Label x="211" y="20" text="实际工作天数" color="#000000"/>
+	<s:Label x="293" y="20" text="误差值" color="#000000" id="dtxt"/>
+	<s:Label x="345" y="20" text="0元" color="#000000" id="salaryTxt"/>
+	<s:Label x="164" y="44" text="0元" color="#000000" id="timeRate"/>
+	<s:Label x="20" y="155.5" text="放大系数：　　　　倍" color="#000000" focusIn="tfocusInHandler(event)"/>
+	<s:Label x="20" y="186.5" text="实际工作天数偏移值：　　　　  天" color="#000000"/>
+	<s:Label x="20" y="261" text="解释" width="421" height="125" id="infoTxt"/>
+	<s:NumericStepper x="81" y="87.5" value="12000" minimum="1" maximum="999999" width="71" id="ans" change="update(event)" focusIn="tfocusInHandler(event)"/>
+	<s:NumericStepper x="81" y="119" minimum="1" maximum="99" value="13" width="43" id="bns" change="update(event)" focusIn="tfocusInHandler(event)"/>
+	<s:NumericStepper x="140" y="181" minimum="-257" maximum="107" value="0" width="50" id="dns" change="update(event)" focusIn="tfocusInHandler(event)"/>
+	<s:NumericStepper x="91" y="212" minimum="1" maximum="24" value="7" width="40" id="ens" change="update(event)" focusIn="tfocusInHandler(event)"/>
+	<s:NumericStepper x="81" y="150" minimum="1" stepSize="0.1" maximum="9" value="1.2" width="43" id="cns" change="update(event)" focusIn="tfocusInHandler(event)"/>
+	<mx:HRule x="10" y="71" width="446"/>
+	<mx:HRule x="10" y="249" width="446"/>
+</s:Application>

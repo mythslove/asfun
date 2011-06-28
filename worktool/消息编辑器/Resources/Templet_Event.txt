@@ -1,0 +1,13 @@
+	/**
+	 * $(EventTitle)
+	 * $(EventInfo)
+	 * @param	callBackName	事件处理函数的名字
+	 * @param	thisObj			事件处理函数所在的位置
+	 * @param	isRemove		是否移除这个事件，0默认为false
+	 */
+	public static function Event_$(EventName)(callBackName:String, thisObj:Object, isRemove:Boolean) {
+	
+		//事件接收的参数列表:
+		$(EventParametrs)
+		GCpp.eventListener("$(EventName)", thisObj, callBackName, isRemove);
+	}
