@@ -11,6 +11,13 @@ namespace SolutionManager
 {
 	public class PluginUI : UserControl
     {
+    
+        private static PluginUI instance;
+        public static PluginUI GetInstance(){
+            return instance;
+        }
+
+
         private ToolStrip SMtoolStrip;
         private ToolStripButton ImportTSBtn;
         private TreeView SMTree;
@@ -32,6 +39,8 @@ namespace SolutionManager
 			this.pluginMain = pluginMain;
 
             this.Init();
+
+            instance = this;
 		}
 
 		#region Windows Forms Designer Generated Code
@@ -56,7 +65,6 @@ namespace SolutionManager
             this.TreeMenu = new SolutionManager.SlnTreeMenu();
             this.TreeImageList = new System.Windows.Forms.ImageList(this.components);
             this.SMtoolStrip.SuspendLayout();
-            this.TreeMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // SMtoolStrip
@@ -143,7 +151,6 @@ namespace SolutionManager
             this.SMTree.Location = new System.Drawing.Point(0, 25);
             this.SMTree.Name = "SMTree";
             this.SMTree.SelectedImageIndex = 0;
-            this.SMTree.ShowRootLines = false;
             this.SMTree.Size = new System.Drawing.Size(308, 365);
             this.SMTree.TabIndex = 1;
             this.SMTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.SMTree_NodeMouseDoubleClick);
@@ -152,7 +159,7 @@ namespace SolutionManager
             // TreeMenu
             // 
             this.TreeMenu.Name = "slnTreeMenu1";
-            this.TreeMenu.Size = new System.Drawing.Size(149, 98);
+            this.TreeMenu.Size = new System.Drawing.Size(61, 4);
             // 
             // TreeImageList
             // 
@@ -169,7 +176,6 @@ namespace SolutionManager
             this.Load += new System.EventHandler(this.PluginUI_Load);
             this.SMtoolStrip.ResumeLayout(false);
             this.SMtoolStrip.PerformLayout();
-            this.TreeMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,6 +187,7 @@ namespace SolutionManager
         private void InitComponent()
         {
             this.TreeImageList.Images.Add(PluginBase.MainForm.FindImage("274"));
+            this.TreeImageList.Images.Add(PluginBase.MainForm.FindImage("523"));
             this.FileTSBtn.Image = PluginBase.MainForm.FindImage("275");
             this.ImportTSBtn.Image = PluginBase.MainForm.FindImage("415");
             this.SaveFileBtn.Image = PluginBase.MainForm.FindImage("168");
@@ -296,6 +303,15 @@ namespace SolutionManager
         }
 
         /// <summary>
+        /// 更改了解决方案
+        /// </summary>
+        public void ChangeSol()
+        {
+            this.IsChange = true;
+            this.UpdateTitle();
+        }
+
+        /// <summary>
         /// 导入项目
         /// </summary>
         /// <param name="path"></param>
@@ -402,13 +418,20 @@ namespace SolutionManager
             this.SMTree.Nodes.Clear();
 
             XmlNodeList projList = SlnXml.SelectNodes("/solution/projects/project");
-            
+            if (projList.Count < 1)
+            {
+                MessageBox.Show("没有项目", "提示");
+                return;
+            }
+
+            this.SMTree.Nodes.Add("projects", "项目",1,1);
             foreach(XmlNode node in projList){
                 ProjNode sn = new ProjNode();
-                sn.Text = node.Attributes["name"].Value.ToString();
-                sn.path = node.Attributes["path"].Value.ToString();
-                this.SMTree.Nodes.Add(sn);
+                sn.SetXmlNode(node);
+                this.SMTree.Nodes["projects"].Nodes.Add(sn);
             }
+
+            this.SMTree.Nodes["projects"].Expand();
         }
 
 
@@ -525,6 +548,7 @@ namespace SolutionManager
 
         private void SMTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (!(e.Node is ProjNode)) return;
             ProjNode node = e.Node as ProjNode;
             PMProxy.OpenFile(Path.Combine(this.CurSlnDir, node.path));
         }

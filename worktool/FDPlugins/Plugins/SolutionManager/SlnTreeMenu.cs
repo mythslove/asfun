@@ -16,6 +16,11 @@ namespace SolutionManager
         private ToolStripMenuItem DelProMI;
         private ToolStripMenuItem AddProMI;
 
+        private TreeNode curNode;
+
+        //有用到的对话框
+        private Panel.ChangeProNameForm CProjNameDialog;
+
         public SlnTreeMenu()
         {
 
@@ -25,7 +30,8 @@ namespace SolutionManager
 
             this.ChangeProNameMI = new ToolStripMenuItem();
             this.ChangeProNameMI.Name = "ChangeProNameMI";
-            this.ChangeProNameMI.Text = "更改项目名称";
+            this.ChangeProNameMI.Text = "更改项目备注名";
+            this.ChangeProNameMI.Click += new EventHandler(ChangeProNameMI_Click);
 
             this.ChangeProPathMI = new ToolStripMenuItem();
             this.ChangeProPathMI.Name = "ChangeProPathMI";
@@ -39,8 +45,16 @@ namespace SolutionManager
             this.AddProMI.Name = "AddProMI";
             this.AddProMI.Text = "增加一个项目";
 
-
+            this.InitForm();
         }
+
+
+        private void InitForm()
+        {
+            this.CProjNameDialog = new Panel.ChangeProNameForm();
+        }
+
+
 
         /// <summary>
         /// 配置
@@ -48,6 +62,7 @@ namespace SolutionManager
         /// <param name="node"></param>
         public void Config(TreeNode node) {
 
+            this.curNode = node;
             this.Items.Clear();
 
             if( node is ProjNode){
@@ -68,6 +83,21 @@ namespace SolutionManager
             this.toolStripSeparator1,
             this.DelProMI,
             this.AddProMI});
+        }
+
+
+
+
+
+
+
+        /*****************************************************************
+         *                          事件处理
+         * ***************************************************************/
+
+        void ChangeProNameMI_Click(object sender, EventArgs e)
+        {
+            this.CProjNameDialog.ShowAndSetNode(this.curNode as ProjNode);
         }
     }
 }
