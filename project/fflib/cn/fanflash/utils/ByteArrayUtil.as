@@ -67,11 +67,39 @@ package cn.fanflash.utils
 			
 			if (offset == 0 && length == 0) {
 				byte.compress();
-			}
-			else {
+			}else {
 				var temp:ByteArray = new ByteArray();
 				temp.writeBytes(byte, offset, length);
 				temp.compress();
+				temp.position = temp.length - 1;
+				if (length != 0 && (offset + length) < byte.length) {
+					temp.writeBytes(byte, offset + length);
+				}
+				byte.length = offset;
+				byte.position = offset;
+				byte.writeBytes(temp);
+				temp.length = 0;
+			}
+			
+			byte.position = pos;
+		}
+		
+		/**
+		 * 对字节数组进行解压
+		 * @param	byte
+		 * @param	offset
+		 * @param	length
+		 */
+		public static function uncompress(byte:ByteArray, offset:uint = 0, length:uint = 0):void {
+			
+			var pos:uint = byte.position;
+			
+			if (offset == 0 && length == 0) {
+				byte.uncompress();
+			}else {
+				var temp:ByteArray = new ByteArray();
+				temp.writeBytes(byte, offset, length);
+				temp.uncompress();
 				temp.position = temp.length - 1;
 				if (length != 0 && (offset + length) < byte.length) {
 					temp.writeBytes(byte, offset + length);

@@ -253,5 +253,19 @@ package cn.fanflash.file.swf
 			
 			return swfByte;
 		}
+		
+		/**
+		 * 解压SWF文件
+		 * @param	swfByte
+		 * @return
+		 */
+		public static function uncompressSWF(swfByte:ByteArray):ByteArray {
+			var isCom:Boolean = (swfByte[0] == 0x43);
+			if (!isCom) return swfByte;
+			
+			swfByte[0] = 0x46;
+			ByteArrayUtil.uncompress(swfByte, 8);
+			return swfByte;
+		}
 	}
 }
