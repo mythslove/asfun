@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("FlashInterfaceViewer2")]
+[assembly: AssemblyTitle("FlashInterfaceViewer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlashInterfaceViewer2")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("riabox")]
+[assembly: AssemblyProduct("FlashInterfaceViewer")]
+[assembly: AssemblyCopyright("Copyright ©  2011 高帆")]
+[assembly: AssemblyTrademark("riabox")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 使此程序集中的类型

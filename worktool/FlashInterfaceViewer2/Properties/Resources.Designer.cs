@@ -59,5 +59,257 @@ namespace FlashInterfaceViewer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 	//////////////////////////////////////////////////////////////
+        ///	//				以下是界面使用VC事件的代码					//
+        ///	//					可以直接拷贝使用						//
+        ///	//////////////////////////////////////////////////////////////
+        ///	
+        ///	
+        ///	/**
+        ///	 * 初始化事件监听
+        ///	 */
+        ///	private function initListener() {{
+        ///		{0}
+        ///	}}
+        ///	
+        ///	/**
+        ///	 * 清除资源
+        ///	 */
+        ///	private function dispose() {{
+        ///		{1}
+        ///	}}
+        ///	
+        ///	
+        ///	////////////////////////////////////////////////////////////
+        ///	//					VC事件处理
+        ///	////////////////////////////////////////////////////////////
+        ///	
+        ///{2} 的本地化字符串。
+        /// </summary>
+        internal static string allEventCode {
+            get {
+                return ResourceManager.GetString("allEventCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	/**
+        ///	 * {0}
+        ///	 * @param	callBackName	回调函数名字
+        ///	 * @param	thisObj			回调函数所在对象
+        ///	 * @param	isRemove		是否是移除事件
+        ///	 */
+        ///	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {5}
+        ///		
+        ///		
+        ///		/*
+        ///		 代理类.{1}(&quot;{1}&quot;, this);
+        ///		
+        ///		/**
+        ///		 * {2}
+        ///		 * @param	e	VC事件，参数都在e.data里
+        ///		 /
+        ///		private function {1}(e:CppEvent) {5}
+        ///			
+        ///{3}
+        ///		{6}
+        ///		*/
+        ///	
+        ///		GCpp.eventListener(&quot;{4}&quot;, thisObj, callBackName, isRemove);
+        ///	{6} 的本地化字符串。
+        /// </summary>
+        internal static string asEventTmp {
+            get {
+                return ResourceManager.GetString("asEventTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	/**
+        ///	 * {0}
+        ///	 */
+        ///	public static function {1}({2}){3} {6}
+        ///		{5}GCpp.callMethod(&quot;{1}&quot;{4});
+        ///	{7} 的本地化字符串。
+        /// </summary>
+        internal static string asFunctmp {
+            get {
+                return ResourceManager.GetString("asFunctmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 			var {0}:{1} = e.data[{2}]; 的本地化字符串。
+        /// </summary>
+        internal static string eItemTmp {
+            get {
+                return ResourceManager.GetString("eItemTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	/**
+        ///	 * {0}
+        ///	 * @param	e	VC事件，参数都在e.data里
+        ///	 */
+        ///	private function {1}(e:CppEvent) {{
+        ///
+        ///{2}		
+        ///	}} 的本地化字符串。
+        /// </summary>
+        internal static string eventHandlerCode {
+            get {
+                return ResourceManager.GetString("eventHandlerCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///////////////////////////////////////////////////
+        /////路径：{0}
+        /////以下是【{1}】所有的{2}
+        ///////////////////////////////////////////////////
+        ///
+        ///
+        ///{3} 的本地化字符串。
+        /// </summary>
+        internal static string folderTitleTmp {
+            get {
+                return ResourceManager.GetString("folderTitleTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 方法名：{0}
+        ///
+        ///说明：	{1}
+        ///
+        ///返回：	{2}
+        ///
+        ///参数：
+        ///{3}
+        ///备注：
+        ///{4} 的本地化字符串。
+        /// </summary>
+        internal static string funTmp {
+            get {
+                return ResourceManager.GetString("funTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///////////////////////////////////////////////////
+        /////以下是关于【{0}】的所有事件和方法
+        ///////////////////////////////////////////////////
+        ///
+        ///
+        ///
+        ///////////////////////////////////////////////////
+        /////		方法列表
+        ///////////////////////////////////////////////////
+        ///
+        ///
+        ///{1} 的本地化字符串。
+        /// </summary>
+        internal static string groupTitleATmp {
+            get {
+                return ResourceManager.GetString("groupTitleATmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///
+        ///
+        ///
+        ///
+        ///////////////////////////////////////////////////
+        /////		事件列表
+        ///////////////////////////////////////////////////
+        ///
+        ///
+        ///{0} 的本地化字符串。
+        /// </summary>
+        internal static string groupTitleBTmp {
+            get {
+                return ResourceManager.GetString("groupTitleBTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 读取配置文件：
+        ///方法一：使用菜单“文件/打开”。
+        ///方法二：直接把配置文件拖入应用程序。 的本地化字符串。
+        /// </summary>
+        internal static string help {
+            get {
+                return ResourceManager.GetString("help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///////////////////////////////////////////////////
+        /////路径：{0}
+        ///////////////////////////////////////////////////
+        ///
+        ///{1} 的本地化字符串。
+        /// </summary>
+        internal static string itemTitleTmp {
+            get {
+                return ResourceManager.GetString("itemTitleTmp", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Icon MainICO {
+            get {
+                object obj = ResourceManager.GetObject("MainICO", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	 * @param	{0} 的本地化字符串。
+        /// </summary>
+        internal static string paramTmp {
+            get {
+                return ResourceManager.GetString("paramTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	 * @return	{0} 的本地化字符串。
+        /// </summary>
+        internal static string returnTmp {
+            get {
+                return ResourceManager.GetString("returnTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 	/////////////////////////////////////////////////////////////////////
+        ///	//{0}
+        ///	/////////////////////////////////////////////////////////////////////
+        ///	
+        ///	
+        ///{1} 的本地化字符串。
+        /// </summary>
+        internal static string tileTmp {
+            get {
+                return ResourceManager.GetString("tileTmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 			代理类.{0}(&quot;{0}&quot;, this{1}); 的本地化字符串。
+        /// </summary>
+        internal static string vcListenerCode {
+            get {
+                return ResourceManager.GetString("vcListenerCode", resourceCulture);
+            }
+        }
     }
 }

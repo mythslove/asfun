@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -114,4 +117,165 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="asEventTmp" xml:space="preserve">
+    <value>	/**
+	 * {0}
+	 * @param	callBackName	回调函数名字
+	 * @param	thisObj			回调函数所在对象
+	 * @param	isRemove		是否是移除事件
+	 */
+	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {5}
+		
+		
+		/*
+		 代理类.{1}("{1}", this);
+		
+		/**
+		 * {2}
+		 * @param	e	VC事件，参数都在e.data里
+		 /
+		private function {1}(e:CppEvent) {5}
+			
+{3}
+		{6}
+		*/
+	
+		GCpp.eventListener("{4}", thisObj, callBackName, isRemove);
+	{6}</value>
+  </data>
+  <data name="asFunctmp" xml:space="preserve">
+    <value>	/**
+	 * {0}
+	 */
+	public static function {1}({2}){3} {6}
+		{5}GCpp.callMethod("{1}"{4});
+	{7}</value>
+  </data>
+  <data name="eItemTmp" xml:space="preserve">
+    <value>			var {0}:{1} = e.data[{2}];</value>
+  </data>
+  <data name="folderTitleTmp" xml:space="preserve">
+    <value>
+////////////////////////////////////////////////
+//路径：{0}
+//以下是【{1}】所有的{2}
+////////////////////////////////////////////////
+
+
+{3}</value>
+  </data>
+  <data name="funTmp" xml:space="preserve">
+    <value>方法名：{0}
+
+说明：	{1}
+
+返回：	{2}
+
+参数：
+{3}
+备注：
+{4}</value>
+  </data>
+  <data name="groupTitleATmp" xml:space="preserve">
+    <value>
+////////////////////////////////////////////////
+//以下是关于【{0}】的所有事件和方法
+////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////
+//		方法列表
+////////////////////////////////////////////////
+
+
+{1}</value>
+  </data>
+  <data name="groupTitleBTmp" xml:space="preserve">
+    <value>
+
+
+
+
+////////////////////////////////////////////////
+//		事件列表
+////////////////////////////////////////////////
+
+
+{0}</value>
+  </data>
+  <data name="itemTitleTmp" xml:space="preserve">
+    <value>
+////////////////////////////////////////////////
+//路径：{0}
+////////////////////////////////////////////////
+
+{1}</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainICO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainICO.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paramTmp" xml:space="preserve">
+    <value>	 * @param	{0}</value>
+  </data>
+  <data name="returnTmp" xml:space="preserve">
+    <value>	 * @return	{0}</value>
+  </data>
+  <data name="tileTmp" xml:space="preserve">
+    <value>	/////////////////////////////////////////////////////////////////////
+	//{0}
+	/////////////////////////////////////////////////////////////////////
+	
+	
+{1}</value>
+  </data>
+  <data name="help" xml:space="preserve">
+    <value>读取配置文件：
+方法一：使用菜单“文件/打开”。
+方法二：直接把配置文件拖入应用程序。</value>
+  </data>
+  <data name="eventHandlerCode" xml:space="preserve">
+    <value>	/**
+	 * {0}
+	 * @param	e	VC事件，参数都在e.data里
+	 */
+	private function {1}(e:CppEvent) {{
+
+{2}		
+	}}</value>
+    <comment>事件监听代码</comment>
+  </data>
+  <data name="vcListenerCode" xml:space="preserve">
+    <value>			代理类.{0}("{0}", this{1});</value>
+    <comment>监听VC事件的代码模板</comment>
+  </data>
+  <data name="allEventCode" xml:space="preserve">
+    <value>	//////////////////////////////////////////////////////////////
+	//				以下是界面使用VC事件的代码					//
+	//					可以直接拷贝使用						//
+	//////////////////////////////////////////////////////////////
+	
+	
+	/**
+	 * 初始化事件监听
+	 */
+	private function initListener() {{
+		{0}
+	}}
+	
+	/**
+	 * 清除资源
+	 */
+	private function dispose() {{
+		{1}
+	}}
+	
+	
+	////////////////////////////////////////////////////////////
+	//					VC事件处理
+	////////////////////////////////////////////////////////////
+	
+{2}</value>
+  </data>
 </root>
