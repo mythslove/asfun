@@ -61,32 +61,30 @@ namespace FlashInterfaceViewer.Properties {
         }
         
         /// <summary>
-        ///   查找类似 	//////////////////////////////////////////////////////////////
-        ///	//				以下是界面使用VC事件的代码					//
-        ///	//					可以直接拷贝使用						//
-        ///	//////////////////////////////////////////////////////////////
-        ///	
+        ///   查找类似 
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///	///////////////////////////////////////////////////////////////////////////////////
+        ///	///////////////////////////////////////////////////////////////////////////////////
+        ///	///			以下是界面使用VC事件的代码				///
+        ///	///			     可以直接拷贝使用					///
+        ///	///////////////////////////////////////////////////////////////////////////////////
+        ///	///////////////////////////////////////////////////////////////////////////////////
+        ///
         ///	
         ///	/**
         ///	 * 初始化事件监听
         ///	 */
         ///	private function initListener() {{
-        ///		{0}
+        ///{0}
         ///	}}
         ///	
         ///	/**
-        ///	 * 清除资源
-        ///	 */
-        ///	private function dispose() {{
-        ///		{1}
-        ///	}}
-        ///	
-        ///	
-        ///	////////////////////////////////////////////////////////////
-        ///	//					VC事件处理
-        ///	////////////////////////////////////////////////////////////
-        ///	
-        ///{2} 的本地化字符串。
+        ///	 * 清除资源 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string allEventCode {
             get {
@@ -101,24 +99,23 @@ namespace FlashInterfaceViewer.Properties {
         ///	 * @param	thisObj			回调函数所在对象
         ///	 * @param	isRemove		是否是移除事件
         ///	 */
-        ///	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {5}
-        ///		
+        ///	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {{
         ///		
         ///		/*
         ///		 代理类.{1}(&quot;{1}&quot;, this);
-        ///		
+        ///			
         ///		/**
         ///		 * {2}
         ///		 * @param	e	VC事件，参数都在e.data里
         ///		 /
-        ///		private function {1}(e:CppEvent) {5}
+        ///		private function {1}(e:CppEvent) {{
         ///			
         ///{3}
-        ///		{6}
+        ///		}}
         ///		*/
-        ///	
+        ///		
         ///		GCpp.eventListener(&quot;{4}&quot;, thisObj, callBackName, isRemove);
-        ///	{6} 的本地化字符串。
+        ///	}} 的本地化字符串。
         /// </summary>
         internal static string asEventTmp {
             get {
@@ -130,22 +127,13 @@ namespace FlashInterfaceViewer.Properties {
         ///   查找类似 	/**
         ///	 * {0}
         ///	 */
-        ///	public static function {1}({2}){3} {6}
+        ///	public static function {1}({2}){3} {{
         ///		{5}GCpp.callMethod(&quot;{1}&quot;{4});
-        ///	{7} 的本地化字符串。
+        ///	}} 的本地化字符串。
         /// </summary>
-        internal static string asFunctmp {
+        internal static string asFuncTmp {
             get {
-                return ResourceManager.GetString("asFunctmp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 			var {0}:{1} = e.data[{2}]; 的本地化字符串。
-        /// </summary>
-        internal static string eItemTmp {
-            get {
-                return ResourceManager.GetString("eItemTmp", resourceCulture);
+                return ResourceManager.GetString("asFuncTmp", resourceCulture);
             }
         }
         
@@ -155,8 +143,8 @@ namespace FlashInterfaceViewer.Properties {
         ///	 * @param	e	VC事件，参数都在e.data里
         ///	 */
         ///	private function {1}(e:CppEvent) {{
-        ///
-        ///{2}		
+        ///		
+        ///{2}
         ///	}} 的本地化字符串。
         /// </summary>
         internal static string eventHandlerCode {
@@ -304,11 +292,45 @@ namespace FlashInterfaceViewer.Properties {
         }
         
         /// <summary>
-        ///   查找类似 			代理类.{0}(&quot;{0}&quot;, this{1}); 的本地化字符串。
+        ///   查找类似 			var {0}:{1} = e.data[{2}]; 的本地化字符串。
+        /// </summary>
+        internal static string varEventParamCode {
+            get {
+                return ResourceManager.GetString("varEventParamCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 		代理类.{0}(&quot;{0}&quot;, this{1}); 的本地化字符串。
         /// </summary>
         internal static string vcListenerCode {
             get {
                 return ResourceManager.GetString("vcListenerCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 软件版本有更新
+        ///现版本号：{0}
+        ///最新版本号:{1}
+        ///点击确定将自动在后台自动更新，完成后通知你。
+        ///点击取消将不会自动更新。 的本地化字符串。
+        /// </summary>
+        internal static string versionUpdateMsg {
+            get {
+                return ResourceManager.GetString("versionUpdateMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 软件版本有更新
+        ///现版本号：{0}
+        ///最新版本号:{1}
+        ///请向高帆索要 的本地化字符串。
+        /// </summary>
+        internal static string versionUpdateMsg2 {
+            get {
+                return ResourceManager.GetString("versionUpdateMsg2", resourceCulture);
             }
         }
     }

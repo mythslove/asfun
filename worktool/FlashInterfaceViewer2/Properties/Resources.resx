@@ -124,35 +124,35 @@
 	 * @param	thisObj			回调函数所在对象
 	 * @param	isRemove		是否是移除事件
 	 */
-	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {5}
-		
+	public static function {1}(callBackName:String, thisObj:Object, isRemove:Boolean) {{
 		
 		/*
 		 代理类.{1}("{1}", this);
-		
+			
 		/**
 		 * {2}
 		 * @param	e	VC事件，参数都在e.data里
 		 /
-		private function {1}(e:CppEvent) {5}
+		private function {1}(e:CppEvent) {{
 			
 {3}
-		{6}
+		}}
 		*/
-	
+		
 		GCpp.eventListener("{4}", thisObj, callBackName, isRemove);
-	{6}</value>
+	}}</value>
   </data>
-  <data name="asFunctmp" xml:space="preserve">
+  <data name="asFuncTmp" xml:space="preserve">
     <value>	/**
 	 * {0}
 	 */
-	public static function {1}({2}){3} {6}
+	public static function {1}({2}){3} {{
 		{5}GCpp.callMethod("{1}"{4});
-	{7}</value>
+	}}</value>
   </data>
-  <data name="eItemTmp" xml:space="preserve">
+  <data name="varEventParamCode" xml:space="preserve">
     <value>			var {0}:{1} = e.data[{2}];</value>
+    <comment>声明事件参数模板</comment>
   </data>
   <data name="folderTitleTmp" xml:space="preserve">
     <value>
@@ -241,34 +241,43 @@
 	 * @param	e	VC事件，参数都在e.data里
 	 */
 	private function {1}(e:CppEvent) {{
-
-{2}		
+		
+{2}
 	}}</value>
-    <comment>事件监听代码</comment>
+    <comment>事件监听代码模板</comment>
   </data>
   <data name="vcListenerCode" xml:space="preserve">
-    <value>			代理类.{0}("{0}", this{1});</value>
+    <value>		代理类.{0}("{0}", this{1});</value>
     <comment>监听VC事件的代码模板</comment>
   </data>
   <data name="allEventCode" xml:space="preserve">
-    <value>	//////////////////////////////////////////////////////////////
-	//				以下是界面使用VC事件的代码					//
-	//					可以直接拷贝使用						//
-	//////////////////////////////////////////////////////////////
-	
+    <value>
+
+
+
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	///			以下是界面使用VC事件的代码				///
+	///			     可以直接拷贝使用					///
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+
 	
 	/**
 	 * 初始化事件监听
 	 */
 	private function initListener() {{
-		{0}
+{0}
 	}}
 	
 	/**
 	 * 清除资源
 	 */
 	private function dispose() {{
-		{1}
+{1}
 	}}
 	
 	
@@ -277,5 +286,19 @@
 	////////////////////////////////////////////////////////////
 	
 {2}</value>
+    <comment>全部的使用时事件代码</comment>
+  </data>
+  <data name="versionUpdateMsg" xml:space="preserve">
+    <value>软件版本有更新
+现版本号：{0}
+最新版本号:{1}
+点击确定将自动在后台自动更新，完成后通知你。
+点击取消将不会自动更新。</value>
+  </data>
+  <data name="versionUpdateMsg2" xml:space="preserve">
+    <value>软件版本有更新
+现版本号：{0}
+最新版本号:{1}
+请向高帆索要</value>
   </data>
 </root>
