@@ -17,6 +17,7 @@ namespace FlashInterfaceViewer
     {
 
         private ConfigReader cr;
+        public string appName = "Flash接口查看器";
 
         public FIVForm()
         {
@@ -25,6 +26,7 @@ namespace FlashInterfaceViewer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             this.checkVersion();
             this.cr = new ConfigReader();
         }
@@ -137,18 +139,24 @@ namespace FlashInterfaceViewer
             MessageBox.Show(Properties.Resources.help,"帮助");
         }
 
-        private void versionIM_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("软件版本:" + Application.ProductVersion, "版本号");
-        }
-
         private void checkVersion()
         {
+
+            string aname = Path.GetFileName(Application.ExecutablePath);
+            if ( aname.LastIndexOf("_nc") == (aname.Length - 7)) return;
+
+            this.Text = this.appName + "（检查更新中...）";
+
             WebClient wc = new WebClient();
             wc.DownloadStringAsync(new Uri("http://softdatadb.googlecode.com/svn/trunk/flash_interface_viewer/version.txt"));
             wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
         }
 
+        /// <summary>
+        ///  版本号下载完
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
 
@@ -159,27 +167,95 @@ namespace FlashInterfaceViewer
             {
                 string newVersionStr = e.Result;
 
-                int newVersion = Convert.ToInt32("1" + newVersionStr.Replace(".", ""));
+                string t = newVersionStr.Replace(".", "");
+                int newVersion = Convert.ToInt32("1" + t);
                 int oldVersion = Convert.ToInt32("1" + Application.ProductVersion.Replace(".", ""));
 
                 if (newVersion > oldVersion)
                 {
-                    string msg = String.Format(Properties.Resources.versionUpdateMsg2,Application.ProductVersion,newVersionStr);
+                    string[] userToKen = new string[2];
+                    userToKen[0] = newVersionStr;
+                    userToKen[1] = t;
 
-                    MessageBox.Show(msg, "版本更新", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                    /*
-                    if (MessageBox.Show(msg, "版本更新", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
-                    {
-                        //wc.DownloadStringAsync(new Uri("http://softdatadb.googlecode.com/svn/trunk/flash_interface_viewer/version.txt"));
-                    }
-                     */
+                    wc.DownloadStringAsync(new Uri("http://softdatadb.googlecode.com/svn/trunk/flash_interface_viewer/log/" + newVersionStr + ".log"), userToKen);
+                    wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadLogCompleted);
                 }
             }
             catch
             {
             }
+
+            this.Text = this.appName;
+        }
+
+        /// <summary>
+        /// LOG文件下载完
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void wc_DownloadLogCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            WebClient wc = sender as WebClient;
+            wc.DownloadStringCompleted -= this.wc_DownloadLogCompleted;
+
+            string[] userToKey = e.UserState as string[];
+            string logStr = "无更新说明文件或更新说明下载出错";
+
+            try
+            {
+                if (StrTool.isNotNull(e.Result))
+                {
+                    logStr = e.Result;
+                }
+            }
+            catch
+            {
+            }
+
+            string msg = String.Format(Properties.Resources.versionUpdateMsg, Application.ProductVersion, userToKey[0], logStr);
+
+            if (MessageBox.Show(msg, "版本更新", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+            {
+                string newName = "fiv_" + userToKey[1] as string + ".exe";
+                wc.DownloadFileAsync(new Uri("http://softdatadb.googlecode.com/svn/trunk/flash_interface_viewer/fiv.exe"), newName, newName);
+                wc.DownloadFileCompleted += new AsyncCompletedEventHandler(wc_DownloadFileCompleted);
+            }
+        }
+
+        /// <summary>
+        /// 新程序下载完
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
             
+            WebClient wc = sender as WebClient;
+            wc.DownloadFileCompleted -= this.wc_DownloadFileCompleted;
+     
+
+            try
+            {
+                string msg = String.Format(Properties.Resources.appDowened,e.UserState as String);
+
+                MessageBox.Show(msg, "下载完成", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch
+            {
+                MessageBox.Show(Properties.Resources.appDownError, "更新失败", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void curVersionMI_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("软件版本:" + Application.ProductVersion, "版本号");
+        }
+
+        private void verLogMI_Click(object sender, EventArgs e)
+        {
+
+            VersionForm vf = new VersionForm();
+            vf.ShowDialog();
             
         }
     }
@@ -484,6 +560,8 @@ namespace FlashInterfaceViewer
 
             vd = ConfigReader.GetValue(data, "name", vd.lastIndex);
             this.name = vd.value;
+            this.name = this.name.Trim();       //去尾空格
+            this.name = this.name.TrimEnd(','); //去尾逗号
 
             vd = ConfigReader.GetValue(data, "desc", vd.lastIndex);
             this.desc = vd.value;

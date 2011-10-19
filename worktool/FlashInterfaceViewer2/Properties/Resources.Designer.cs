@@ -93,6 +93,31 @@ namespace FlashInterfaceViewer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 最新程序已经下载，文件与当前应用程序同目录，
+        ///名字为：{0}
+        ///
+        ///下面有两条关于版本更新建议：
+        ///1.关闭并删除这个旧版本的应用程序。
+        ///2.把新版本的程序改名为&quot;FlashInterfaceViewer.exe&quot; 的本地化字符串。
+        /// </summary>
+        internal static string appDowened {
+            get {
+                return ResourceManager.GetString("appDowened", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 程序更新失败。
+        ///应该是下载失败了。
+        ///找高帆直接要程序吧。 的本地化字符串。
+        /// </summary>
+        internal static string appDownError {
+            get {
+                return ResourceManager.GetString("appDownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 	/**
         ///	 * {0}
         ///	 * @param	callBackName	回调函数名字
@@ -228,9 +253,14 @@ namespace FlashInterfaceViewer.Properties {
         }
         
         /// <summary>
-        ///   查找类似 读取配置文件：
-        ///方法一：使用菜单“文件/打开”。
-        ///方法二：直接把配置文件拖入应用程序。 的本地化字符串。
+        ///   查找类似 1.读取配置文件：
+        ///	方法一：使用菜单“文件/打开”。
+        ///	方法二：直接把配置文件拖入应用程序。
+        ///
+        ///2.禁止软件启动时的自动更新检查:
+        ///更改应用程序名，名字最后面带&quot;_nc&quot;（意为no check）
+        ///如&quot;FlashInterfaceViewer_nc.exe&quot;
+        ///这样就不会自动更新了。 的本地化字符串。
         /// </summary>
         internal static string help {
             get {
@@ -311,26 +341,19 @@ namespace FlashInterfaceViewer.Properties {
         
         /// <summary>
         ///   查找类似 软件版本有更新
-        ///现版本号：{0}
-        ///最新版本号:{1}
-        ///点击确定将自动在后台自动更新，完成后通知你。
+        ///现版本号：{0}/ 新版本号:{1}
+        ///
+        /////////////////更新日志///////////////
+        ///{2}
+        ////////////////////////////////////////
+        ///
+        ///点击确定将自动在后台自动更新，完成后将通知你。
+        ///或点取消，然后向高帆索要最新文件。
         ///点击取消将不会自动更新。 的本地化字符串。
         /// </summary>
         internal static string versionUpdateMsg {
             get {
                 return ResourceManager.GetString("versionUpdateMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 软件版本有更新
-        ///现版本号：{0}
-        ///最新版本号:{1}
-        ///请向高帆索要 的本地化字符串。
-        /// </summary>
-        internal static string versionUpdateMsg2 {
-            get {
-                return ResourceManager.GetString("versionUpdateMsg2", resourceCulture);
             }
         }
     }

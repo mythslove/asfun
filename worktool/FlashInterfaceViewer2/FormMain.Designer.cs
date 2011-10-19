@@ -34,6 +34,8 @@
             this.helpMI = new System.Windows.Forms.ToolStripMenuItem();
             this.useInfoIM = new System.Windows.Forms.ToolStripMenuItem();
             this.versionIM = new System.Windows.Forms.ToolStripMenuItem();
+            this.curVersionMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.verLogMI = new System.Windows.Forms.ToolStripMenuItem();
             this.submitButMI = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.collapseAllBtn = new System.Windows.Forms.Button();
@@ -100,10 +102,26 @@
             // 
             // versionIM
             // 
+            this.versionIM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.curVersionMI,
+            this.verLogMI});
             this.versionIM.Name = "versionIM";
             this.versionIM.Size = new System.Drawing.Size(152, 22);
             this.versionIM.Text = "软件版本";
-            this.versionIM.Click += new System.EventHandler(this.versionIM_Click);
+            // 
+            // curVersionMI
+            // 
+            this.curVersionMI.Name = "curVersionMI";
+            this.curVersionMI.Size = new System.Drawing.Size(152, 22);
+            this.curVersionMI.Text = "当前版本信息";
+            this.curVersionMI.Click += new System.EventHandler(this.curVersionMI_Click);
+            // 
+            // verLogMI
+            // 
+            this.verLogMI.Name = "verLogMI";
+            this.verLogMI.Size = new System.Drawing.Size(152, 22);
+            this.verLogMI.Text = "版本日志";
+            this.verLogMI.Click += new System.EventHandler(this.verLogMI_Click);
             // 
             // submitButMI
             // 
@@ -281,6 +299,8 @@
         private System.Windows.Forms.TextBox descTxt;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox asCodeTxt;
+        private System.Windows.Forms.ToolStripMenuItem curVersionMI;
+        private System.Windows.Forms.ToolStripMenuItem verLogMI;
 
 
 
