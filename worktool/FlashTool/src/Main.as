@@ -10,6 +10,7 @@ class Main extends MovieClip
 	private var setXYBtn:Button;
 	private var setSizeBtn:Button;
 	private var resetXYBtn:Button;
+	private var followLeftBtn:Button;
 	private var urlBtn:MovieClip;
 	
 	public function Main() 
@@ -33,6 +34,10 @@ class Main extends MovieClip
 		
 		this.resetXYBtn.onPress = function() {
 			local.runFunction("moveToZero");
+		}
+		
+		this.followLeftBtn.onPress = function() {
+			local.runFunction("follow", "left");
 		}
 		
 		this.urlBtn.onPress = function() {

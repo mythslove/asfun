@@ -189,7 +189,7 @@ namespace WebsiteDownload
         {
 
             this.urlTxt.Items.Clear();
-            MatchCollection matches = Regex.Matches(this.cacheTxt.Text, @"[0-9a-zA-Z]+\.(com|net|org|cn|mobi|name|tv|cc|hk|biz|info)", RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
+            MatchCollection matches = Regex.Matches(this.cacheTxt.Text, @"[0-9a-zA-Z]+\.(com|net|co.uk|org|cn|mobi|name|tv|cc|hk|biz|info)", RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
             Hashtable map = new Hashtable();
 
             foreach (Match item in matches)
