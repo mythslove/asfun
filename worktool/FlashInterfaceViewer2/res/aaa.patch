@@ -1,0 +1,106 @@
+Index: Common/FxWin32App.cpp
+===================================================================
+--- Common/FxWin32App.cpp	(版本 2976)
++++ Common/FxWin32App.cpp	(工作副本)
+@@ -747,6 +747,13 @@
+         OnChangeCBChain(wParam, lParam);
+         break;
+ 
++		//TODO:接收外部程序消息
++	case WM_COPYDATA:
++		{
++			OnCopyData(message, wParam, lParam);
++		}
++		break;
++
+     default:
+         break;
+     }
+@@ -754,7 +761,13 @@
+     return DefWindowProc(hWND, message, wParam, lParam);
+ }
+ 
++//接收其它程序传来的消息
++void FxWin32App::OnCopyData(UINT message, WPARAM wParam, LPARAM lParam)
++{
+ 
++}
++
++
+ void FxWin32App::OnCreate()
+ {
+     hWNDNextViewer = SetClipboardViewer(hWND); 
+Index: Common/FxWin32App.h
+===================================================================
+--- Common/FxWin32App.h	(版本 2976)
++++ Common/FxWin32App.h	(工作副本)
+@@ -142,6 +142,9 @@
+     // Called from a KillWindow to shutdown specific graphic device 
+     virtual void    KillWindowDevice() {}
+ 
++	//接收其它程序传来的消息
++	virtual void	OnCopyData(UINT message, WPARAM wParam, LPARAM lParam);
++
+     HWND            hWND;
+     HINSTANCE       hInstance;
+     HCURSOR         hCursor;
+Index: FxPlayer/FxPlayer.cpp
+===================================================================
+--- FxPlayer/FxPlayer.cpp	(版本 2976)
++++ FxPlayer/FxPlayer.cpp	(工作副本)
+@@ -10,7 +10,6 @@
+  THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR ANY PURPOSE.
+ 
+  **********************************************************************/
+-
+ #include <stdlib.h>
+ #include <stdio.h>
+ 
+@@ -313,6 +312,9 @@
+     bool                    LoadDefaultFontConfigFromPath(const GString& path);
+ 
+     void                    ProcessCommand(FxPlayerCommand cmd, void* data  = NULL);
++
++	//接收其它程序传来的消息
++	virtual void            OnCopyData(UINT message, WPARAM wParam, LPARAM lParam);
+ };
+ 
+ 
+@@ -3155,3 +3157,36 @@
+         ShowCursor(!CursorHiddenBeforeHud);
+     }
+ }
++
++void FxPlayerApp::OnCopyData(UINT message, WPARAM wParam, LPARAM lParam)
++{
++	COPYDATASTRUCT *pCopyData = (COPYDATASTRUCT*)lParam;
++	char szBuffer[pCopyData->cbData]
++
++
++	string data = (LPSTR)pCopyData->lpData;
++
++	 m_strCopyData = (LPSTR)pCopyData->lpData;
++	m_strCopyData = m_strCopyData
++
++	//memset(szBuffer, 0, sizeof(szBuffer));
++	sprintf(szBuffer,"%s",(char*)pCopyData->lpData);
++
++	/*
++	sprintf(szBuffer, "dwData:%d cbData:%d\r\nlpData:0x%08x = %s\r\n\r\n", 
++		pCopyData->dwData, pCopyData->cbData, 
++		(PVOID)pCopyData->lpData, (char*)pCopyData->lpData);
++
++	*/
++
++	GFxLog* plog = Loader.GetLog();
++    if (plog)
++    {
++        plog->LogMessage("接收到的消息: ");
++        plog->LogMessage("%s", szBuffer);
++        plog->LogMessage("'\n");
++    }
++
++	//pmovie->Invoke("_root.OnLanguageChanged","%s",language);
++	FxPlayerApp::pMovie->Invoke("_root.OnEvent","%s%s%d%b","TestArg","xxoo",123,true);
++}
+\ No newline at end of file
