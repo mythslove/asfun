@@ -10,6 +10,8 @@ using System.IO;
 using System.Resources;
 using System.Collections;
 using System.Net;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace FlashInterfaceViewer
 {
@@ -18,10 +20,17 @@ namespace FlashInterfaceViewer
 
         private ConfigReader cr;
         public string appName = "Flash接口查看器";
+        private Process[] curPlayerList;
 
         public FIVForm()
         {
             InitializeComponent();
+            this.initUI();
+        }
+
+        private void initUI()
+        {
+            this.eventTestPage.Parent = null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,6 +86,75 @@ namespace FlashInterfaceViewer
             this.configTree.EndUpdate();
         }
 
+        private void updatePlayerList() {
+
+            this.curPlayerList = Process.GetProcessesByName("FxPlayer_D3D9_Debug");
+            this.playerList.Items.Clear();
+            int len = this.curPlayerList.Length;
+
+            for (int i = 0; i < len; i++)
+            {
+                Process p = this.curPlayerList[i];
+                this.playerList.Items.Add(p.ProcessName);
+            }
+
+            if (len > 0)
+            {
+                this.playerList.SelectedIndex = 0;
+            }
+
+        }
+
+        private void sendTestMsg()
+        {
+            if (this.playerList.SelectedIndex < 0) return;
+
+            Process player = this.curPlayerList[this.playerList.SelectedIndex];
+            if (player.HasExited)
+            {
+                this.updatePlayerList();
+                MessageBox.Show("你选择的播放器已经关闭，已为你刷新了播放器列表，请重新选择!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            //事件名|类型,值长度|值
+            string sendData;
+            EventNode node = this.configTree.SelectedNode as EventNode;
+            sendData = node.data.name;
+            if (node.data.paramList != null && node.data.paramList.Length > 0)
+            {
+                sendData += "|";
+
+                int len = node.data.paramList.Length;
+                for (int i = 0; i < len; i++)
+                {
+                    string type = this.paramList.Rows[i].Cells[1].Value as string;
+                    string value = this.paramList.Rows[i].Cells[2].Value as string;
+                    sendData += type + "," + value.Length.ToString() + "|" + value;
+                    
+                }
+            }
+            
+
+
+            //播放器窗口句柄
+            IntPtr hwndRecvWindow = player.MainWindowHandle;
+
+            //自己窗口的句柄
+            IntPtr hwndSendWindow = Process.GetCurrentProcess().MainWindowHandle;
+
+
+            //填充COPYDATA结构
+            ImportFromDLL.COPYDATASTRUCT copydata = new ImportFromDLL.COPYDATASTRUCT();
+
+            //得是字节的长度
+            copydata.cbData = Encoding.Default.GetBytes(sendData).Length;
+            copydata.lpData = sendData;
+
+            ImportFromDLL.SendMessage(hwndRecvWindow, ImportFromDLL.WM_COPYDATA, hwndSendWindow, ref copydata);
+
+        }
+
         private void expandAllBtn_Click(object sender, EventArgs e)
         {
             this.configTree.ExpandAll();
@@ -93,7 +171,19 @@ namespace FlashInterfaceViewer
             ConfigTreeNode ctn = e.Node as ConfigTreeNode;
             this.descTxt.Text = ctn.getInfo();
             this.asCodeTxt.Text = ctn.getAsCode();
-            
+
+            if (ctn is EventNode)
+            {
+                this.eventTestPage.Parent = this.tabControl;
+
+                EventNode en = ctn as EventNode;
+                en.updateDataGrid(this.paramList);
+                
+            }
+            else
+            {
+                this.eventTestPage.Parent = null;
+            }
         }
 
 
@@ -258,6 +348,44 @@ namespace FlashInterfaceViewer
             vf.ShowDialog();
             
         }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.tabControl.SelectedIndex == 2)
+            {
+                this.updatePlayerList();
+            }
+        }
+
+        private void refreshPlayer_Click(object sender, EventArgs e)
+        {
+            this.updatePlayerList();
+        }
+
+        private void testMsgBtn_Click(object sender, EventArgs e)
+        {
+            this.sendTestMsg();
+        }
+
+        private void randomBtn_Click(object sender, EventArgs e)
+        {
+
+            if (this.paramList.Rows.Count < 1) return;
+            int len = this.paramList.Rows.Count;
+
+            for (int i = 0; i < len; i++)
+            {
+                string type = this.paramList.Rows[i].Cells[1].Value as string;
+                this.paramList.Rows[i].Cells[2].Value = RandomTool.GetValue(type);
+            }
+        }
+
+        private void paramList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string type = this.paramList.Rows[e.RowIndex].Cells[1].Value as string;
+            this.paramList.Rows[e.RowIndex].Cells[2].Value = RandomTool.GetValue(type);
+        }
+
     }
 
     public class ConfigReader
@@ -403,6 +531,7 @@ namespace FlashInterfaceViewer
 
             return items;
         }
+
     }
 
 
@@ -1078,6 +1207,7 @@ namespace FlashInterfaceViewer
         private string cacheData;
         private string cacheASCode;
 
+
         //监听事件用的代码
         //[0]：增加事件代码
         //[1]：删除事件代码
@@ -1092,6 +1222,43 @@ namespace FlashInterfaceViewer
 
             this.Text = data.name;
             this.ToolTipText = data.desc;
+        }
+
+        /// <summary>
+        /// 更新参数显示
+        /// </summary>
+        /// <param name="paramList"></param>
+        public void updateDataGrid(DataGridView paramList)
+        {
+            paramList.Rows.Clear();
+
+            Hashtable typeMap = new Hashtable();
+            typeMap["bool"] = "Boolean";
+            typeMap["int"] = "Number";
+            typeMap["string"] = "String";
+
+            if (this.data.paramList != null && this.data.paramList.Length > 0)
+            {
+
+                int plen = data.paramList.Length;
+                for (var pindex = 0; pindex < plen; pindex++)
+                {
+                    ParamInfo pi = data.paramList[pindex];
+                    String type;
+                    if(pi.name == "json")
+                    {
+                        type = "JsonString";
+                    }
+                    else
+                    {
+                        type = typeMap[pi.type] as String;
+                        if(type == null)type = "String";
+                    }
+
+                    paramList.Rows.Add(pi.name, type, RandomTool.GetValue(type), "随机数", pi.desc);
+                }
+            }
+
         }
 
         public string getInfo(bool isShowTitle)
@@ -1281,6 +1448,130 @@ namespace FlashInterfaceViewer
     public interface ConfigTreeNode {
         string getInfo();
         string getAsCode();
+    }
+
+
+    /// <summary>
+    ///专门用来操作外部代码
+    /// </summary>
+    public class ImportFromDLL
+    {
+        public const int WM_COPYDATA = 0x004A;
+
+        //启用非托管代码
+        [StructLayout(LayoutKind.Sequential)]
+        public struct COPYDATASTRUCT
+        {
+            public int dwData;    //not used
+            public int cbData;    //长度
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string lpData;
+        }
+
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(
+            IntPtr hWnd,　　　  // handle to destination window 
+            int Msg,　　　      // message
+            IntPtr wParam,　   // first message parameter 
+            ref COPYDATASTRUCT pcd // second message parameter 
+        );
+
+    }
+
+    public class RandomTool
+    {
+
+        private static int count = 0;
+
+        private static Random GetRandom()
+        {
+            Random t = new Random(count);
+            if (count < int.MaxValue)
+            {
+                count++;
+            }
+            else
+            {
+                count = 0;
+            }
+            return t;
+        }
+
+        /// <summary>
+        /// 得到随机字符值
+        /// </summary>
+        /// <param name="minLen">最小长度</param>
+        /// <param name="maxLen">最大长度</param>
+        /// <returns></returns>
+        public static string GetStrValue(int minLen, int maxLen)
+        {
+            string t = "这是测试字符串,";
+            Random rd = GetRandom();
+            int len = rd.Next(minLen, maxLen + 1);
+
+            return t;
+        }
+
+        /// <summary>
+        /// 取得十到一百之间长度的字符串
+        /// </summary>
+        /// <returns></returns>
+        public static string GetStrValue()
+        {
+            return GetStrValue(10, 100);
+        }
+
+        /// <summary>
+        /// 得到整数
+        /// </summary>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
+        public static int GetIntValue(int minValue, int maxValue)
+        {
+            Random rd = GetRandom();
+            return rd.Next(minValue, maxValue);
+        }
+
+        /// <summary>
+        /// 得到字符串
+        /// </summary>
+        /// <returns></returns>
+        public static int GetIntValue()
+        {
+            return GetIntValue(10, 101);
+        }
+
+        public static bool GetBoolValue()
+        {
+            Random rd = GetRandom();
+            return rd.Next(1) == 0;
+        }
+
+        /// <summary>
+        /// 得到随机值
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static String GetValue(string type)
+        {
+
+            switch (type)
+            {
+                case "Boolean":
+                    return GetBoolValue().ToString();
+
+                case "Number":
+                    return GetIntValue().ToString();
+
+                case "String":
+                case "JsonString":
+                    return GetStrValue();
+
+            }
+
+            return "未知类型";
+        }
     }
 
 }
