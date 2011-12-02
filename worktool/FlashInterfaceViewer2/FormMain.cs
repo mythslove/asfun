@@ -12,6 +12,7 @@ using System.Collections;
 using System.Net;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using MSScriptControl;
 
 namespace FlashInterfaceViewer
 {
@@ -20,7 +21,7 @@ namespace FlashInterfaceViewer
 
         private ConfigReader cr;
         public string appName = "Flash接口查看器";
-        private Process[] curPlayerList;
+        private GfxPlayerInfo[] curPlayerList;
 
         public FIVForm()
         {
@@ -88,14 +89,29 @@ namespace FlashInterfaceViewer
 
         private void updatePlayerList() {
 
-            this.curPlayerList = Process.GetProcessesByName("FxPlayer_D3D9_Debug");
+            /*
+             * 不使用这种查找方式，因为有时间会找不到目标窗口
+            //this.curPlayerList = Process.GetProcessesByName("FxPlayer_D3D9_Debug");
+            Process[] t = Process.GetProcesses();
+            this.curPlayerList.Clear();
+            foreach (Process p in t)
+            {
+                if (p.MainWindowTitle.IndexOf("Scaleform GFxPlayer") == 0)
+                {
+                    this.curPlayerList.Add(p);
+                }
+            }
+             */
+
+            this.curPlayerList = GfxPlayerTool.getAllPlayer();
+            
             this.playerList.Items.Clear();
             int len = this.curPlayerList.Length;
 
             for (int i = 0; i < len; i++)
             {
-                Process p = this.curPlayerList[i];
-                this.playerList.Items.Add(p.ProcessName);
+                GfxPlayerInfo info = this.curPlayerList[i];
+                this.playerList.Items.Add(info.windowsName);
             }
 
             if (len > 0)
@@ -107,10 +123,18 @@ namespace FlashInterfaceViewer
 
         private void sendTestMsg()
         {
-            if (this.playerList.SelectedIndex < 0) return;
+            if (this.playerList.SelectedIndex < 0)
+            {
+                this.updatePlayerList();
+                if (this.playerList.SelectedIndex < 0)
+                {
+                    MessageBox.Show("你还未打开播放器!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+            }
 
-            Process player = this.curPlayerList[this.playerList.SelectedIndex];
-            if (player.HasExited)
+            GfxPlayerInfo player = this.curPlayerList[this.playerList.SelectedIndex];
+            if (player.hasExited())
             {
                 this.updatePlayerList();
                 MessageBox.Show("你选择的播放器已经关闭，已为你刷新了播放器列表，请重新选择!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -123,14 +147,16 @@ namespace FlashInterfaceViewer
             sendData = node.data.name;
             if (node.data.paramList != null && node.data.paramList.Length > 0)
             {
-                sendData += "|";
+                sendData += "," + node.data.paramList.Length + "|";
 
                 int len = node.data.paramList.Length;
                 for (int i = 0; i < len; i++)
                 {
                     string type = this.paramList.Rows[i].Cells[1].Value as string;
+                    if (type == "JsonString") type = "String";
                     string value = this.paramList.Rows[i].Cells[2].Value as string;
-                    sendData += type + "," + value.Length.ToString() + "|" + value;
+                    //sendData += type + "," + value.Length.ToString() + "|" + value; <---这在VC读取的时候出错了。
+                    sendData += type + "," + Encoding.Default.GetBytes(value).Length.ToString() + "|" + value;
                     
                 }
             }
@@ -138,7 +164,7 @@ namespace FlashInterfaceViewer
 
 
             //播放器窗口句柄
-            IntPtr hwndRecvWindow = player.MainWindowHandle;
+            IntPtr hwndRecvWindow = player.hwnd;
 
             //自己窗口的句柄
             IntPtr hwndSendWindow = Process.GetCurrentProcess().MainWindowHandle;
@@ -165,6 +191,7 @@ namespace FlashInterfaceViewer
             this.configTree.CollapseAll();
         }
 
+        private bool keepOpenEventTestPage = false;
         private void configTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
 
@@ -174,15 +201,23 @@ namespace FlashInterfaceViewer
 
             if (ctn is EventNode)
             {
-                this.eventTestPage.Parent = this.tabControl;
+                if(this.eventTestPage.Parent == null)this.eventTestPage.Parent = this.tabControl;
 
                 EventNode en = ctn as EventNode;
                 en.updateDataGrid(this.paramList);
+                this.eventInfoTxt.Text = en.getInfo(false);
+
+                if (keepOpenEventTestPage)
+                {
+                    this.tabControl.SelectedIndex = 2;
+                }
                 
             }
             else
             {
                 this.eventTestPage.Parent = null;
+
+                if (ctn is FunInfo && this.keepOpenEventTestPage) this.keepOpenEventTestPage = false;
             }
         }
 
@@ -353,7 +388,12 @@ namespace FlashInterfaceViewer
         {
             if (this.tabControl.SelectedIndex == 2)
             {
+                this.keepOpenEventTestPage = true;
                 this.updatePlayerList();
+            }
+            else
+            {
+                //this.keepOpenEventTestPage = false;
             }
         }
 
@@ -380,14 +420,28 @@ namespace FlashInterfaceViewer
             }
         }
 
-        private void paramList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void paramList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex != 1) return;
+            if (e.RowIndex < 0) return;
+
+            string type = this.paramList.Rows[e.RowIndex].Cells[1].Value as string;
+            this.paramList.Rows[e.RowIndex].Cells[2].Value = RandomTool.GetValue(type);
+        }
+
+        private void paramList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != 3) return;
             string type = this.paramList.Rows[e.RowIndex].Cells[1].Value as string;
             this.paramList.Rows[e.RowIndex].Cells[2].Value = RandomTool.GetValue(type);
         }
 
     }
 
+
+    /// <summary>
+    /// 配置读取器
+    /// </summary>
     public class ConfigReader
     {
         private bool _isReaded = false;
@@ -1476,6 +1530,16 @@ namespace FlashInterfaceViewer
             ref COPYDATASTRUCT pcd // second message parameter 
         );
 
+        /*
+        [DllImport("User32.dll", EntryPoint = "FindWindow")]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow")]
+        public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
+        [DllImport("Kernel32.dll", EntryPoint = "GetConsoleWindow")]
+        public static extern IntPtr GetConsoleWindow();
+         */
     }
 
     public class RandomTool
@@ -1508,7 +1572,7 @@ namespace FlashInterfaceViewer
             string t = "这是测试字符串,";
             Random rd = GetRandom();
             int len = rd.Next(minLen, maxLen + 1);
-
+            
             return t;
         }
 
@@ -1527,25 +1591,37 @@ namespace FlashInterfaceViewer
         /// <param name="minValue"></param>
         /// <param name="maxValue"></param>
         /// <returns></returns>
-        public static int GetIntValue(int minValue, int maxValue)
+        public static string GetIntValueStr(int minValue, int maxValue)
         {
             Random rd = GetRandom();
-            return rd.Next(minValue, maxValue);
+            return rd.Next(minValue, maxValue).ToString();
         }
 
         /// <summary>
         /// 得到字符串
         /// </summary>
         /// <returns></returns>
-        public static int GetIntValue()
+        public static string GetIntValueStr()
         {
-            return GetIntValue(10, 101);
+            return GetIntValueStr(10, 101);
         }
 
-        public static bool GetBoolValue()
+        /// <summary>
+        /// 得到布尔值
+        /// </summary>
+        /// <returns></returns>
+        public static string GetBoolValueStr()
         {
             Random rd = GetRandom();
-            return rd.Next(1) == 0;
+
+            if (rd.Next(2) == 0)
+            {
+                return "true";
+            }
+            else
+            {
+                return "false";
+            }
         }
 
         /// <summary>
@@ -1559,10 +1635,10 @@ namespace FlashInterfaceViewer
             switch (type)
             {
                 case "Boolean":
-                    return GetBoolValue().ToString();
+                    return GetBoolValueStr();
 
                 case "Number":
-                    return GetIntValue().ToString();
+                    return GetIntValueStr();
 
                 case "String":
                 case "JsonString":
@@ -1573,5 +1649,116 @@ namespace FlashInterfaceViewer
             return "未知类型";
         }
     }
+
+
+    class GfxPlayerTool
+    {
+
+        private delegate bool CallBack(int hwnd, int lParam);
+
+        [DllImport("user32")]
+        private static extern int EnumWindows(CallBack x, int y);
+
+        [DllImport("user32", CharSet = CharSet.Unicode)]
+        private static extern int GetWindowText(int hWnd, StringBuilder sbWinName, int nMaxCount);
+
+        /*
+        [DllImport("user32")]
+        private static extern int IsWindowVisible(int hwnd);
+
+        [DllImport("user32")]
+        private static extern int GetParent(int hwnd);
+         */
+
+
+        private static List<GfxPlayerInfo> playerNameList = new List<GfxPlayerInfo>();
+
+        public static GfxPlayerInfo[] getAllPlayer()
+        {
+
+            CallBack myCallBack = new CallBack(handler);
+            EnumWindows(myCallBack, 0);
+            GfxPlayerInfo[] infos = playerNameList.ToArray();
+            playerNameList.Clear();
+            return infos;
+        }
+
+        private static bool handler(int hwnd, int lparam)
+        {
+            //if (GetParent(hwnd) == 0 && IsWindowVisible(hwnd) == 1)
+            //{
+                StringBuilder sbWinName = new StringBuilder(512);
+                GetWindowText(hwnd, sbWinName, sbWinName.Capacity);
+                if (sbWinName.Length > 0)
+                {
+                    if (sbWinName.ToString().IndexOf("Scaleform GFxPlayer") == 0)
+                    {
+                        GfxPlayerInfo info = new GfxPlayerInfo();
+                        info.hwnd = (IntPtr)hwnd;
+                        info.windowsName = sbWinName.ToString();
+                        playerNameList.Add(info);
+                    }
+                }
+            //}
+            return true;
+        }
+
+    }
+
+    class GfxPlayerInfo
+    {
+        [DllImport("user32.dll", EntryPoint = "IsWindow")]
+        private static extern bool IsWindow(IntPtr hWnd);
+
+        public IntPtr hwnd;
+        public string windowsName;
+
+        public Boolean hasExited(){
+            if(hwnd == null)return true;
+            return !IsWindow(this.hwnd);
+        }
+    }
+
+    /// <summary>
+    /// JS工具箱
+    /// </summary>
+    class JSTool
+    {
+
+        private static bool isInit = false;
+        private static ScriptControlClass scc;
+
+        private static void Init()
+        {
+            if (isInit) return;
+            isInit = true;
+
+            scc = new ScriptControlClass();
+            scc.UseSafeSubset = true;
+            scc.AllowUI = false;
+            scc.Language = "JavaScript";
+            scc.AddCode(Properties.Resources.jsJsonCode);
+        }
+
+        public static Exception LastErrorMsg;
+
+        public static string GetJsonStr(string code){
+            Init();
+
+            LastErrorMsg = null;
+
+            try
+            {
+                code += "JSON.stringify(data);";
+                return scc.Eval(code).ToString();
+            }
+            catch (Exception e)
+            {
+                LastErrorMsg = e;
+                return null;
+            }
+        }
+    }
+
 
 }

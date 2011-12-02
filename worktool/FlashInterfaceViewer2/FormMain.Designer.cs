@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +49,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.asCodeTxt = new System.Windows.Forms.TextBox();
             this.eventTestPage = new System.Windows.Forms.TabPage();
+            this.eventInfoTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.randomBtn = new System.Windows.Forms.Button();
             this.paramList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,6 +196,8 @@
             this.configTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.configTree.HideSelection = false;
+            this.configTree.HotTracking = true;
             this.configTree.Location = new System.Drawing.Point(0, 0);
             this.configTree.Name = "configTree";
             this.configTree.ShowNodeToolTips = true;
@@ -270,6 +275,8 @@
             // 
             // eventTestPage
             // 
+            this.eventTestPage.Controls.Add(this.eventInfoTxt);
+            this.eventTestPage.Controls.Add(this.label3);
             this.eventTestPage.Controls.Add(this.randomBtn);
             this.eventTestPage.Controls.Add(this.paramList);
             this.eventTestPage.Controls.Add(this.testMsgBtn);
@@ -285,8 +292,30 @@
             this.eventTestPage.Text = "事件测试";
             this.eventTestPage.UseVisualStyleBackColor = true;
             // 
+            // eventInfoTxt
+            // 
+            this.eventInfoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventInfoTxt.Location = new System.Drawing.Point(176, 18);
+            this.eventInfoTxt.Multiline = true;
+            this.eventInfoTxt.Name = "eventInfoTxt";
+            this.eventInfoTxt.ReadOnly = true;
+            this.eventInfoTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.eventInfoTxt.Size = new System.Drawing.Size(465, 208);
+            this.eventInfoTxt.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(174, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "事件信息：";
+            // 
             // randomBtn
             // 
+            this.randomBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.randomBtn.Location = new System.Drawing.Point(485, 474);
             this.randomBtn.Name = "randomBtn";
             this.randomBtn.Size = new System.Drawing.Size(75, 23);
@@ -302,6 +331,7 @@
             this.paramList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.paramList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.paramList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.paramList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.paramList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -310,21 +340,27 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.paramList.Location = new System.Drawing.Point(176, 18);
+            this.paramList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.paramList.Location = new System.Drawing.Point(176, 244);
             this.paramList.MultiSelect = false;
             this.paramList.Name = "paramList";
             this.paramList.RowHeadersVisible = false;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.paramList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.paramList.RowTemplate.Height = 23;
-            this.paramList.Size = new System.Drawing.Size(465, 448);
+            this.paramList.Size = new System.Drawing.Size(465, 222);
             this.paramList.TabIndex = 6;
-            this.paramList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.paramList_CellClick);
+            this.paramList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.paramList_CellValueChanged);
+            this.paramList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.paramList_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "参数名";
+            this.Column1.MinimumWidth = 30;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 47;
             // 
             // Column2
             // 
@@ -336,22 +372,28 @@
             "Number",
             "Boolean",
             "JsonString"});
+            this.Column2.MinimumWidth = 30;
             this.Column2.Name = "Column2";
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.Width = 35;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "值";
+            this.Column3.MinimumWidth = 30;
             this.Column3.Name = "Column3";
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.Width = 30;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "操作";
+            this.Column4.MinimumWidth = 50;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.Text = "随机值";
+            this.Column4.Width = 50;
             // 
             // Column5
             // 
@@ -359,6 +401,7 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column5.Width = 59;
             // 
             // testMsgBtn
             // 
@@ -374,7 +417,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 3);
+            this.label2.Location = new System.Drawing.Point(174, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -405,6 +448,7 @@
             this.playerList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.playerList.FormattingEnabled = true;
+            this.playerList.HorizontalScrollbar = true;
             this.playerList.ItemHeight = 12;
             this.playerList.Location = new System.Drawing.Point(8, 18);
             this.playerList.Name = "playerList";
@@ -471,12 +515,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button testMsgBtn;
         private System.Windows.Forms.DataGridView paramList;
+        private System.Windows.Forms.Button randomBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox eventInfoTxt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button randomBtn;
 
 
 
