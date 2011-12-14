@@ -1,0 +1,82 @@
+<!ENTITY  options.title                                                               "HttpFox选项">
+<!ENTITY  options.startAtBrowserStart.checkbox                                        "启动时自动开始监听">
+<!ENTITY  options.alwaysOpenDetached.checkbox                                         "总是在窗口打开HttpFox">
+<!ENTITY  options.colorRequests.checkbox                                              "为基本请求着色">
+<!ENTITY  options.forceCaching.checkbox                                               "删除INHIBIT_CACHING request-channel标记（有助于从缓存中得到responsecontent） ">
+
+<!ENTITY  overlay.requestlist.menu.menupop.toggle.label                               "切换HttpFox">
+<!ENTITY  overlay.requestlist.menu.menupop.detach.label                               "在窗口中打开">
+<!ENTITY  overlay.requestlist.menu.menupop.options.label                              "选项">
+
+<!ENTITY  overlay.requestlist.toolbox.toolbar.start.button                            "开始">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.start.tooltip                           "开始监听">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.stop.button                             "停止">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.stop.tooltip                            "停止监听">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.clear.button                            "清除">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.clear.tooltip                           "清除">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.filter.tooltip                          "过滤URL">    
+<!ENTITY  overlay.requestlist.toolbox.toolbar.autoscroll.checkbox                     "自动滚动">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.detach.tooltip                          "分离">
+<!ENTITY  overlay.requestlist.toolbox.toolbar.close.tooltip                           "关闭">
+
+<!ENTITY  overlay.requestlist.popup.copyTreeRowCell.label                             "复制列">
+<!ENTITY  overlay.requestlist.popup.copyTreeRow.label                                 "复制行">
+<!ENTITY  overlay.requestlist.popup.copyTreeAllRows.label                             "复制全部行">
+
+<!ENTITY  overlay.requestlist.tree.col.start.label                                    "开始时间">
+<!ENTITY  overlay.requestlist.tree.col.time.label                                     "下载时间">
+<!ENTITY  overlay.requestlist.tree.col.sent.label                                     "发送">
+<!ENTITY  overlay.requestlist.tree.col.received.label                                 "接收">
+<!ENTITY  overlay.requestlist.tree.col.method.label                                   "方法">
+<!ENTITY  overlay.requestlist.tree.col.result.label                                   "Result">
+<!ENTITY  overlay.requestlist.tree.col.type.label                                     "文件类形">
+<!ENTITY  overlay.requestlist.tree.col.url.label                                      "URL">
+
+<!ENTITY  overlay.requestdetails.popup.copyTreeRowCell.label                          "复制列">
+<!ENTITY  overlay.requestdetails.popup.copyTreeRow.label                              "复制行">
+<!ENTITY  overlay.requestdetails.popup.copyTreeAllRows.label                          "复制全部行">
+
+<!ENTITY  overlay.requestdetails.tablist.headers.label                                "Headers">
+<!ENTITY  overlay.requestdetails.tablist.cookies.label                                "Cookies">
+<!ENTITY  overlay.requestdetails.tablist.querystring.label                            "Query String">
+<!ENTITY  overlay.requestdetails.tablist.post.label                                   "POST数据">
+<!ENTITY  overlay.requestdetails.tablist.content.label                                "内容">
+<!ENTITY  overlay.requestdetails.tablist.debug.label                                  "Debug Log">
+
+<!ENTITY  overlay.requestdetails.headerstab.requestheadertree.col.reqheader.label     "Request Header">
+<!ENTITY  overlay.requestdetails.headerstab.requestheadertree.col.value.label         "值">
+
+<!ENTITY  overlay.requestdetails.headerstab.responseheadertree.col.respheader.label   "Response Header">
+<!ENTITY  overlay.requestdetails.headerstab.responseheadertree.col.value.label        "Value">
+
+<!ENTITY  overlay.requestdetails.headerstab.cookiessenttree.col.cookiesent.label      "Cookie Sent">
+<!ENTITY  overlay.requestdetails.headerstab.cookiessenttree.col.value.label           "值">
+<!ENTITY  overlay.requestdetails.headerstab.cookiessenttree.col.path.label            "Path">
+<!ENTITY  overlay.requestdetails.headerstab.cookiessenttree.col.domain.label          "Domain">
+<!ENTITY  overlay.requestdetails.headerstab.cookiessenttree.col.expires.label         "Expires">
+
+<!ENTITY  overlay.requestdetails.headerstab.cookiesrectree.col.cookierec.label        "Cookie Received">
+<!ENTITY  overlay.requestdetails.headerstab.cookiesrectree.col.value.label            "值">
+<!ENTITY  overlay.requestdetails.headerstab.cookiesrectree.col.path.label             "Path">
+<!ENTITY  overlay.requestdetails.headerstab.cookiesrectree.col.domain.label           "Domain">
+<!ENTITY  overlay.requestdetails.headerstab.cookiesrectree.col.expires.label          "Expires">
+
+<!ENTITY  overlay.requestdetails.querystab.querystringtree.col.param.label            "Parameter">
+<!ENTITY  overlay.requestdetails.querystab.querystringtree.col.value.label            "值">
+
+<!ENTITY  overlay.requestdetails.posttab.prettybox.datatree.col.param.label           "参数">
+<!ENTITY  overlay.requestdetails.posttab.prettybox.datatree.col.value.label           "值">
+<!ENTITY  overlay.requestdetails.posttab.pretty.radio                                 "Pretty">
+<!ENTITY  overlay.requestdetails.posttab.raw.radio                                    "Raw">
+
+<!ENTITY  overlay.requestdetails.contenttab.type.label                                "Type: ">
+<!ENTITY  overlay.requestdetails.contenttab.pretty.radio                              "Pretty">
+<!ENTITY  overlay.requestdetails.contenttab.raw.radio                                 "Raw">
+
+<!ENTITY  browseroverlay.statusbar.menu.detach.label                                  "在独立窗口中打开">
+<!ENTITY  browseroverlay.statusbar.menu.options.label                                 "选项">
+
+<!ENTITY  browseroverlay.menuview.httpfox.label                                       "HttpFox">
+<!ENTITY  browseroverlay.menutools.httpfox.label                                      "HttpFox">
+
+<!ENTITY  window.title                                                                "HttpFox">
