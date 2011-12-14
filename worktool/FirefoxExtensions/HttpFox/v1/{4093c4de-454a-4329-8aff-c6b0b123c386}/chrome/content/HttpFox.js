@@ -1393,7 +1393,7 @@ HttpFoxController.prototype =
 		try{
 			
 			var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-			file.initWithPath("C:\\");  //图片保存的目录
+			file.initWithPath("d:\\");  //图片保存的目录
 			file.appendRelativePath("DownloadList.txt");
 			
 			var stream = Components.classes["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
@@ -1407,9 +1407,10 @@ HttpFoxController.prototype =
 				stream.close();
 			}
 			
-			alert("File \"c:/DownloadList.txt\" created")
+			alert("File \"d:/DownloadList.txt\" created")
 		}catch(ex2){
 			dump("error2:" + ex2 + "\n\n");
+			alert(ex2);
 		}
 		
 	},
