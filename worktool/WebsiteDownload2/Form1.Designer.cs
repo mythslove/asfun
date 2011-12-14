@@ -87,7 +87,7 @@
             this.savePathTxt.Name = "savePathTxt";
             this.savePathTxt.Size = new System.Drawing.Size(265, 21);
             this.savePathTxt.TabIndex = 4;
-            this.savePathTxt.Text = "c:\\WebsiteTmp";
+            this.savePathTxt.Text = "d:\\WebsiteTmp";
             // 
             // label1
             // 
@@ -122,7 +122,7 @@
             this.listFilePathTxt.Name = "listFilePathTxt";
             this.listFilePathTxt.Size = new System.Drawing.Size(261, 21);
             this.listFilePathTxt.TabIndex = 13;
-            this.listFilePathTxt.Text = "C:\\DownloadList.txt";
+            this.listFilePathTxt.Text = "d:\\DownloadList.txt";
             // 
             // loadUrlFileBtn
             // 
@@ -180,7 +180,7 @@
             this.Controls.Add(this.downloadBtn);
             this.Controls.Add(this.downloadItemList);
             this.Name = "Form1";
-            this.Text = "网站下载器（www.fanflash.cn）";
+            this.Text = "网站下载器（www.fanflash.org）";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
