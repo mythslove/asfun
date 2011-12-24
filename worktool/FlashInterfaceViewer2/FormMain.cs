@@ -32,6 +32,7 @@ namespace FlashInterfaceViewer
         private void initUI()
         {
             this.eventTestPage.Parent = null;
+            //this.scriptTxt.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

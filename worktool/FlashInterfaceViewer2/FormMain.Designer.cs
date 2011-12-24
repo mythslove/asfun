@@ -49,17 +49,20 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.asCodeTxt = new System.Windows.Forms.TextBox();
             this.eventTestPage = new System.Windows.Forms.TabPage();
-            this.eventInfoTxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.randomBtn = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.paramList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testMsgBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.scriptTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.eventInfoTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.randomBtn = new System.Windows.Forms.Button();
+            this.testMsgBtn = new System.Windows.Forms.Button();
             this.refreshPlayer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.playerList = new System.Windows.Forms.ListBox();
@@ -72,6 +75,9 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.eventTestPage.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paramList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,12 +281,11 @@
             // 
             // eventTestPage
             // 
+            this.eventTestPage.Controls.Add(this.splitContainer2);
             this.eventTestPage.Controls.Add(this.eventInfoTxt);
             this.eventTestPage.Controls.Add(this.label3);
             this.eventTestPage.Controls.Add(this.randomBtn);
-            this.eventTestPage.Controls.Add(this.paramList);
             this.eventTestPage.Controls.Add(this.testMsgBtn);
-            this.eventTestPage.Controls.Add(this.label2);
             this.eventTestPage.Controls.Add(this.refreshPlayer);
             this.eventTestPage.Controls.Add(this.label1);
             this.eventTestPage.Controls.Add(this.playerList);
@@ -292,37 +297,27 @@
             this.eventTestPage.Text = "事件测试";
             this.eventTestPage.UseVisualStyleBackColor = true;
             // 
-            // eventInfoTxt
+            // splitContainer2
             // 
-            this.eventInfoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.eventInfoTxt.Location = new System.Drawing.Point(176, 18);
-            this.eventInfoTxt.Multiline = true;
-            this.eventInfoTxt.Name = "eventInfoTxt";
-            this.eventInfoTxt.ReadOnly = true;
-            this.eventInfoTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.eventInfoTxt.Size = new System.Drawing.Size(465, 208);
-            this.eventInfoTxt.TabIndex = 9;
+            this.splitContainer2.Location = new System.Drawing.Point(176, 232);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // label3
+            // splitContainer2.Panel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(174, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "事件信息：";
+            this.splitContainer2.Panel1.Controls.Add(this.paramList);
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
             // 
-            // randomBtn
+            // splitContainer2.Panel2
             // 
-            this.randomBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.randomBtn.Location = new System.Drawing.Point(485, 474);
-            this.randomBtn.Name = "randomBtn";
-            this.randomBtn.Size = new System.Drawing.Size(75, 23);
-            this.randomBtn.TabIndex = 7;
-            this.randomBtn.Text = "生成随机值";
-            this.randomBtn.UseVisualStyleBackColor = true;
-            this.randomBtn.Click += new System.EventHandler(this.randomBtn_Click);
+            this.splitContainer2.Panel2.Controls.Add(this.scriptTxt);
+            this.splitContainer2.Panel2.Controls.Add(this.label4);
+            this.splitContainer2.Size = new System.Drawing.Size(465, 234);
+            this.splitContainer2.SplitterDistance = 117;
+            this.splitContainer2.TabIndex = 10;
             // 
             // paramList
             // 
@@ -341,14 +336,14 @@
             this.Column4,
             this.Column5});
             this.paramList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.paramList.Location = new System.Drawing.Point(176, 244);
+            this.paramList.Location = new System.Drawing.Point(0, 15);
             this.paramList.MultiSelect = false;
             this.paramList.Name = "paramList";
             this.paramList.RowHeadersVisible = false;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.paramList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.paramList.RowTemplate.Height = 23;
-            this.paramList.Size = new System.Drawing.Size(465, 222);
+            this.paramList.Size = new System.Drawing.Size(465, 99);
             this.paramList.TabIndex = 6;
             this.paramList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.paramList_CellValueChanged);
             this.paramList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.paramList_CellContentClick);
@@ -403,6 +398,67 @@
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column5.Width = 59;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "参数列表";
+            // 
+            // scriptTxt
+            // 
+            this.scriptTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.scriptTxt.Location = new System.Drawing.Point(0, 15);
+            this.scriptTxt.Multiline = true;
+            this.scriptTxt.Name = "scriptTxt";
+            this.scriptTxt.Size = new System.Drawing.Size(465, 98);
+            this.scriptTxt.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(-2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(185, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "参数自动生成脚本（javascript）";
+            // 
+            // eventInfoTxt
+            // 
+            this.eventInfoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventInfoTxt.Location = new System.Drawing.Point(176, 18);
+            this.eventInfoTxt.Multiline = true;
+            this.eventInfoTxt.Name = "eventInfoTxt";
+            this.eventInfoTxt.ReadOnly = true;
+            this.eventInfoTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.eventInfoTxt.Size = new System.Drawing.Size(465, 208);
+            this.eventInfoTxt.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(174, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "事件信息：";
+            // 
+            // randomBtn
+            // 
+            this.randomBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.randomBtn.Location = new System.Drawing.Point(485, 474);
+            this.randomBtn.Name = "randomBtn";
+            this.randomBtn.Size = new System.Drawing.Size(75, 23);
+            this.randomBtn.TabIndex = 7;
+            this.randomBtn.Text = "生成随机值";
+            this.randomBtn.UseVisualStyleBackColor = true;
+            this.randomBtn.Click += new System.EventHandler(this.randomBtn_Click);
+            // 
             // testMsgBtn
             // 
             this.testMsgBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -413,15 +469,6 @@
             this.testMsgBtn.Text = "测试";
             this.testMsgBtn.UseVisualStyleBackColor = true;
             this.testMsgBtn.Click += new System.EventHandler(this.testMsgBtn_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 229);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "参数列表";
             // 
             // refreshPlayer
             // 
@@ -481,6 +528,11 @@
             this.tabPage2.PerformLayout();
             this.eventTestPage.ResumeLayout(false);
             this.eventTestPage.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.paramList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -523,6 +575,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TextBox scriptTxt;
+        private System.Windows.Forms.Label label4;
 
 
 
