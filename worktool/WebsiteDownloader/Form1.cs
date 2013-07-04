@@ -110,7 +110,17 @@ namespace WebsiteDownloader
 
         private void helpBtn_Click(object sender, EventArgs e)
         {
-            Process.Start("www.fanflash.org");
+            Process.Start("http://www.fanflash.org");
+        }
+
+        private void openFolderBtn_Click(object sender, EventArgs e)
+        {
+            string path = System.Windows.Forms.Application.StartupPath + "\\WebsiteFile";
+            if (!Directory.Exists(path))
+            {
+                path = System.Windows.Forms.Application.StartupPath;
+            }
+            Process.Start(path);
         }
     }
 }

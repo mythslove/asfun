@@ -35,6 +35,7 @@
             this.clearLogBtn = new System.Windows.Forms.Button();
             this.ClearIECacheBtn = new System.Windows.Forms.Button();
             this.logTxt = new System.Windows.Forms.TextBox();
+            this.openFolderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.portNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,11 +121,23 @@
             this.logTxt.TabIndex = 7;
             this.logTxt.WordWrap = false;
             // 
+            // openFolderBtn
+            // 
+            this.openFolderBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.openFolderBtn.Location = new System.Drawing.Point(380, 11);
+            this.openFolderBtn.Name = "openFolderBtn";
+            this.openFolderBtn.Size = new System.Drawing.Size(75, 23);
+            this.openFolderBtn.TabIndex = 12;
+            this.openFolderBtn.Text = "打开下载目录";
+            this.openFolderBtn.UseVisualStyleBackColor = true;
+            this.openFolderBtn.Click += new System.EventHandler(this.openFolderBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 504);
+            this.Controls.Add(this.openFolderBtn);
             this.Controls.Add(this.logTxt);
             this.Controls.Add(this.ClearIECacheBtn);
             this.Controls.Add(this.clearLogBtn);
@@ -150,6 +163,7 @@
         private System.Windows.Forms.Button clearLogBtn;
         private System.Windows.Forms.Button ClearIECacheBtn;
         private System.Windows.Forms.TextBox logTxt;
+        private System.Windows.Forms.Button openFolderBtn;
     }
 }
 
