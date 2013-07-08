@@ -74,7 +74,39 @@ namespace WebsiteDownloader
                 this.addLog(path + "不是文件夹");
                 return;
             }
-            
+
+            DirectoryInfo dir = new DirectoryInfo(path);
+            if(isBackup){
+                string bakFolderName = this.getBakFolderName(path);
+                if(bakFolderName == null){
+                    this.addLog("因为无法正确得到备份文件夹名字(测试的重名次数超过五十次),所以中止了解压操作，请你检查后再试！");
+                    return;
+                }else{
+                    this.processDir(dir,true,path.Length,bakFolderName);
+                }
+            }else{
+                this.processDir(dir);
+            }  
+        }
+
+        /// <summary>
+        /// 递归处理目录相关的事
+        /// </summary>
+        private void processDir(DirectoryInfo dir, bool isBackup = false, int rootlen = 0, string rootBakPath = null){
+
+            FileInfo[] files = dir.GetFiles();
+            int len = files.Length;
+            for (int i = 0; i < len; i++)
+            {
+                if (isBackup)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
 
         /// <summary>
@@ -191,6 +223,14 @@ namespace WebsiteDownloader
             {
                 return newFolderName;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HasFileMsgBox msgBox = new HasFileMsgBox();
+            msgBox.ShowDialog();
+
+            this.addLog("xxooooo");
         }
     }
 }

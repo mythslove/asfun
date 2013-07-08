@@ -73,6 +73,12 @@
     <Compile Include="GZipForm.Designer.cs">
       <DependentUpon>GZipForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HasFileMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HasFileMsgBox.Designer.cs">
+      <DependentUpon>HasFileMsgBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="GZipTool.cs" />
     <EmbeddedResource Include="GZipForm.resx">
       <DependentUpon>GZipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HasFileMsgBox.resx">
+      <DependentUpon>HasFileMsgBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
