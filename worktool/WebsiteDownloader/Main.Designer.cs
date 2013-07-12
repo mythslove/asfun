@@ -40,6 +40,8 @@
             this.decodeGzipFileBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visitBlogBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoDezipMI = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.portNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +131,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.选项ToolStripMenuItem,
             this.工具ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -163,9 +166,26 @@
             // visitBlogBtn
             // 
             this.visitBlogBtn.Name = "visitBlogBtn";
-            this.visitBlogBtn.Size = new System.Drawing.Size(152, 22);
+            this.visitBlogBtn.Size = new System.Drawing.Size(142, 22);
             this.visitBlogBtn.Text = "访问作者网站";
             this.visitBlogBtn.Click += new System.EventHandler(this.visitBlogBtn_Click);
+            // 
+            // 选项ToolStripMenuItem
+            // 
+            this.选项ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoDezipMI});
+            this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
+            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.选项ToolStripMenuItem.Text = "选项";
+            // 
+            // autoDezipMI
+            // 
+            this.autoDezipMI.Checked = true;
+            this.autoDezipMI.CheckOnClick = true;
+            this.autoDezipMI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoDezipMI.Name = "autoDezipMI";
+            this.autoDezipMI.Size = new System.Drawing.Size(152, 22);
+            this.autoDezipMI.Text = "GZip自动解压";
             // 
             // MainForm
             // 
@@ -206,6 +226,8 @@
         private System.Windows.Forms.ToolStripMenuItem decodeGzipFileBtn;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visitBlogBtn;
+        private System.Windows.Forms.ToolStripMenuItem 选项ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoDezipMI;
     }
 }
 

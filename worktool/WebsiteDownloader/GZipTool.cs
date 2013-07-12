@@ -13,7 +13,7 @@ namespace WebsiteDownloader
         public static bool IsQZipFile(string path)
         {
             if (!File.Exists(path)) return false;
-            return IsQZipFile(File.ReadAllBytes(path));
+            return IsGZipFile(File.ReadAllBytes(path));
         }
         
         /// <summary>
@@ -21,7 +21,7 @@ namespace WebsiteDownloader
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>
-        public static bool IsQZipFile(byte[] file)
+        public static bool IsGZipFile(byte[] file)
         {
             if (file.Length < 2) return false;
             if (file[0] != 0x1f) return false;
@@ -42,7 +42,7 @@ namespace WebsiteDownloader
 
         public static byte[] Decompress(byte[] file)
         {
-            if (!IsQZipFile(file)) return null;
+            if (!IsGZipFile(file)) return null;
 
             
             GZipStream gs = new GZipStream(new MemoryStream(file), CompressionMode.Decompress, true);

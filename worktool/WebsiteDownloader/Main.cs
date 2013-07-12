@@ -48,6 +48,7 @@ namespace WebsiteDownloader
                 url = url.Substring(0, qIndex);
             }
 
+            url = url.Replace(":", "：");
             url = "WebsiteFile/" + url;
             qIndex = url.LastIndexOf("/");
             string path = url.Substring(0, qIndex);
@@ -56,8 +57,21 @@ namespace WebsiteDownloader
             if (name == "") return;
 
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-            File.WriteAllBytes(url, oSession.responseBodyBytes);
-            this.addLog("保存了文件：" + url);
+
+            byte[] data = oSession.responseBodyBytes;
+            if (autoDezipMI.Checked && GZipTool.IsGZipFile(data))
+            {
+                data = GZipTool.Decompress(data);
+                File.WriteAllBytes(url, data);
+                this.addLog("保存了文件：" + url + "(GZip)");
+            }
+            else
+            {
+                File.WriteAllBytes(url, data);
+                this.addLog("保存了文件：" + url);
+            }
+            
+            
         }
 
 
