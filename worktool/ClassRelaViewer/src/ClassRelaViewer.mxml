@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:ns1="*"
+					   applicationComplete="main()" currentState="waiting" showStatusBar="false"
+					   width.viewing="990">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.swfwire.decompiler.AsyncSWFReader;
+			import com.swfwire.decompiler.SWFByteArray;
+			import com.swfwire.decompiler.SWFReadResult;
+			import com.swfwire.decompiler.abc.ABCFile;
+			import com.swfwire.decompiler.abc.tokens.NamespaceToken;
+			import com.swfwire.decompiler.abc.tokens.ScriptInfoToken;
+			import com.swfwire.decompiler.abc.tokens.TraitsInfoToken;
+			import com.swfwire.decompiler.abc.tokens.traits.TraitSlotToken;
+			import com.swfwire.decompiler.data.swf.tags.SWFTag;
+			import com.swfwire.decompiler.data.swf9.tags.DoABCTag;
+			import com.swfwire.decompiler.events.AsyncSWFReaderEvent;
+			
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.managers.DragManager;
+			
+			
+			private var urlLoader:URLLoader;
+			private var lastSource:ByteArray;
+			private var result:SWFReadResult;
+			
+			private function main():void
+			{
+				
+				urlLoader = new URLLoader();
+				urlLoader.addEventListener(ProgressEvent.PROGRESS, loadProgressHandler);
+				urlLoader.addEventListener(Event.COMPLETE, completeHandler);
+				urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
+				
+				addEventListener(NativeDragEvent.NATIVE_DRAG_ENTER,	 dragEnterHandler);
+				addEventListener(NativeDragEvent.NATIVE_DRAG_DROP,	 dragDropHandler);
+			}
+			
+			protected function dragEnterHandler(event:NativeDragEvent):void
+			{
+				if(currentState == "loading")return;
+				if(currentState == "parsing")return;
+				
+				DragManager.acceptDragDrop(this);
+			}
+			
+			protected function dragDropHandler(event:NativeDragEvent):void
+			{
+				var clipboard:Clipboard = event.clipboard;
+				var url:String = '';
+				if(clipboard.hasFormat(ClipboardFormats.FILE_LIST_FORMAT))
+				{
+					var files:Array = clipboard.getData(ClipboardFormats.FILE_LIST_FORMAT) as Array;
+					var file:File = files[0];
+					if(file)
+					{
+						url = file.url;
+					}
+				}
+				
+				
+				if(url){
+					
+					if(this.classViewer){
+						this.classViewer.reset();
+					}
+					
+					currentState = 'loading';
+					load(url);
+				}else{
+					Alert.show('你拖拽进来的数据程序没有办法处理，只能拖拽SWF文件哦，亲！.', '拖拽错误');
+				}
+			}
+			
+			private function load(url:String):void
+			{
+				urlLoader.load(new URLRequest(url));
+				loadProgress.setProgress(0,0);
+			}
+			
+			protected function loadProgressHandler(event:ProgressEvent):void
+			{
+				loadProgress.setProgress(event.bytesLoaded, event.bytesTotal);
+				
+			}
+			
+			protected function completeHandler(event:Event):void
+			{
+				var bytes:ByteArray = urlLoader.data as ByteArray;
+				if(bytes)
+				{
+					currentState = 'parsing';
+					parse(bytes);
+				}
+				else
+				{
+					Alert.show("这个文件里面没有数据!","错误");
+					currentState = "waiting"
+				}
+				
+			}
+			
+			private var swfReader:AsyncSWFReader;
+			private function parse(bytes:ByteArray):void
+			{
+				var context:LoaderContext = new LoaderContext(false, ApplicationDomain.currentDomain);
+				
+				lastSource = bytes;
+				
+				var swfBytes:SWFByteArray = new SWFByteArray(bytes);
+				var swf:AsyncSWFReader = new AsyncSWFReader();
+				this.swfReader = swf;
+				
+				swf.addEventListener(AsyncSWFReaderEvent.TAG_READ, tagReadHandler);
+				swf.addEventListener(AsyncSWFReaderEvent.READ_COMPLETE, readCompleteHandler);
+				
+				result = swf.read(swfBytes);
+				loadProgress.setProgress(0, 0);
+			}
+			
+			protected function tagReadHandler(event:AsyncSWFReaderEvent):void
+			{
+				var swfByteArray:SWFByteArray = event.context.bytes;
+				var current:uint = swfByteArray.getBytePosition();
+				var max:uint = swfByteArray.getLength();
+				parseProgress.setProgress(current / max * 500, 1000);
+				//parseProgress.setProgress(current, max);
+			}
+			
+			protected function readCompleteHandler(event:AsyncSWFReaderEvent):void
+			{
+				
+				this.swfReader.removeEventListener(AsyncSWFReaderEvent.TAG_READ, tagReadHandler);
+				this.swfReader.removeEventListener(AsyncSWFReaderEvent.READ_COMPLETE, readCompleteHandler);
+				this.swfReader = null;
+				
+				parseProgress.setProgress(500, 1000);
+				doneHandler();
+			}
+			
+			
+			private var classInfoList:Vector.<ClassInfo>;
+			private var customNamespaces:Object;
+			private var allClsMap:Dictionary;
+			
+			private function doneHandler():void
+			{
+				this.classInfoList = new Vector.<ClassInfo>();
+				this.customNamespaces = {};
+				this.allClsMap = new Dictionary();
+				
+				var tags:Vector.<SWFTag> = result.swf.tags;
+				var len:int = tags.length
+				for(var i:uint = 0; i<len; i++){
+					
+					if(tags[i] is DoABCTag){
+						
+						var abcTag:DoABCTag = tags[i] as DoABCTag;
+						this.decode(abcTag);
+					}
+				}
+			}
+			
+			
+			
+			private function decode(tag:DoABCTag):void{
+				
+				
+				
+				
+				var abcFile:ABCFile = tag.abcFile;
+				var astool:ABCToActionScript = new ABCToActionScript(abcFile,null,customNamespaces);
+				astool.showActionScript = true;
+				astool.showBranchInfo = false;
+				astool.showByteCode = false;
+				astool.showDebug = false;
+				astool.showStack = false;
+				astool.allClsMap = this.allClsMap;
+				
+				//先加进去
+				var scripts:Vector.<ScriptInfoToken> = abcFile.scripts;
+				for each(var script:ScriptInfoToken in scripts){
+					
+					var traits:Vector.<TraitsInfoToken> = script.traits;
+					for each(var trait:TraitsInfoToken in traits){
+						
+						if(trait.kind == TraitsInfoToken.KIND_TRAIT_SLOT || trait.kind == TraitsInfoToken.KIND_TRAIT_CONST)
+						{
+							var slotInfo2:TraitSlotToken = TraitSlotToken(trait.data);
+							if(slotInfo2.vKind == 0x08)
+							{
+								var ns:NamespaceToken = abcFile.cpool.namespaces[slotInfo2.vIndex];
+								if(ns.kind == NamespaceToken.KIND_Namespace)
+								{
+									var uri:String = abcFile.cpool.strings[ns.name].utf8;
+									var r:ReadableMultiname = new ReadableMultiname();
+									astool.getReadableMultiname(trait.name, r);
+									customNamespaces[uri] = astool.multinameTypeToString(r);
+								}
+							}
+						}
+						
+						var ci:ClassInfo = new ClassInfo(trait,astool,this.infoTxt);
+						this.classInfoList.push(ci);
+						this.allClsMap[ci.className] = ci.className;
+					}
+				}
+				
+				
+				var timer:Timer = new Timer(50,this.classInfoList.length);
+				timer.addEventListener(TimerEvent.TIMER,decodeProgress);
+				timer.addEventListener(TimerEvent.TIMER_COMPLETE,deocdeComplete);
+				timer.start();
+			}
+			
+			
+			private function decodeProgress(e:TimerEvent):void{
+				
+				
+				var timer:Timer = e.currentTarget as Timer;
+				parseProgress.setProgress(500 + timer.currentCount/timer.repeatCount * 500,1000);
+				
+				var ci:ClassInfo = this.classInfoList[timer.currentCount - 1];
+				ci.doDecode();
+				
+			}
+			
+			
+			
+			protected function deocdeComplete(event:TimerEvent):void
+			{
+				var timer:Timer = event.currentTarget as Timer;
+				timer.removeEventListener(TimerEvent.TIMER,decodeProgress);
+				timer.removeEventListener(TimerEvent.TIMER_COMPLETE,deocdeComplete);
+				
+				parseProgress.setProgress(100,100);
+				this.currentState = "viewing";
+				this.classViewer.setData(this.classInfoList);
+			}
+			
+			
+		]]>
+	</fx:Script>
+	<s:states>
+		<s:State name="waiting"/>
+		<s:State name="loading"/>
+		<s:State name="parsing"/>
+		<s:State name="viewing"/>
+	</s:states>
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<mx:HDividedBox id="hdividedbox1" includeIn="waiting" width="100%" height="100%">
+		<mx:Canvas width="100%" height="100%" styleName="dropSpot">
+			<mx:Label fontSize="32" horizontalCenter="0" styleName="bigText"
+					  text="拖拽SWF文件到这里" verticalCenter="0"/>
+		</mx:Canvas>
+	</mx:HDividedBox>
+	
+	<mx:ProgressBar id="loadProgress" includeIn="loading" left="10" right="10" bottom="10"
+					height="20" label="加载SWF: %3%%" labelPlacement="center" maximum="1" minimum="0"
+					mode="manual"/>
+	
+	<mx:ProgressBar id="parseProgress" includeIn="parsing" left="10" right="10" bottom="10"
+					height="20" label="解析SWF: %3%%" labelPlacement="center" maximum="1" minimum="0"
+					mode="manual"/>
+	<s:TextArea id="infoTxt" includeIn="parsing" left="10" right="10" top="10" bottom="38"/>
+	<ns1:ClassesViewer id="classViewer" includeIn="viewing" left="10" right="270" top="10"
+					   bottom="10"/>
+	<s:TextInput id="clsInfoTxt" includeIn="viewing" right="10" top="10" bottom="10" width="252"/>
+	
+</s:WindowedApplication>

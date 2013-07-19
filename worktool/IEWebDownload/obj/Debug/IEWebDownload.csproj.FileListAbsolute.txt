@@ -1,0 +1,5 @@
+F:\opensource\WorkTool\IEWebDownload\bin\Debug\IEWebDownload.dll
+F:\opensource\WorkTool\IEWebDownload\bin\Debug\IEWebDownload.pdb
+F:\opensource\WorkTool\IEWebDownload\obj\Debug\ResolveAssemblyReference.cache
+F:\opensource\WorkTool\IEWebDownload\obj\Debug\IEWebDownload.dll
+F:\opensource\WorkTool\IEWebDownload\obj\Debug\IEWebDownload.pdb
