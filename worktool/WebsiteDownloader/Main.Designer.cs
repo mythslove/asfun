@@ -36,12 +36,12 @@
             this.logTxt = new System.Windows.Forms.TextBox();
             this.openFolderBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeGzipFileBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visitBlogBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoDezipMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSaveLogMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitBlogBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoClearIECacheMI = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.portNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -132,7 +132,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.选项ToolStripMenuItem,
-            this.工具ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -140,20 +139,33 @@
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 工具ToolStripMenuItem
+            // 选项ToolStripMenuItem
             // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decodeGzipFileBtn});
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.工具ToolStripMenuItem.Text = "工具";
+            this.选项ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoDezipMI,
+            this.autoSaveLogMI,
+            this.autoClearIECacheMI});
+            this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
+            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.选项ToolStripMenuItem.Text = "选项";
             // 
-            // decodeGzipFileBtn
+            // autoDezipMI
             // 
-            this.decodeGzipFileBtn.Name = "decodeGzipFileBtn";
-            this.decodeGzipFileBtn.Size = new System.Drawing.Size(152, 22);
-            this.decodeGzipFileBtn.Text = "解压QZip文件";
-            this.decodeGzipFileBtn.Click += new System.EventHandler(this.decodeGzipFileBtn_Click);
+            this.autoDezipMI.Checked = true;
+            this.autoDezipMI.CheckOnClick = true;
+            this.autoDezipMI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoDezipMI.Name = "autoDezipMI";
+            this.autoDezipMI.Size = new System.Drawing.Size(190, 22);
+            this.autoDezipMI.Text = "GZip自动解压";
+            // 
+            // autoSaveLogMI
+            // 
+            this.autoSaveLogMI.Checked = true;
+            this.autoSaveLogMI.CheckOnClick = true;
+            this.autoSaveLogMI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSaveLogMI.Name = "autoSaveLogMI";
+            this.autoSaveLogMI.Size = new System.Drawing.Size(190, 22);
+            this.autoSaveLogMI.Text = "自动保存日志";
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -170,22 +182,14 @@
             this.visitBlogBtn.Text = "访问作者网站";
             this.visitBlogBtn.Click += new System.EventHandler(this.visitBlogBtn_Click);
             // 
-            // 选项ToolStripMenuItem
+            // autoClearIECacheMI
             // 
-            this.选项ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoDezipMI});
-            this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
-            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.选项ToolStripMenuItem.Text = "选项";
-            // 
-            // autoDezipMI
-            // 
-            this.autoDezipMI.Checked = true;
-            this.autoDezipMI.CheckOnClick = true;
-            this.autoDezipMI.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoDezipMI.Name = "autoDezipMI";
-            this.autoDezipMI.Size = new System.Drawing.Size(152, 22);
-            this.autoDezipMI.Text = "GZip自动解压";
+            this.autoClearIECacheMI.Checked = true;
+            this.autoClearIECacheMI.CheckOnClick = true;
+            this.autoClearIECacheMI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoClearIECacheMI.Name = "autoClearIECacheMI";
+            this.autoClearIECacheMI.Size = new System.Drawing.Size(190, 22);
+            this.autoClearIECacheMI.Text = "开始前自动清空IE缓存";
             // 
             // MainForm
             // 
@@ -222,12 +226,12 @@
         private System.Windows.Forms.TextBox logTxt;
         private System.Windows.Forms.Button openFolderBtn;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem decodeGzipFileBtn;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visitBlogBtn;
         private System.Windows.Forms.ToolStripMenuItem 选项ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoDezipMI;
+        private System.Windows.Forms.ToolStripMenuItem autoSaveLogMI;
+        private System.Windows.Forms.ToolStripMenuItem autoClearIECacheMI;
     }
 }
 
